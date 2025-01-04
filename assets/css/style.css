@@ -988,7 +988,13 @@ footer {
     flex-direction: column;
     justify-content: center;
 }
-
+.cta-vector{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: calc(100% - 42px);
+    width: 100%;
+}
 .cs-content{
     width: 580px;
     position: relative;

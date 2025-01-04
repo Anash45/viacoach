@@ -94,7 +94,7 @@ $(document).ready(function () {
     });
 
   });
-  
+
   $('.services-carousel').each(function () {
     var $carousel = $(this); // Current carousel instance
 
@@ -136,7 +136,7 @@ $(document).ready(function () {
     });
 
   });
-  
+
   $('.discounts-carousel').each(function () {
     var $carousel = $(this); // Current carousel instance
 
@@ -178,7 +178,7 @@ $(document).ready(function () {
     });
 
   });
-  
+
   $('.testimonials-carousel').each(function () {
     var $carousel = $(this); // Current carousel instance
 
@@ -257,7 +257,7 @@ $(document).ready(function () {
     nextArrow.on('click', function () {
       $carousel.slick('slickNext'); // Go to the next slide
     });
-  }); 
+  });
   $('.filter-buttons .sf-btn').on('click', function () {
     let $carousel = $(this).closest('section').find('.slick-carousel');
     var filterClass = $(this).data('filter');
@@ -288,3 +288,12 @@ $(document).ready(function () {
   });
 });
 
+$(document).ready(function () {
+  $('#myTab .nav-link').on('shown.bs.tab', function () {
+    $('#myTab .nav-item').removeClass('step-active'); // Remove the class from all items
+    $(this).parent().addClass('step-active'); // Add the class to the active item's parent
+  });
+
+  // Initialize the active class on page load
+  $('#myTab .nav-link.active').parent().addClass('step-active');
+});

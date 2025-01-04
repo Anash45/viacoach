@@ -13,11 +13,11 @@
     </head>
 
     <body>
-        <div class="py-md-3 py-2 position-relative">
+        <div class="py-md-3 py-2 px-sm-0 px-2 position-relative">
             <header class="header-2">
                 <nav class="navbar navbar-expand-lg py-0 navbar-light bg-light">
                     <div class="container py-3 my-0">
-                        <div class="d-flex align-items-center gap-3">
+                        <div class="d-flex align-items-center gap-sm-3 gap-1">
                             <span class="me-1">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -38,8 +38,7 @@
                                 </svg>
                             </span>
                             <a class="navbar-brand py-0" href="./index.html">
-                                <img src="./assets/img/logo-light.png" alt="Logo"
-                                    class="d-inline-block align-text-top">
+                                <img src="./assets/img/logo-light.png" alt="Logo" class="d-inline-block align-text-top">
                             </a>
                         </div>
                         <!-- Logo -->
@@ -65,8 +64,178 @@
                 </nav>
             </header>
         </div>
-        <main class="main-1 pt-0">
-
+        <main class="main-1 main-2">
+            <section class="booking-sec">
+                <div class="container">
+                    <ul class="nav nav-pills steps-nav sn" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="1-tab" data-bs-toggle="tab" data-bs-target="#1"
+                                type="button" role="tab" aria-controls="1" aria-selected="true">
+                                <div class="d-flex align-items-center gap-10px">
+                                    <span>
+                                        <svg width="50" height="50" class="sn-icon" viewBox="0 0 50 50" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="25" cy="25" r="24.5" fill="#3C4154" stroke="#3C4154" />
+                                            <path
+                                                d="M17 30C17 30.5304 17.2107 31.0391 17.5858 31.4142C17.9609 31.7893 18.4696 32 19 32C19.5304 32 20.0391 31.7893 20.4142 31.4142C20.7893 31.0391 21 30.5304 21 30C21 29.4696 20.7893 28.9609 20.4142 28.5858C20.0391 28.2107 19.5304 28 19 28C18.4696 28 17.9609 28.2107 17.5858 28.5858C17.2107 28.9609 17 29.4696 17 30Z"
+                                                stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M29 30C29 30.5304 29.2107 31.0391 29.5858 31.4142C29.9609 31.7893 30.4696 32 31 32C31.5304 32 32.0391 31.7893 32.4142 31.4142C32.7893 31.0391 33 30.5304 33 30C33 29.4696 32.7893 28.9609 32.4142 28.5858C32.0391 28.2107 31.5304 28 31 28C30.4696 28 29.9609 28.2107 29.5858 28.5858C29.2107 28.9609 29 29.4696 29 30Z"
+                                                stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M17 30H15V19C15 18.7348 15.1054 18.4804 15.2929 18.2929C15.4804 18.1054 15.7348 18 16 18H30C31.3261 18 32.5979 18.7375 33.5355 20.0503C34.4732 21.363 35 23.1435 35 25V30H33M29 30H21"
+                                                stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M29 18L30.5 25H35" stroke="white" stroke-width="1.4"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M15 23H30" stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M20 18V23" stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M25 18V23" stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span class="d-flex flex-column sn-text">
+                                        <span class="fw-bold lh-1">Journey</span>
+                                        <span class="lh-1">Details</span> 
+                                    </span>
+                                </div>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="2-tab" data-bs-toggle="tab" data-bs-target="#2" type="button"
+                                role="tab" aria-controls="2" aria-selected="false">
+                                <div class="d-flex align-items-center gap-10px">
+                                    <span>
+                                        <svg width="50" height="50" class="sn-icon" viewBox="0 0 50 50" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="25" cy="25" r="24.5" fill="#3C4154" stroke="#3C4154" />
+                                            <path
+                                                d="M17 30C17 30.5304 17.2107 31.0391 17.5858 31.4142C17.9609 31.7893 18.4696 32 19 32C19.5304 32 20.0391 31.7893 20.4142 31.4142C20.7893 31.0391 21 30.5304 21 30C21 29.4696 20.7893 28.9609 20.4142 28.5858C20.0391 28.2107 19.5304 28 19 28C18.4696 28 17.9609 28.2107 17.5858 28.5858C17.2107 28.9609 17 29.4696 17 30Z"
+                                                stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M29 30C29 30.5304 29.2107 31.0391 29.5858 31.4142C29.9609 31.7893 30.4696 32 31 32C31.5304 32 32.0391 31.7893 32.4142 31.4142C32.7893 31.0391 33 30.5304 33 30C33 29.4696 32.7893 28.9609 32.4142 28.5858C32.0391 28.2107 31.5304 28 31 28C30.4696 28 29.9609 28.2107 29.5858 28.5858C29.2107 28.9609 29 29.4696 29 30Z"
+                                                stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M17 30H15V19C15 18.7348 15.1054 18.4804 15.2929 18.2929C15.4804 18.1054 15.7348 18 16 18H30C31.3261 18 32.5979 18.7375 33.5355 20.0503C34.4732 21.363 35 23.1435 35 25V30H33M29 30H21"
+                                                stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M29 18L30.5 25H35" stroke="white" stroke-width="1.4"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M15 23H30" stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M20 18V23" stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M25 18V23" stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span class="d-flex flex-column sn-text">
+                                        <span class="fw-bold lh-1">Additional
+                                            </span>
+                                        <span class="lh-1">Details</span> 
+                                    </span>
+                                </div>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="3-tab" data-bs-toggle="tab" data-bs-target="#3" type="button"
+                                role="tab" aria-controls="3" aria-selected="false">
+                                <div class="d-flex align-items-center gap-10px">
+                                    <span>
+                                        <svg width="50" height="50" class="sn-icon" viewBox="0 0 50 50" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="25" cy="25" r="24.5" fill="#3C4154" stroke="#3C4154" />
+                                            <path
+                                                d="M17 30C17 30.5304 17.2107 31.0391 17.5858 31.4142C17.9609 31.7893 18.4696 32 19 32C19.5304 32 20.0391 31.7893 20.4142 31.4142C20.7893 31.0391 21 30.5304 21 30C21 29.4696 20.7893 28.9609 20.4142 28.5858C20.0391 28.2107 19.5304 28 19 28C18.4696 28 17.9609 28.2107 17.5858 28.5858C17.2107 28.9609 17 29.4696 17 30Z"
+                                                stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M29 30C29 30.5304 29.2107 31.0391 29.5858 31.4142C29.9609 31.7893 30.4696 32 31 32C31.5304 32 32.0391 31.7893 32.4142 31.4142C32.7893 31.0391 33 30.5304 33 30C33 29.4696 32.7893 28.9609 32.4142 28.5858C32.0391 28.2107 31.5304 28 31 28C30.4696 28 29.9609 28.2107 29.5858 28.5858C29.2107 28.9609 29 29.4696 29 30Z"
+                                                stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M17 30H15V19C15 18.7348 15.1054 18.4804 15.2929 18.2929C15.4804 18.1054 15.7348 18 16 18H30C31.3261 18 32.5979 18.7375 33.5355 20.0503C34.4732 21.363 35 23.1435 35 25V30H33M29 30H21"
+                                                stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M29 18L30.5 25H35" stroke="white" stroke-width="1.4"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M15 23H30" stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M20 18V23" stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M25 18V23" stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span class="d-flex flex-column sn-text">
+                                        <span class="fw-bold lh-1">Contact
+                                            </span>
+                                        <span class="lh-1">Details</span> 
+                                    </span>
+                                </div>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="4-tab" data-bs-toggle="tab" data-bs-target="#4" type="button"
+                                role="tab" aria-controls="4" aria-selected="false">
+                                <div class="d-flex align-items-center gap-10px">
+                                    <span>
+                                        <svg width="50" height="50" class="sn-icon" viewBox="0 0 50 50" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="25" cy="25" r="24.5" fill="#3C4154" stroke="#3C4154" />
+                                            <path
+                                                d="M17 30C17 30.5304 17.2107 31.0391 17.5858 31.4142C17.9609 31.7893 18.4696 32 19 32C19.5304 32 20.0391 31.7893 20.4142 31.4142C20.7893 31.0391 21 30.5304 21 30C21 29.4696 20.7893 28.9609 20.4142 28.5858C20.0391 28.2107 19.5304 28 19 28C18.4696 28 17.9609 28.2107 17.5858 28.5858C17.2107 28.9609 17 29.4696 17 30Z"
+                                                stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M29 30C29 30.5304 29.2107 31.0391 29.5858 31.4142C29.9609 31.7893 30.4696 32 31 32C31.5304 32 32.0391 31.7893 32.4142 31.4142C32.7893 31.0391 33 30.5304 33 30C33 29.4696 32.7893 28.9609 32.4142 28.5858C32.0391 28.2107 31.5304 28 31 28C30.4696 28 29.9609 28.2107 29.5858 28.5858C29.2107 28.9609 29 29.4696 29 30Z"
+                                                stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M17 30H15V19C15 18.7348 15.1054 18.4804 15.2929 18.2929C15.4804 18.1054 15.7348 18 16 18H30C31.3261 18 32.5979 18.7375 33.5355 20.0503C34.4732 21.363 35 23.1435 35 25V30H33M29 30H21"
+                                                stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M29 18L30.5 25H35" stroke="white" stroke-width="1.4"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M15 23H30" stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M20 18V23" stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M25 18V23" stroke="white" stroke-width="1.4" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span class="d-flex flex-column sn-text">
+                                        <span class="fw-bold lh-1">Confirm
+                                            </span>
+                                        <span class="lh-1">Journey</span> 
+                                    </span>
+                                </div>
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="1" role="tabpanel" aria-labelledby="1-tab">
+                            <p class="mt-3">Content for tab 1</p>
+                        </div>
+                        <div class="tab-pane fade" id="2" role="tabpanel" aria-labelledby="2-tab">
+                            <p class="mt-3">Content for tab 2</p>
+                        </div>
+                        <div class="tab-pane fade" id="3" role="tabpanel" aria-labelledby="3-tab">
+                            <p class="mt-3">Content for tab 3</p>
+                        </div>
+                        <div class="tab-pane fade" id="4" role="tabpanel" aria-labelledby="4-tab">
+                            <p class="mt-3">Content for tab 4</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section class="footer-top">
                 <div class="container">
                     <div class="d-flex flex-column mb-5">

@@ -1087,7 +1087,7 @@ footer {
     display: none;
 }
 
-.fs-item:hover .fs-link{
+.fs-item:hover .fsi-link{
     display: flex;
 }
 @media (min-height: 700px) {

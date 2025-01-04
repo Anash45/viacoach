@@ -1,5 +1,5 @@
 @import url(./fonts.css);
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
 .belfast {
     font-family: "Belfast Grotesk", sans-serif;
@@ -1172,6 +1172,173 @@ footer {
     stroke: #E5E5E5;
     fill: #FFFFFF;
 }
+
+.details-card {
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid #E8ECF1;
+    background-color: #FFFFFF;
+}
+
+.dc-flex {
+    gap: 30px;
+}
+
+.dc-title {
+    font-size: 18px;
+    color: #171717;
+}
+
+.dc-row {
+    gap: 8px;
+    font-size: 14px;
+    justify-content: space-between;
+}
+
+.dc-dark {
+    color: #171717;
+    line-height: 190%;
+}
+
+.dc-light {
+    color: #525252;
+    text-align: right;
+}
+
+.dtc .tab-pane {
+    padding-top: 30px;
+}
+
+.figtree {
+    font-family: 'Figtree', sans-serif;
+}
+
+/* .dtc .tab-pane>.container{
+    padding: 0 20px;
+}
+
+.dtc .tab-pane>.container>.row{
+    margin: 0 -20px;
+}
+
+.dtc .tab-pane>.container>.row>div{
+    padding: 0 20px;
+} */
+
+.df-flex-1 {
+    gap: 14px;
+}
+
+.df-title {
+    font-size: 30px;
+}
+
+.text-main {
+    color: #171717;
+}
+
+.df-label {
+    font-size: 14px;
+    color: #656E77;
+}
+
+.dfc-inp {
+    margin-top: 0;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #656E77;
+    box-shadow: none !important;
+}
+
+.dfc-inp:checked {
+    border-color: #0FE4EA;
+    background-color: #FFFFFF;
+    background-image: url(../img/radio-bg.svg);
+    background-size: 12px;
+    background-position: center;
+}
+
+.dfci-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1F2937;
+}
+
+.inter {
+    font-family: "Inter", sans-serif;
+}
+
+.df-group .hff-group {
+    padding: 10px 0;
+}
+
+.df-note {
+    font-size: 14px;
+    color: #656E77;
+}
+
+.df-group .hf-inp {
+    font-size: 16px;
+}
+
+.df-group {
+    background-color: #FAFAFA;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+}
+
+.df-subtitle {
+    font-size: 20px;
+}
+
+.df-textarea {
+    border: 1px solid #E8ECF1;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 6px 16px;
+    font-size: 14px;
+    color: #171717;
+}
+
+.df-textarea::placeholder {
+    font-weight: 300;
+    color: #656E77;
+}
+
+.df-btn {
+    min-width: 210px;
+}
+
+.dfc-box {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #FAFAFA;
+    flex-grow: 1;
+    border: 1px solid #E5E5E5;
+    flex-basis: 350px;
+    width: calc(50% - 7px);
+}
+
+.sn-progress-pill {
+    background-color: #D4DD66;
+    height: 7px;
+    border-radius: 10px;
+    width: 60px;
+}
+
+.sn .nav-item.step-active~.sn-progress-pill {
+    background-color: #E5E5E5;
+}
+
+.bs-text{
+    color: #656E77;
+    font-size: 20px;
+}
+
+.bs-title{
+    font-size: 50px;
+}
+
 @media (min-height: 700px) {
     .header-1 {
         min-height: calc(700px - 32px);
@@ -1349,5 +1516,23 @@ footer {
 
     .hfb-sm {
         width: 100%;
+    }
+
+
+    .sn .sn-progress-pill {
+        display: none;
+    }
+
+
+    .sn .nav-item {
+        width: 100%;
+    }
+
+    .bs-text{
+        font-size: 18px;
+    }
+    
+    .bs-title{
+        font-size: 40px;
     }
 }

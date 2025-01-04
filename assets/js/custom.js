@@ -297,3 +297,7 @@ $(document).ready(function () {
   // Initialize the active class on page load
   $('#myTab .nav-link.active').parent().addClass('step-active');
 });
+
+function switchTab(tabId) {
+  $('#' + tabId).tab('show');
+}

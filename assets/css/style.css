@@ -1090,6 +1090,15 @@ footer {
 .fs-item:hover .fsi-link{
     display: flex;
 }
+
+.header-2 .navbar{
+    position: relative;
+}
+
+.header-2 .navbar>.container{
+    background-color: #3C4154;
+    padding: 16px 26px;
+}
 @media (min-height: 700px) {
     .header-1 {
         min-height: calc(700px - 32px);

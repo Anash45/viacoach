@@ -29,20 +29,21 @@ $(document).ready(function () {
 $(document).ready(function () {
   // Initialize Slick with custom settings
 
-  // Iterate over each carousel to add custom arrows dynamically
-  $('.slick-carousel').each(function () {
+  $('.destinations-carousel').each(function () {
     var $carousel = $(this); // Current carousel instance
 
     $carousel.on('init', function (event, slick) {
       // Set initial values for the counter
-      $('.sc-current').text(slick.currentSlide + 1); // Current slide index (1-based)
-      $('.sc-total').text(slick.slideCount); // Total number of slides
+      $carousel.closest('section').find('.sc-current').text(slick.currentSlide + 1); // Current slide index (1-based)
+      $carousel.closest('section').find('.sc-total').text(slick.slideCount); // Total number of slides
     });
 
     $carousel.on('afterChange', function (event, slick, currentSlide) {
+      console.log(slick);
       // Update current slide index after a change
-      $('.sc-current').text(currentSlide + 1); // Update current slide number
+      $carousel.closest('section').find('.sc-current').text(currentSlide + 1); // Update current slide number
     });
+
 
     let sc_dots = $(this).closest('section').find('.sc-dots');
 
@@ -66,6 +67,171 @@ $(document).ready(function () {
         }
       ]
     });
+
+  });
+
+  $('.tours-carousel').each(function () {
+    var $carousel = $(this); // Current carousel instance
+
+    $carousel.slick({
+      autoplay: true,
+      autoplaySpeed: 2000,
+      variableWidth: true,
+      slidesToScroll: 1,
+      arrows: false, // Disable default arrows
+      dots: false,
+      infinite: true,
+      responsive: [
+        {
+          breakpoint: 576,
+          settings: {
+            variableWidth: false,
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+
+  });
+  
+  $('.services-carousel').each(function () {
+    var $carousel = $(this); // Current carousel instance
+
+    $carousel.on('init', function (event, slick) {
+      // Set initial values for the counter
+      $carousel.closest('section').find('.sc-current').text(slick.currentSlide + 1); // Current slide index (1-based)
+      $carousel.closest('section').find('.sc-total').text(slick.slideCount); // Total number of slides
+    });
+
+    $carousel.on('afterChange', function (event, slick, currentSlide) {
+      console.log(slick);
+      // Update current slide index after a change
+      $carousel.closest('section').find('.sc-current').text(currentSlide + 1); // Update current slide number
+    });
+
+
+    let sc_dots = $(this).closest('section').find('.sc-dots');
+
+    $carousel.slick({
+      autoplay: true,
+      autoplaySpeed: 2000,
+      variableWidth: false,
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      arrows: false, // Disable default arrows
+      dots: true,
+      infinite: true,
+      appendDots: sc_dots,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            variableWidth: false,
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+
+  });
+  
+  $('.discounts-carousel').each(function () {
+    var $carousel = $(this); // Current carousel instance
+
+    $carousel.on('init', function (event, slick) {
+      // Set initial values for the counter
+      $carousel.closest('section').find('.sc-current').text(slick.currentSlide + 1); // Current slide index (1-based)
+      $carousel.closest('section').find('.sc-total').text(slick.slideCount); // Total number of slides
+    });
+
+    $carousel.on('afterChange', function (event, slick, currentSlide) {
+      console.log(slick);
+      // Update current slide index after a change
+      $carousel.closest('section').find('.sc-current').text(currentSlide + 1); // Update current slide number
+    });
+
+
+    let sc_dots = $(this).closest('section').find('.sc-dots');
+
+    $carousel.slick({
+      autoplay: true,
+      autoplaySpeed: 2000,
+      variableWidth: false,
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      arrows: false, // Disable default arrows
+      dots: true,
+      infinite: true,
+      appendDots: sc_dots,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            variableWidth: false,
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+
+  });
+  
+  $('.testimonials-carousel').each(function () {
+    var $carousel = $(this); // Current carousel instance
+
+    $carousel.on('init', function (event, slick) {
+      // Set initial values for the counter
+      $carousel.closest('section').find('.sc-current').text(slick.currentSlide + 1); // Current slide index (1-based)
+      $carousel.closest('section').find('.sc-total').text(slick.slideCount); // Total number of slides
+    });
+
+    $carousel.on('afterChange', function (event, slick, currentSlide) {
+      console.log(slick);
+      // Update current slide index after a change
+      $carousel.closest('section').find('.sc-current').text(currentSlide + 1); // Update current slide number
+    });
+
+
+    let sc_dots = $(this).closest('section').find('.sc-dots');
+
+    $carousel.slick({
+      autoplay: true,
+      autoplaySpeed: 2000,
+      variableWidth: false,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      arrows: false, // Disable default arrows
+      dots: true,
+      infinite: true,
+      appendDots: sc_dots,
+      responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            variableWidth: false,
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            variableWidth: false,
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+
+  });
+
+  // Iterate over each carousel to add custom arrows dynamically
+  $('.slick-carousel').each(function () {
+    var $carousel = $(this); // Current carousel instance
 
     // Create custom arrows
     var prevArrow = $(`<span class="slider-arrow prev-arrow"><svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -91,7 +257,8 @@ $(document).ready(function () {
     nextArrow.on('click', function () {
       $carousel.slick('slickNext'); // Go to the next slide
     });
-  }); $('.filter-buttons .sf-btn').on('click', function () {
+  }); 
+  $('.filter-buttons .sf-btn').on('click', function () {
     let $carousel = $(this).closest('section').find('.slick-carousel');
     var filterClass = $(this).data('filter');
 
@@ -108,5 +275,16 @@ $(document).ready(function () {
     }
   });
 
+  $('.footer-slider').slick({
+    centerMode: true,
+    variableWidth: true,
+    autoplay: true,
+    pauseOnHover: true, // Pauses on hover
+    autoplaySpeed: 1000, // Makes the autoplay continuous
+    speed: 1000, // Controls the sliding speed
+    arrows: false,
+    slidesToScroll: 1,
+    dots: false
+  });
 });
 

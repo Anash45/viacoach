@@ -122,7 +122,7 @@ header {
 .header-video {
     border-radius: 20px;
     display: block;
-    height: 665px;
+    height: 745px;
     object-fit: cover;
     object-position: center;
     width: 100%;
@@ -130,7 +130,7 @@ header {
 }
 
 .header-1 {
-    min-height: 665px;
+    min-height: 745px;
 }
 
 .header-vector {
@@ -146,8 +146,7 @@ header {
 }
 
 .header-cont {
-    border-radius: 20px 20px 34px 34px;
-    border: 1px solid rgba(229, 229, 229, 1);
+    border-radius: 0 0 34px 34px;
     background-image: linear-gradient(to bottom, rgba(215, 224, 224, 1), rgba(253, 254, 255, 1));
     box-shadow: inset 0 -1px 14px rgba(0, 0, 0, 0.07);
 }
@@ -461,7 +460,7 @@ footer {
     gap: 24px;
 }
 
-.dc-title {
+.destinations-carousel .dc-title {
     font-size: 32px;
 }
 
@@ -575,9 +574,18 @@ footer {
 }
 
 .lc-specs {
+    gap: 12px;
+    flex-wrap: wrap;
     color: #171717;
 }
 
+.lc-extras{
+    font-size: 12px;
+    font-weight: 600;
+}
+.sc-dots .slick-dots{
+    flex-wrap: wrap;
+}
 .tour-save {
     display: flex;
     flex-direction: column;
@@ -652,6 +660,16 @@ footer {
     fill: #171717;
 }
 
+
+.services-carousel .slick-slide{
+    height: 0 !important;
+    overflow: hidden;
+}
+
+.services-carousel .slick-active{
+    height: auto !important;
+    overflow: unset;
+}
 .slider-arrow svg:hover path {
     fill: #FFFFFF;
 }
@@ -795,6 +813,10 @@ footer {
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.wb-content{
+    max-width: 210px;
+}
+
 .wb-title {
     font-size: 18px;
     color: #171717;
@@ -832,7 +854,7 @@ footer {
     font-size: 16px;
 }
 
-.tc-img {
+.testimonials-carousel .tc-img {
     height: 60px;
     width: 60px;
     border-radius: 10px;
@@ -1461,6 +1483,10 @@ footer {
         transform: translateY(-50%) translateX(10%);
         height: 50px;
     }
+    .discounts-carousel .slick-track,
+    .testimonials-carousel .slick-track {
+        gap: 0;
+    }
 }
 
 @media (max-width: 576px) {
@@ -1479,9 +1505,7 @@ footer {
 
     .destinations-carousel .slick-track,
     .tours-carousel .slick-track,
-    .services-carousel .slick-track,
-    .discounts-carousel .slick-track,
-    .testimonials-carousel .slick-track {
+    .services-carousel .slick-track{
         gap: 0;
     }
 

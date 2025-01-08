@@ -115,7 +115,7 @@ $(document).ready(function () {
 
     $carousel.slick({
       autoplay: true,
-      autoplaySpeed: 2000,
+      autoplaySpeed: 20000,
       variableWidth: false,
       slidesToShow: 2,
       slidesToScroll: 1,

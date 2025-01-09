@@ -115,12 +115,12 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 20px;
+    border-radius:  0 0 20px 20px;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
 .header-video {
-    border-radius: 20px;
+    border-radius: 0 0 20px 20px;
     display: block;
     height: 745px;
     object-fit: cover;
@@ -149,6 +149,10 @@ header {
     border-radius: 0 0 34px 34px;
     background-image: linear-gradient(to bottom, rgba(215, 224, 224, 1), rgba(253, 254, 255, 1));
     box-shadow: inset 0 -1px 14px rgba(0, 0, 0, 0.07);
+    border: 1px solid rgba(229, 229, 229, 1);
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
 }
 
 .header-form {
@@ -159,11 +163,50 @@ header {
     backdrop-filter: blur(10px) drop-shadow(0px 0 4px rgba(0, 0, 0, 0.26));
 }
 
+.aside{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.66);
+    z-index: 99999;
+    overflow-x: hidden;
+    width: 0;
+}
+
+.side-nav{
+    height: 100%;
+    width: 600px;
+    max-width: calc(100% - 20px);
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+    width: 0;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.snav-inner{
+    padding: 20px 10px;
+}
+
+.snav-links{
+    gap: 20px;
+    scrollbar-width: thin;
+}
+
+.snav-link{
+    font-size: 22px;
+    color: #000000;
+    text-decoration: none;
+}
 .hf-vertical {
     max-width: 100%;
     width: 530px;
     position: absolute;
-    top: 116px;
+    top: 62px;
     right: 0;
 }
 
@@ -246,7 +289,7 @@ header {
 .hff-group {
     padding: 4px 0;
     display: flex;
-    gap: 10px;
+    gap: 1px;
     flex-direction: column;
 }
 
@@ -308,6 +351,19 @@ header {
     width: calc(50% - 6px);
     flex-basis: 150px;
     flex-grow: 1;
+}
+
+.hfb-round{
+    display: none;
+}
+
+.hff-round-trip .hfb-round{
+    display: flex;
+}
+
+
+.hff-round-trip .hffr-row .hfb-sm{
+    width: calc(33.33% - 4px);
 }
 
 footer {
@@ -713,6 +769,10 @@ footer {
     font-size: 20px;
 }
 
+.footer-social-links .fa-brands{
+    font-size: 24px;
+    color: #FFFFFF;
+}
 .discounts-sec .slider-arrows svg rect {
     fill: transparent;
     stroke: #FFFFFF;
@@ -1360,6 +1420,66 @@ footer {
 .bs-title{
     font-size: 50px;
 }
+.wrfs-cont .select2-selection__rendered{
+    line-height: 150% !important;
+    padding: 9px 56px 9px 24px !important;
+    text-overflow: unset !important;
+    color: #000000 !important;
+    font-size: 16px !important;
+
+}
+.wrfs-cont .select2-selection{
+    border: 1px solid rgba(212, 212, 212, 1);
+    border-radius: 32px !important;
+    height: unset;
+}
+
+.wrf-dropdown{
+    width: max-content !important;
+    padding: 5px 0 !important;
+    border-radius: 10px !important;
+    background-color: #FAFAFA !important;
+    border: 1px solid #D4D4D4 !important;
+}
+
+.wrf-dropdown .select2-results__options{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wrf-dropdown .select2-results__option{
+    white-space: nowrap !important;
+    font-size: 16px !important;
+    color: #000000 !important;
+    padding: 5px 20px !important;
+}
+.wrf-dropdown .select2-results__option--highlighted{
+    color: #fff !important;
+}
+.wrfs-cont .select2-selection__arrow b{
+    display: none;
+}
+
+.wrfs-cont .select2-selection__arrow{
+    top: 50% !important;
+    right: 24px !important;
+    transform: translateY(-50%) !important;
+    height: 24px !important;
+    width: 24px !important;
+    background-image: url(../img/chevron_bottom.svg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    transition: 0.3s ease-in-out !important;
+}
+
+.wrfs-cont .select2-container--open .select2-selection__arrow{
+    transform: rotate(180deg) translateY(50%) !important;
+}
+
+.wrfs-cont .select2{
+    width: unset !important;
+}
 
 @media (min-height: 700px) {
     .header-1 {
@@ -1558,5 +1678,9 @@ footer {
     
     .bs-title{
         font-size: 40px;
+    }
+
+    .wrfs-cont .select2{
+        width: 100% !important;
     }
 }

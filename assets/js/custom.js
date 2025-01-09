@@ -19,10 +19,19 @@ $(document).ready(function () {
   });
 
   $('.hf-date').datepicker({
-    dateFormat: 'dd MM yy', // Customize the date format
+    dateFormat: 'dd M y', // Customize the date format
     changeMonth: true,     // Allows changing month via dropdown
     changeYear: true,      // Allows changing year via dropdown
     showButtonPanel: true, // Adds "Today" and "Done" buttons
+  });
+
+  $('.wrf-select').each(function () {
+    $(this).select2({
+      dropdownCssClass: 'wrf-dropdown',
+      containerCssClass: 'wrf-container',
+      minimumResultsForSearch: Infinity // Hides the search input
+    });
+    
   });
 });
 
@@ -288,6 +297,7 @@ $(document).ready(function () {
   });
 });
 
+
 $(document).ready(function () {
   $('#myTab .nav-link').on('shown.bs.tab', function () {
     $('#myTab .nav-item').removeClass('step-active'); // Remove the class from all items
@@ -296,8 +306,58 @@ $(document).ready(function () {
 
   // Initialize the active class on page load
   $('#myTab .nav-link.active').parent().addClass('step-active');
+
+  $(document).on('click', function (e) {
+    if (!$(e.target).closest('.side-nav').length) {
+      let sidebarOpened = $('.aside').attr('data-opened');
+      console.log(sidebarOpened == 'yes');
+      if (sidebarOpened == 'yes') {
+        closeSidebar();
+      }
+    }
+  });
+
+  $('.hf-filter-btns .hff-btn').on('click', function () {
+    let targetFormType = $(this).attr('data-form-type');
+    if (targetFormType == 'one-way') {
+      $('.hf-form').removeClass('hff-round-trip');
+      $('.hf-form').addClass('hff-single-trip');
+    } else if (targetFormType == 'round-trip') {
+      $('.hf-form').removeClass('hff-single-trip');
+      $('.hf-form').addClass('hff-round-trip');
+    }
+    $('.hf-filter-btns').find('.hff-btn').removeClass('active');
+    $(this).addClass('active');
+  })
 });
 
 function switchTab(tabId) {
   $('#' + tabId).tab('show');
+}
+
+function openSidebar() {
+  $('aside').animate({
+    width: "100%"
+  }, 500);
+
+  $('.side-nav').delay(250).animate({
+    width: "600px"
+  }, 500);
+  setTimeout(() => {
+    $('.aside').attr('data-opened', 'yes');
+  }, 500);
+}
+
+
+function closeSidebar() {
+  $('.side-nav').animate({
+    width: "0%"
+  }, 500);
+
+  $('aside').delay(250).animate({
+    width: "0%"
+  }, 500);
+  setTimeout(() => {
+    $('.aside').attr('data-opened', 'no');
+  }, 500);
 }

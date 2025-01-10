@@ -1,0 +1,461 @@
+[
+    {
+        "seat_capacity": "6 Seater",
+        "bus_type": "Minibus",
+        "model": "Mercedes-Benz Viano",
+        "luggage": "3",
+        "cabin": "6",
+        "class": "Executive",
+        "features": [
+            "AC",
+            "Audio",
+            "USB",
+            "Luggage"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, WiFi, Screens",
+        
+        "image": "fleet-1.jpg"
+    },
+    {
+        "seat_capacity": "7 Seater",
+        "bus_type": "Minibus",
+        "model": "Volkswagen Caravelle (T5/T6)",
+        "luggage": "4",
+        "cabin": "7",
+        "class": "Executive",
+        "features": [
+            "AC",
+            "Audio",
+            "USB",
+            "Recline",
+            "Luggage"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, WiFi, DVD",
+        
+        "image": "fleet-2.jpg"
+    },
+    {
+        "seat_capacity": "8 Seater",
+        "bus_type": "Minibus",
+        "model": "Ford Tourneo Custom (8-seat)",
+        "luggage": "5",
+        "cabin": "8",
+        "class": "Executive",
+        "features": [
+            "AC",
+            "Audio",
+            "USB",
+            "Recline"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, WiFi, Screens",
+        
+        "image": "fleet-3.jpg"
+    },
+    {
+        "seat_capacity": "9 Seater",
+        "bus_type": "Minibus",
+        "model": "Vauxhall Vivaro Combi (9-seat)",
+        "luggage": "5",
+        "cabin": "9",
+        "class": "Standard",
+        "features": [
+            "AC",
+            "Audio",
+            "WiFi",
+            "USB",
+            "Luggage"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, DVD, Mood-light",
+        
+        "image": "fleet-4.jpg"
+    },
+    {
+        "seat_capacity": "10 Seater",
+        "bus_type": "Minibus",
+        "model": "Mercedes-Benz Sprinter (10-seat conversion)",
+        "luggage": "6",
+        "cabin": "10",
+        "class": "Standard",
+        "features": [
+            "AC",
+            "Audio",
+            "WiFi",
+            "USB",
+            "Recline"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, Screens, Host",
+        
+        "image": "fleet-5.jpg"
+    },
+    {
+        "seat_capacity": "12 Seater",
+        "bus_type": "Minibus",
+        "model": "Ford Transit Minibus (12-seat)",
+        "luggage": "8",
+        "cabin": "12",
+        "class": "Standard",
+        "features": [
+            "AC",
+            "Audio",
+            "WiFi",
+            "USB",
+            "Luggage"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, Recline, DVD",
+        
+        "image": "fleet-6.jpg"
+    },
+    {
+        "seat_capacity": "14 Seater",
+        "bus_type": "Minibus",
+        "model": "LDV Maxus Minibus (14-seat)",
+        "luggage": "10",
+        "cabin": "14",
+        "class": "Standard",
+        "features": [
+            "AC",
+            "Audio",
+            "WiFi",
+            "USB",
+            "Recline"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, DVD, Ambient-light",
+        
+        "image": "fleet-7.jpg"
+    },
+    {
+        "seat_capacity": "16 Seater",
+        "bus_type": "Minibus",
+        "model": "Iveco Daily Minibus (16-seat)",
+        "luggage": "12",
+        "cabin": "16",
+        "class": "Standard",
+        "features": [
+            "AC",
+            "WiFi",
+            "Audio",
+            "USB",
+            "DVD"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, Host, Chill-box",
+        
+        "image": "fleet-8.jpg"
+    },
+    {
+        "seat_capacity": "19 Seater",
+        "bus_type": "Minibus",
+        "model": "Mercedes-Benz Sprinter 519 CDI (19-seat)",
+        "luggage": "15",
+        "cabin": "19",
+        "class": "Executive",
+        "features": [
+            "AC",
+            "WiFi",
+            "Audio",
+            "USB",
+            "Luggage"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, Recline, Screens",
+        
+        "image": "fleet-9.jpg"
+    },
+    {
+        "seat_capacity": "20 Seater",
+        "bus_type": "Minibus",
+        "model": "Iveco Daily 70C17 Minibus (20-seat)",
+        "luggage": "16",
+        "cabin": "20",
+        "class": "Standard",
+        "features": [
+            "AC",
+            "WiFi",
+            "Audio",
+            "USB",
+            "DVD"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, Mood-light, Host",
+        
+        "image": "fleet-10.jpg"
+    },
+    {
+        "seat_capacity": "24 Seater",
+        "bus_type": "Minibus",
+        "model": "Mercedes-Benz Sprinter Travel 45 (24-seat)",
+        "luggage": "18",
+        "cabin": "24",
+        "class": "Executive",
+        "features": [
+            "AC",
+            "WiFi",
+            "Audio",
+            "USB",
+            "DVD"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, Chill-box, Ambient-light",
+        
+        "image": "fleet-11.jpg"
+    },
+    {
+        "seat_capacity": "30 Seater",
+        "bus_type": "Coach",
+        "model": "Plaxton Cheetah XL",
+        "luggage": "25",
+        "cabin": "30",
+        "class": "Executive",
+        "features": [
+            "AC",
+            "WiFi",
+            "USB",
+            "Audio",
+            "Toilet"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, Host, Screens",
+        
+        "image": "fleet-12.jpg"
+    },
+    {
+        "seat_capacity": "33 Seater",
+        "bus_type": "Coach",
+        "model": "Mercedes-Benz Tourino",
+        "luggage": "28",
+        "cabin": "33",
+        "class": "Executive",
+        "features": [
+            "AC",
+            "WiFi",
+            "USB",
+            "Audio",
+            "Toilet"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, DVD, Host",
+        
+        "image": "fleet-13.jpg"
+    },
+    {
+        "seat_capacity": "35 Seater",
+        "bus_type": "Coach",
+        "model": "Temsa MD9",
+        "luggage": "30",
+        "cabin": "35",
+        "class": "Executive",
+        "features": [
+            "AC",
+            "WiFi",
+            "USB",
+            "Audio",
+            "Toilet"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, Chill-box, Screens",
+        
+        "image": "fleet-14.jpg"
+    },
+    {
+        "seat_capacity": "37 Seater",
+        "bus_type": "Coach",
+        "model": "Otokar Navigo T",
+        "luggage": "32",
+        "cabin": "37",
+        "class": "Executive",
+        "features": [
+            "AC",
+            "WiFi",
+            "USB",
+            "Audio",
+            "Toilet"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, Host, Ambient-light",
+        
+        "image": "fleet-15.jpg"
+    },
+    {
+        "seat_capacity": "40 Seater",
+        "bus_type": "Coach",
+        "model": "VDL Futura FHD2 (40-seat configuration)",
+        "luggage": "35",
+        "cabin": "40",
+        "class": "Luxury",
+        "features": [
+            "AC",
+            "WiFi",
+            "USB",
+            "Audio",
+            "Toilet"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, DVD, Host",
+        
+        "image": "fleet-16.jpg"
+    },
+    {
+        "seat_capacity": "42 Seater",
+        "bus_type": "Coach",
+        "model": "Scania Irizar i6 (42-seat configuration)",
+        "luggage": "37",
+        "cabin": "42",
+        "class": "Luxury",
+        "features": [
+            "AC",
+            "WiFi",
+            "USB",
+            "Audio",
+            "Toilet"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, Recline, Screens",
+        
+        "image": "fleet-17.jpg"
+    },
+    {
+        "seat_capacity": "42-49 Seater",
+        "bus_type": "Coach",
+        "models": [
+            "Volvo B8R with Plaxton Panther body",
+            "Scania Irizar i6"
+        ],
+        "luggage": "40-45",
+        "cabin": "42-49",
+        "class": "Luxury",
+        "features": [
+            "AC",
+            "WiFi",
+            "USB",
+            "Audio",
+            "Toilet"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, DVD, Host",
+        
+        "image": "fleet-18.jpg"
+    },
+    {
+        "seat_capacity": "50 Seater",
+        "bus_type": "Coach",
+        "model": "Mercedes-Benz Tourismo (50-seat)",
+        "luggage": "45",
+        "cabin": "50",
+        "class": "Luxury",
+        "features": [
+            "AC",
+            "WiFi",
+            "USB",
+            "Audio",
+            "Toilet"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, Mood-light, Host",
+        
+        "image": "fleet-19.jpg"
+    },
+    {
+        "seat_capacity": "52, 54, 55, 60 Seater",
+        "bus_type": "Coach",
+        "models": [
+            "Volvo B11R Plaxton Panther",
+            "Setra S416 GT-HD"
+        ],
+        "luggage": "50-60",
+        "cabin": "52-60",
+        "class": "Luxury",
+        "features": [
+            "AC",
+            "WiFi",
+            "USB",
+            "Audio",
+            "Toilet"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, Recline, DVD",
+        
+        "image": "fleet-20.jpg"
+    },
+    {
+        "seat_capacity": "60-70 Seater",
+        "bus_type": "Coach",
+        "models": [
+            "Neoplan Skyliner (Double Decker)",
+            "Van Hool TDX21 Astromega"
+        ],
+        "luggage": "60-70",
+        "cabin": "60-70",
+        "class": "VIP",
+        "features": [
+            "AC",
+            "WiFi",
+            "USB",
+            "Audio",
+            "Toilet"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, Host, Screens",
+        
+        "image": "fleet-21.jpg"
+    },
+    {
+        "seat_capacity": "72 Seater",
+        "bus_type": "Coach",
+        "model": "Van Hool TDX27 Astromega",
+        "luggage": "72",
+        "cabin": "72",
+        "class": "VIP",
+        "features": [
+            "AC",
+            "WiFi",
+            "USB",
+            "Audio",
+            "Toilet"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, DVD, Host",
+        
+        "image": "fleet-22.jpg"
+    },
+    {
+        "seat_capacity": "75-80 Seater",
+        "bus_type": "Coach",
+        "model": "Mercedes Benz",
+        "luggage": "75-80",
+        "cabin": "75-80",
+        "class": "VIP",
+        "features": [
+            "AC",
+            "WiFi",
+            "USB",
+            "Audio",
+            "Toilet"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, Mood-light, Screens",
+        
+        "image": "fleet-23.jpg"
+    },
+    {
+        "seat_capacity": "85 Seater",
+        "bus_type": "Coach",
+        "model": "Van Hool TDX25 Astromega",
+        "luggage": "85",
+        "cabin": "85",
+        "class": "VIP",
+        "features": [
+            "AC",
+            "WiFi",
+            "USB",
+            "Audio",
+            "Toilet"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, DVD, Host",
+        
+        "image": "fleet-24.jpg"
+    },
+    {
+        "seat_capacity": "85-100 Seater",
+        "bus_type": "Coach (Double Decker)",
+        "models": [
+            "Mercedes Benz"
+        ],
+        "luggage": "85-100",
+        "cabin": "85-100",
+        "class": "VIP",
+        "features": [
+            "AC",
+            "WiFi",
+            "USB",
+            "Audio",
+            "Toilet"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, Host, Ambient-light",
+        
+        "image": "fleet-25.jpg"
+    }
+]

@@ -1,0 +1,129 @@
+[
+    {
+      "type": "standard",
+      "percentage": "5%",
+      "sub_title": "off",
+      "offer_name": "Early Bird",
+      "description": "when booked 3+ months in advance"
+    },
+    {
+      "type": "standard",
+      "percentage": "",
+      "sub_title": "Free Upgrade",
+      "offer_name": "Free Upgrade",
+      "description": "Enjoy a complimentary class upgrade this month"
+    },
+    {
+      "type": "standard",
+      "percentage": "8%",
+      "sub_title": "off",
+      "offer_name": "New Year Special",
+      "description": "Save 8% on all Standard rides"
+    },
+    {
+      "type": "luxury",
+      "percentage": "10%",
+      "sub_title": "off",
+      "offer_name": "Advance & Save",
+      "description": "for bookings made 3+ months ahead"
+    },
+    {
+      "type": "luxury",
+      "percentage": "",
+      "sub_title": "Free Champagne",
+      "offer_name": "Champagne on Us",
+      "description": "Free bubbly upgrade for new Luxury customers"
+    },
+    {
+      "type": "luxury",
+      "percentage": "12%",
+      "sub_title": "off",
+      "offer_name": "Holiday Discount",
+      "description": "Get 12% off on premium holiday travel"
+    },
+    {
+      "type": "vip",
+      "percentage": "15%",
+      "sub_title": "off",
+      "offer_name": "First-Timer Deal",
+      "description": "for first-time VIP riders"
+    },
+    {
+      "type": "vip",
+      "percentage": "10%",
+      "sub_title": "off",
+      "offer_name": "Book Early, Save Big",
+      "description": "when booked 3+ months in advance"
+    },
+    {
+      "type": "vip",
+      "percentage": "",
+      "sub_title": "Free Perks",
+      "offer_name": "Exclusive Perks",
+      "description": "Free premium lounge access on all VIP reservations"
+    },
+    {
+      "type": "executive",
+      "percentage": "12%",
+      "sub_title": "off",
+      "offer_name": "Group Booking Bonus",
+      "description": "for parties of 4 or more"
+    },
+    {
+      "type": "executive",
+      "percentage": "8%",
+      "sub_title": "off",
+      "offer_name": "Advance Advantage",
+      "description": "when booked 3+ months ahead"
+    },
+    {
+      "type": "executive",
+      "percentage": "",
+      "sub_title": "New Year Promo",
+      "offer_name": "",
+      "description": "Complimentary onboard refreshments"
+    },
+    {
+      "type": "tour",
+      "percentage": "",
+      "sub_title": "Kids Ride Free",
+      "offer_name": "Family Pack",
+      "description": "Kids ride free with two paying adults"
+    },
+    {
+      "type": "tour",
+      "percentage": "7%",
+      "sub_title": "off",
+      "offer_name": "Early Bird",
+      "description": "any Tour booked 3+ months in advance"
+    },
+    {
+      "type": "tour",
+      "percentage": "10%",
+      "sub_title": "off",
+      "offer_name": "Year-End Sale",
+      "description": "Extra 10% off for group tours"
+    },
+    {
+      "type": "event",
+      "percentage": "10%",
+      "sub_title": "off",
+      "offer_name": "Group Saver",
+      "description": "if traveling with 5+ people"
+    },
+    {
+      "type": "event",
+      "percentage": "6%",
+      "sub_title": "off",
+      "offer_name": "Early Planning",
+      "description": "on Event bookings 3+ months ahead"
+    },
+    {
+      "type": "event",
+      "percentage": "",
+      "sub_title": "Free Seat Upgrade",
+      "offer_name": "New Year Upgrade",
+      "description": "Free seat upgrade on select events"
+    }
+  ]
+  

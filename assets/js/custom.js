@@ -314,7 +314,7 @@ function getFleetHtml(fleet) {
                   <span class="lh-sm">${fleet.bus_type}</span>
                 </div>
                 <a href="#" class="fw-semibold lh-sm d-block text-black my-1 lc-title">
-                  ${fleet.seat_capacity} ${fleet.bus_type}
+                  ${fleet.model}
                 </a>
                 <div class="d-flex gap-2 text-black flex-wrap fw-normal mb-1">
                   <span class="lh-sm">${fleet.luggage} Luggage bags</span>

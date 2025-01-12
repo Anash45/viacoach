@@ -1,5 +1,5 @@
 <?php
-print_r($_REQUEST);
+// print_r($_REQUEST);
 if (isset($_REQUEST['get_quote'])) {
     $name = $_REQUEST['name'] ?? null;
     $email = $_REQUEST['email'] ?? null;

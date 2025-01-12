@@ -306,10 +306,7 @@
     {
         "seat_capacity": "42-49 Seater",
         "bus_type": "Coach",
-        "models": [
-            "Volvo B8R with Plaxton Panther body",
-            "Scania Irizar i6"
-        ],
+        "model": "Scania Irizar i6",
         "luggage": "40-45",
         "cabin": "42-49",
         "class": "Luxury",
@@ -323,6 +320,24 @@
         "extra_features": "VIP/Luxury extras: Leather, DVD, Host",
         
         "image": "fleet-18.jpg"
+    },
+    {
+        "seat_capacity": "42-49 Seater",
+        "bus_type": "Coach",
+        "model": "Volvo B8R with Plaxton Panther body",
+        "luggage": "40-45",
+        "cabin": "42-49",
+        "class": "Luxury",
+        "features": [
+            "AC",
+            "WiFi",
+            "USB",
+            "Audio",
+            "Toilet"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, DVD, Host",
+        
+        "image": "fleet-18-1.jpg"
     },
     {
         "seat_capacity": "50 Seater",
@@ -345,10 +360,7 @@
     {
         "seat_capacity": "52, 54, 55, 60 Seater",
         "bus_type": "Coach",
-        "models": [
-            "Volvo B11R Plaxton Panther",
-            "Setra S416 GT-HD"
-        ],
+        "model": "Volvo B11R Plaxton Panther",
         "luggage": "50-60",
         "cabin": "52-60",
         "class": "Luxury",
@@ -360,16 +372,29 @@
             "Toilet"
         ],
         "extra_features": "VIP/Luxury extras: Leather, Recline, DVD",
-        
         "image": "fleet-20.jpg"
+    },
+    {
+        "seat_capacity": "52, 54, 55, 60 Seater",
+        "bus_type": "Coach",
+        "model": "Setra S416 GT-HD",
+        "luggage": "50-60",
+        "cabin": "52-60",
+        "class": "Luxury",
+        "features": [
+            "AC",
+            "WiFi",
+            "USB",
+            "Audio",
+            "Toilet"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, Recline, DVD",
+        "image": "fleet-20-1.jpg"
     },
     {
         "seat_capacity": "60-70 Seater",
         "bus_type": "Coach",
-        "models": [
-            "Neoplan Skyliner (Double Decker)",
-            "Van Hool TDX21 Astromega"
-        ],
+        "model": "Neoplan Skyliner (Double Decker)",
         "luggage": "60-70",
         "cabin": "60-70",
         "class": "VIP",
@@ -381,8 +406,24 @@
             "Toilet"
         ],
         "extra_features": "VIP/Luxury extras: Leather, Host, Screens",
-        
         "image": "fleet-21.jpg"
+    },
+    {
+        "seat_capacity": "60-70 Seater",
+        "bus_type": "Coach",
+        "model": "Van Hool TDX21 Astromega",
+        "luggage": "60-70",
+        "cabin": "60-70",
+        "class": "VIP",
+        "features": [
+            "AC",
+            "WiFi",
+            "USB",
+            "Audio",
+            "Toilet"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, Host, Screens",
+        "image": "fleet-21-1.jpg"
     },
     {
         "seat_capacity": "72 Seater",
@@ -441,9 +482,7 @@
     {
         "seat_capacity": "85-100 Seater",
         "bus_type": "Coach (Double Decker)",
-        "models": [
-            "Mercedes Benz"
-        ],
+        "model": "Van Hool TDX29 Astromega",
         "luggage": "85-100",
         "cabin": "85-100",
         "class": "VIP",
@@ -457,5 +496,23 @@
         "extra_features": "VIP/Luxury extras: Leather, Host, Ambient-light",
         
         "image": "fleet-25.jpg"
+    },
+    {
+        "seat_capacity": "100 Seater",
+        "bus_type": "Coach",
+        "model": "Mercedes-Benz",
+        "luggage": "98",
+        "cabin": "100",
+        "class": "VIP",
+        "features": [
+            "AC",
+            "WiFi",
+            "USB",
+            "Audio",
+            "Toilet"
+        ],
+        "extra_features": "VIP/Luxury extras: Leather, Host, Ambient-light",
+        
+        "image": "fleet-26.jpg"
     }
 ]

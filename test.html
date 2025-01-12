@@ -1,205 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Maps with Two Destinations</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCGxZXJ2gpN_is2UY1AXp98MN7sQHpIKk&callback=initMap&libraries=places" async defer></script>
+  <style>
+    #map {
+      height: 500px;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-    <div id="vehicles-container" class="row"></div>
 
-    <script>
-        const vehicles = [
-        {
-            "seater": "6",
-            "type": "Minibus",
-            "features": ["AC", "Audio", "USB", "Seatbelt", "Luggage"],
-            "vipExtras": ["Leather", "WiFi", "Screens"]
-        },
-        {
-            "seater": "7",
-            "type": "Minibus",
-            "features": ["AC", "Audio", "USB", "Recline", "Luggage"],
-            "vipExtras": ["Leather", "WiFi", "DVD"]
-        },
-        {
-            "seater": "8",
-            "type": "Minibus",
-            "features": ["AC", "Audio", "USB", "Seatbelt", "Recline"],
-            "vipExtras": ["Leather", "WiFi", "Screens"]
-        },
-        {
-            "seater": "9",
-            "type": "Minibus",
-            "features": ["AC", "Audio", "WiFi", "USB", "Luggage"],
-            "vipExtras": ["Leather", "DVD", "Mood-light"]
-        },
-        {
-            "seater": "10",
-            "type": "Minibus",
-            "features": ["AC", "Audio", "WiFi", "USB", "Recline"],
-            "vipExtras": ["Leather", "Screens", "Host"]
-        },
-        {
-            "seater": "12",
-            "type": "Minibus",
-            "features": ["AC", "Audio", "WiFi", "USB", "Luggage"],
-            "vipExtras": ["Leather", "Recline", "DVD"]
-        },
-        {
-            "seater": "14",
-            "type": "Minibus",
-            "features": ["AC", "Audio", "WiFi", "USB", "Recline"],
-            "vipExtras": ["Leather", "DVD", "Ambient-light"]
-        },
-        {
-            "seater": "16",
-            "type": "Minibus",
-            "features": ["AC", "WiFi", "Audio", "USB", "DVD"],
-            "vipExtras": ["Leather", "Host", "Chill-box"]
-        },
-        {
-            "seater": "19",
-            "type": "Minibus",
-            "features": ["AC", "WiFi", "Audio", "USB", "Luggage"],
-            "vipExtras": ["Leather", "Recline", "Screens"]
-        },
-        {
-            "seater": "20",
-            "type": "Minibus",
-            "features": ["AC", "WiFi", "Audio", "USB", "DVD"],
-            "vipExtras": ["Leather", "Mood-light", "Host"]
-        },
-        {
-            "seater": "24",
-            "type": "Minibus",
-            "features": ["AC", "WiFi", "Audio", "USB", "DVD"],
-            "vipExtras": ["Leather", "Chill-box", "Ambient-light"]
-        },
-        {
-            "seater": "30",
-            "type": "Coach",
-            "features": ["AC", "WiFi", "USB", "Audio", "Toilet"],
-            "vipExtras": ["Leather", "Host", "Screens"]
-        },
-        {
-            "seater": "33",
-            "type": "Coach",
-            "features": ["AC", "WiFi", "USB", "Audio", "Toilet"],
-            "vipExtras": ["Leather", "DVD", "Host"]
-        },
-        {
-            "seater": "35",
-            "type": "Coach",
-            "features": ["AC", "WiFi", "USB", "Audio", "Toilet"],
-            "vipExtras": ["Leather", "Chill-box", "Screens"]
-        },
-        {
-            "seater": "37",
-            "type": "Coach",
-            "features": ["AC", "WiFi", "USB", "Audio", "Toilet"],
-            "vipExtras": ["Leather", "Host", "Ambient-light"]
-        },
-        {
-            "seater": "40",
-            "type": "Coach",
-            "features": ["AC", "WiFi", "USB", "Audio", "Toilet"],
-            "vipExtras": ["Leather", "DVD", "Host"]
-        },
-        {
-            "seater": "42",
-            "type": "Coach",
-            "features": ["AC", "WiFi", "USB", "Audio", "Toilet"],
-            "vipExtras": ["Leather", "Recline", "Screens"]
-        },
-        {
-            "seater": "42-49",
-            "type": "Coach",
-            "features": ["AC", "WiFi", "USB", "Audio", "Toilet"],
-            "vipExtras": ["Leather", "DVD", "Host"]
-        },
-        {
-            "seater": "50",
-            "type": "Coach",
-            "features": ["AC", "WiFi", "USB", "Audio", "Toilet"],
-            "vipExtras": ["Leather", "Mood-light", "Host"]
-        },
-        {
-            "seater": "52-60",
-            "type": "Coach",
-            "features": ["AC", "WiFi", "USB", "Audio", "Toilet"],
-            "vipExtras": ["Leather", "Recline", "DVD"]
-        },
-        {
-            "seater": "60-70",
-            "type": "Coach",
-            "features": ["AC", "WiFi", "USB", "Audio", "Toilet"],
-            "vipExtras": ["Leather", "Host", "Screens"]
-        },
-        {
-            "seater": "72",
-            "type": "Coach",
-            "features": ["AC", "WiFi", "USB", "Audio", "Toilet"],
-            "vipExtras": ["Leather", "DVD", "Host"]
-        },
-        {
-            "seater": "75-80",
-            "type": "Coach",
-            "features": ["AC", "WiFi", "USB", "Audio", "Toilet"],
-            "vipExtras": ["Leather", "Mood-light", "Screens"]
-        },
-        {
-            "seater": "85",
-            "type": "Coach",
-            "features": ["AC", "WiFi", "USB", "Audio", "Toilet"],
-            "vipExtras": ["Leather", "DVD", "Host"]
-        },
-        {
-            "seater": "85-100",
-            "type": "Coach",
-            "features": ["AC", "WiFi", "USB", "Audio", "Toilet"],
-            "vipExtras": ["Leather", "Host", "Ambient-light"]
-        }
-    ]
-    ;
-    
-        const container = document.querySelector("#vehicles-container");
-    
-        vehicles.forEach(vehicle => {
-            const card = document.createElement("div");
-            card.className = "col-xl-4 col-lg-6 pb-4";
-            card.dataset.seater = vehicle.seater;
-    
-            card.innerHTML = `
-                <div class="landing-card">
-                    <div class="p-3 d-flex flex-column gap-4">
-                        <a href="#" class="lc-top d-block">
-                            <img src="./assets/img/fleet-1.png" alt="${vehicle.seater} Seater ${vehicle.type}" class="lc-img">
-                        </a>
-                        <div class="lc-bottom">
-                            <div class="d-flex flex-column gap-2">
-                                <a href="#" class="fw-semibold d-block text-black my-1 lc-title">${vehicle.seater} Seater ${vehicle.type}</a>
-                                <div class="d-flex align-items-center gap-2 lc-specs">
-                                    ${vehicle.features
-                                        .map(
-                                            feature =>
-                                                `<div class="d-flex align-items-center gap-2">
-                                                    <span><svg class="${feature.toLowerCase()}-svg"></svg></span>
-                                                    <span class="lh-1">${feature}</span>
-                                                </div>`
-                                        )
-                                        .join("")}
-                                </div>
-                                <p class="mb-0 text-dark lc-extras">(VIP/Luxury extras: ${vehicle.vipExtras.join(", ")})</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-    
-            container.appendChild(card);
+  <!-- Input fields for two destinations -->
+  <input type="text" id="from-destination" placeholder="From location" readonly>
+  <input type="text" id="to-destination" placeholder="To location" readonly>
+  
+  <!-- Map container -->
+  <div id="map"></div>
+
+  <script>
+    function initMap() {
+      // Default location (England)
+      const england = { lat: 52.3555, lng: -1.1743 };
+
+      // Initialize the map
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 7,
+        center: england,
+      });
+
+      // Add two markers, one for each destination
+      const fromMarker = new google.maps.Marker({
+        position: england,
+        map: map,
+        draggable: true, // Allow dragging the pin
+        title: 'From Location',
+      });
+
+      const toMarker = new google.maps.Marker({
+        position: england,
+        map: map,
+        draggable: true, // Allow dragging the pin
+        title: 'To Location',
+      });
+
+      // Initialize Geocoder
+      const geocoder = new google.maps.Geocoder();
+
+      // Function to update the address input based on the marker position
+      function updateAddress(location, destination) {
+        geocoder.geocode({ location: location }, function(results, status) {
+          if (status === "OK" && results[0]) {
+            // Set the formatted address to the corresponding input field
+            if (destination === 'from') {
+              $("#from-destination").val(results[0].formatted_address);
+            } else if (destination === 'to') {
+              $("#to-destination").val(results[0].formatted_address);
+            }
+          } else {
+            console.error("Geocoder failed due to: " + status);
+            if (destination === 'from') {
+              $("#from-destination").val("Unable to retrieve address");
+            } else {
+              $("#to-destination").val("Unable to retrieve address");
+            }
+          }
         });
-    </script>
-    
+      }
+
+      // Update initial address based on the default marker positions
+      updateAddress(fromMarker.getPosition(), 'from');
+      updateAddress(toMarker.getPosition(), 'to');
+
+      // Add event listeners for the markers to update the addresses
+      google.maps.event.addListener(fromMarker, "dragend", function() {
+        updateAddress(fromMarker.getPosition(), 'from');
+      });
+
+      google.maps.event.addListener(toMarker, "dragend", function() {
+        updateAddress(toMarker.getPosition(), 'to');
+      });
+
+      // Add click event listener on the map to place markers
+      google.maps.event.addListener(map, "click", function(event) {
+        // Place the 'from' marker if it's the first click
+        if ($("#from-destination").val() === "") {
+          fromMarker.setPosition(event.latLng);
+          updateAddress(event.latLng, 'from');
+        } 
+        // Place the 'to' marker if the 'from' is already set
+        else if ($("#to-destination").val() === "") {
+          toMarker.setPosition(event.latLng);
+          updateAddress(event.latLng, 'to');
+        }
+      });
+    }
+  </script>
+
 </body>
 </html>

@@ -10,11 +10,11 @@ $(document).ready(function () {
       var destinations = $(this).closest('.hfb-destinations');
       var hfg_from = destinations.find('.hfg-from');
       var hfg_to = destinations.find('.hfg-to');
-      let hfgf_val = hfg_from.find('select').val();
-      let hfgt_val = hfg_to.find('select').val();
+      let hfgf_val = hfg_from.find('input').val();
+      let hfgt_val = hfg_to.find('input').val();
 
-      hfg_from.find('select').val(hfgt_val).trigger('change');
-      hfg_to.find('select').val(hfgf_val).trigger('change');
+      hfg_from.find('input').val(hfgt_val).trigger('change');
+      hfg_to.find('input').val(hfgf_val).trigger('change');
     });
   });
 
@@ -246,9 +246,11 @@ $(document).ready(function () {
     if (targetFormType == 'one-way') {
       $('.hf-form').removeClass('hff-round-trip');
       $('.hf-form').addClass('hff-single-trip');
+      $('.hf-form').find('.hfb-round input').prop('required', false);
     } else if (targetFormType == 'round-trip') {
       $('.hf-form').removeClass('hff-single-trip');
       $('.hf-form').addClass('hff-round-trip');
+      $('.hf-form').find('.hfb-round input').prop('required', true);
     }
     $('.hf-filter-btns').find('.hff-btn').removeClass('active');
     $(this).addClass('active');
@@ -286,69 +288,102 @@ function closeSidebar() {
   }, 500);
 }
 
+function updateFleetImagesAndModels() {
+  console.log("Starting updateFleetImagesAndModels");
+
+  $('.fl-card').each(function () {
+    const $card = $(this).parent('div'); // Wrap the card in a jQuery object
+    const models = $card.data('models'); // Get and parse data-models
+    const images = $card.data('images'); // Get and parse data-images
+    console.log("Card:", $card, "Models:", models);
+
+    // Get the first image and model elements
+    const $imageElement = $card.find('.lc-img');
+    const $titleElement = $card.find('.lc-title');
+
+    let index = 0; // Initialize index for cycling through models and images
+    const total = models.length; // Get the total number of models/images
+
+    // Function to update the image and model
+    function updateContent() {
+      $imageElement.attr('src', `./assets/img/fleet-imgs/${images[index]}`);
+      $imageElement.attr('alt', `${$card.data('seater')} ${$card.data('class')} - ${models[index]}`);
+      $titleElement.text(models[index]);
+
+      // Cycle to the next index
+      index = (index + 1) % total;
+    }
+
+    // Start automatic looping with a 2-second interval
+    setInterval(updateContent, 2000);
+
+    // Optionally, you can update immediately before the interval starts
+    updateContent();
+  });
+}
+
+
 
 function getFleetHtml(fleet) {
-
   let featuresHtml = "";
   fleet.features.forEach(feature => {
     let featureSlug = feature.toLowerCase().replace(/[^a-z0-9]/g, "");
     featuresHtml += `<span><img src='./assets/img/feature-icons/${featureSlug}.svg' alt='${feature}' class='lc-feature-img'></span>`;
   });
 
-  let fleetHtml = '';
-  fleetHtml = `
-      <div class="col-xl-4 col-lg-6 pb-4" data-class="${fleet.class.toLowerCase()}" data-seater="${fleet.seat_capacity}">
-        <div class="landing-card">
-          <div class="p-3 d-flex flex-column gap-4">
-            <a href="#" class="lc-top d-block">
-              <img src="./assets/img/fleet-imgs/${fleet.image}" alt="${fleet.seat_capacity} ${fleet.bus_type}" class="lc-img" loading="lazy">
-            </a>
-            <div class="lc-bottom">
-              <div class="d-flex flex-column gap-2">
-                <div class="fleet-class mb-1">
-                  <span class="lh-1">${fleet.class} Coach</span>
-                </div>
-                <div class="d-flex gap-2 text-black flex-wrap fw-semibold">
-                  <span class="lh-sm">${fleet.seat_capacity}</span>
-                  <span class="center-line mx-1"></span>
-                  <span class="lh-sm">${fleet.bus_type}</span>
-                </div>
-                <a href="#" class="fw-semibold lh-sm d-block text-black my-1 lc-title">
-                  ${fleet.model}
-                </a>
-                <div class="d-flex gap-2 text-black flex-wrap fw-normal mb-1">
-                  <span class="lh-sm">${fleet.luggage} Luggage bags</span>
-                  <span class="center-line mx-1"></span>
-                  <span class="lh-sm">${fleet.cabin} Cabin bags</span>
-                </div>
-                <div class="d-flex align-items-center lc-features">
-                  ${featuresHtml}
-                </div>
-                <p class="mb-0 text-dark lc-extras">(${fleet.extra_features})</p>
+  // Normalize model and image to arrays for consistency
+  const models = Array.isArray(fleet.model) ? fleet.model : [fleet.model];
+  const images = Array.isArray(fleet.image) ? fleet.image : [fleet.image];
+
+  let fleetHtml = `
+    <div class="col-xl-4 col-lg-6 pb-4" data-class="${fleet.class.toLowerCase()}" data-seater="${fleet.seat_capacity}" 
+         data-models='${JSON.stringify(models)}' data-images='${JSON.stringify(images)}'>
+      <div class="landing-card fl-card">
+        <div class="p-3 d-flex flex-column gap-4">
+          <a href="#" class="lc-top d-block">
+            <img src="./assets/img/fleet-imgs/${images[0]}" alt="${fleet.seat_capacity} ${fleet.bus_type}" class="lc-img" id="fleet-image-0">
+          </a>
+          <div class="lc-bottom">
+            <div class="d-flex flex-column gap-2">
+              <div class="fleet-class mb-1">
+                <span class="lh-1">${fleet.class} Coach</span>
               </div>
+              <div class="d-flex gap-2 text-black flex-wrap fw-semibold">
+                <span class="lh-sm">${fleet.seat_capacity}</span>
+                <span class="center-line mx-1"></span>
+                <span class="lh-sm">${fleet.bus_type}</span>
+              </div>
+              <a href="#" class="fw-semibold lh-sm d-block text-black my-1 lc-title" id="fleet-title-0">
+                ${models[0]}
+              </a>
+              <div class="d-flex gap-2 text-black flex-wrap fw-normal mb-1">
+                <span class="lh-sm">${fleet.luggage} Luggage bags</span>
+                <span class="center-line mx-1"></span>
+                <span class="lh-sm">${fleet.cabin} Cabin bags</span>
+              </div>
+              <div class="d-flex align-items-center lc-features">
+                ${featuresHtml}
+              </div>
+              <p class="mb-0 text-dark lc-extras">(${fleet.extra_features})</p>
             </div>
           </div>
         </div>
-      </div>`;
+      </div>
+    </div>`;
 
   return fleetHtml;
 }
+
 
 // Function to populate seating capacity dropdown
 function populateSeatingDropdown(selector) {
   $.getJSON("./assets/data/fleets.json", function (data) {
     let seatingOptions = new Array;
 
-    $.each(data, function (index, fleet) {
-      seatingOptions.push(fleet.seat_capacity);
-    });
-
-
-    let sortedOptions = Array.from(seatingOptions).sort();
-    console.log(seatingOptions, sortedOptions);
     $(selector).append(`<option value="all">All</option>`);
-    sortedOptions.forEach(function (capacity) {
-      $(selector).append(`<option value="${capacity}">${capacity}</option>`);
+    $.each(data, function (index, fleet) {
+      $(selector).append(`<option value="${fleet.seat_capacity}">${fleet.seat_capacity}</option>`);
+      $('#bp_vehicle_type').append(`<option value="${fleet.seat_capacity} Seater - ${fleet.model}  ">${fleet.seat_capacity} Seater - ${fleet.model} </option>`);
     });
   });
 
@@ -437,6 +472,8 @@ function showPage(page) {
   } else {
     $('.fp-next').removeClass('disabled');
   }
+
+  updateFleetImagesAndModels();
 }
 
 
@@ -467,28 +504,30 @@ function filterFleets() {
 
 $(document).ready(function () {
   populateSeatingDropdown("#seatingCapacity");
-  populateFleetsRow();
-
-  // Attach event listeners for pagination buttons
-  $('.fp-prev').on('click', function () {
-    showPage(currentPage - 1);
-    console.log(currentPage - 1);
-  });
-
-  $('.fp-next').on('click', function () {
-    showPage(currentPage + 1);
-    console.log(currentPage + 1);
-  });
-
-  // Apply filters and initialize the pagination on dropdown change
-  $('#coachType, #seatingCapacity').change(function () {
-    filterFleets();
-  });
-
-  // Initialize with the first page
-  setTimeout(() => {
-    filterFleets();
-  }, 1000);
+  if($('body').hasClass('homepage')){
+    populateFleetsRow();
+  
+    // Attach event listeners for pagination buttons
+    $('.fp-prev').on('click', function () {
+      showPage(currentPage - 1);
+      console.log(currentPage - 1);
+    });
+  
+    $('.fp-next').on('click', function () {
+      showPage(currentPage + 1);
+      console.log(currentPage + 1);
+    });
+  
+    // Apply filters and initialize the pagination on dropdown change
+    $('#coachType, #seatingCapacity').change(function () {
+      filterFleets();
+    });
+  
+    // Initialize with the first page
+    setTimeout(() => {
+      filterFleets();
+    }, 1000);
+  }
 });
 
 
@@ -512,7 +551,7 @@ $(document).ready(function () {
                   </svg>
                 </a>
                 <a href="#" class="lc-top d-block">
-                  <img src="./assets/img/tours/${tour.image}" alt="${tour.title}" class="tc-img" loading="lazy">
+                  <img src="./assets/img/tours/${tour.image}" alt="${tour.title}" class="tc-img" >
                 </a>
               </div>
               <div class="lc-bottom">
@@ -622,7 +661,7 @@ function populateDiscountCarousel(offers) {
                                   <p class="mb-0 dc-note">*terms and conditions apply</p>
                               </div>
                               <div class="mt-3">
-                                  <a href="#" class="btn dc-btn text-white fw-bold">Book Now</a>
+                                  <a href="#hero" class="btn dc-btn text-white fw-bold">Book Now</a>
                               </div>
                           </div>
                       </div>
@@ -630,7 +669,7 @@ function populateDiscountCarousel(offers) {
               </div>
           </div>
       `;
-      console.log(offer.percentage);
+    console.log(offer.percentage);
     carouselContainer.append(slide);
   });
 
@@ -676,9 +715,147 @@ function populateDiscountCarousel(offers) {
   });
 }
 
+function initMap() {
+  // Default location (England)
+  const england = { lat: 52.3555, lng: -1.1743 };
+  const toInitial = { lat: 52.3555, lng: -1.1743 };
+  const fromInitial = { lat: 53.3555, lng: -1.5743 };
+
+  // Initialize the map for the "From" location
+  const fromMap = new google.maps.Map(document.getElementById("from-map"), {
+    zoom: 7,
+    center: england,
+  });
+
+  // Initialize the map for the "To" location
+  const toMap = new google.maps.Map(document.getElementById("to-map"), {
+    zoom: 7,
+    center: england,
+  });
+
+  // Create a marker for the "From" location
+  const fromMarker = new google.maps.Marker({
+    position: fromInitial,
+    map: fromMap,
+    draggable: true, // Allow dragging the pin
+    title: 'From Location',
+  });
+
+  // Create a marker for the "To" location
+  const toMarker = new google.maps.Marker({
+    position: toInitial,
+    map: toMap,
+    draggable: true, // Allow dragging the pin
+    title: 'To Location',
+  });
+
+  // Initialize Geocoder
+  const geocoder = new google.maps.Geocoder();
+
+  // Function to update the address input based on the marker position
+  function updateAddress(location, destination) {
+    geocoder.geocode({ location: location }, function (results, status) {
+      if (status === "OK" && results[0]) {
+        // Set the formatted address to the corresponding input field
+        if (destination === 'from') {
+          $("#from-destination").val(results[0].formatted_address);
+          $("#booking-form").trigger('input');
+        } else if (destination === 'to') {
+          $("#to-destination").val(results[0].formatted_address);
+          $("#booking-form").trigger('input');
+        }
+      } else {
+        console.error("Geocoder failed due to: " + status);
+        if (destination === 'from') {
+          $("#from-destination").val("Unable to retrieve address");
+        } else {
+          $("#to-destination").val("Unable to retrieve address");
+        }
+      }
+    });
+  }
+
+  // Add event listeners for the "From" marker to update the address
+  google.maps.event.addListener(fromMarker, "dragend", function () {
+    updateAddress(fromMarker.getPosition(), 'from');
+  });
+
+  // Add event listeners for the "To" marker to update the address
+  google.maps.event.addListener(toMarker, "dragend", function () {
+    updateAddress(toMarker.getPosition(), 'to');
+  });
+
+  // Add click event listeners to the "From" map to place marker
+  google.maps.event.addListener(fromMap, "click", function (event) {
+    fromMarker.setPosition(event.latLng);
+    updateAddress(event.latLng, 'from');
+  });
+
+  // Add click event listeners to the "To" map to place marker
+  google.maps.event.addListener(toMap, "click", function (event) {
+    toMarker.setPosition(event.latLng);
+    updateAddress(event.latLng, 'to');
+  });
+}
+
+
+function checkBookingForm() {
+  
+  console.log(232323);
+  let isValid = true;  // Flag to track if form is valid
+
+  // Loop through all form elements that might have the 'required' attribute
+  $("#booking-form :input").each(function () {
+    // Check if the element has the 'required' attribute
+    if ($(this).prop("required")) {
+      // If the field is empty, apply a red border and set the form as invalid
+      if ($(this).val() === "") {
+        console.log($(this));
+        if ($(this).hasClass('no-box')) {
+          $(this).addClass('hff-error');
+        }else{
+          $(this).closest('.hff-box').addClass('hff-error');
+        }
+        isValid = false;
+      } else {
+        // If the field is filled, remove the red border
+        if ($(this).hasClass('no-box')) {
+          $(this).removeClass('hff-error');
+        }else{
+          $(this).closest('.hff-box').removeClass('hff-error');
+        }
+      }
+    }
+  });
+
+  // Prevent form submission if any required field is empty
+  if (!isValid) {
+    return false;
+  }
+
+  // If all required fields are filled, allow form submission
+  return true;
+}
+
 // Fetch the offers data from offers.json and populate the carousel
 $(document).ready(function () {
   $.getJSON('./assets/data/offers.json', function (offers) {
     populateDiscountCarousel(offers);
   });
+
+  $('#from-destination').on('click', function () {
+    $('#fromModal').modal('show');
+  })
+
+  $('#to-destination').on('click', function () {
+    $('#toModal').modal('show');
+  })
+
+  $('#booking-form').on('submit', function (e) {
+    
+    if(!checkBookingForm()){
+      e.preventDefault();
+      $('#bf-error').html(`<div class="alert alert-danger">The form has errors, resolve them and submit again!</div>`);
+    }
+  })
 });

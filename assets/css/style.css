@@ -914,25 +914,27 @@ footer {
 }
 
 .discounts-carousel .slick-track,
-.testimonials-carousel .slick-track{
+.testimonials-carousel .slick-track {
     align-items: unset;
 }
 
 .discounts-carousel .slide,
-.testimonials-carousel .slide{
+.testimonials-carousel .slide {
     height: unset;
 }
-.discount-card{
+
+.discount-card {
     height: 100%;
 }
 
-.discount-card>div{
+.discount-card>div {
     height: 100%;
 }
 
-.dc-inner{
+.dc-inner {
     height: 100%;
 }
+
 .tc-user-img {
     height: 40px;
     width: 40px;
@@ -1555,42 +1557,58 @@ footer {
     cursor: not-allowed
 }
 
-.tcc-details{
+.tcc-details {
     gap: 2px;
 }
-.tcc-desc{
+
+.tcc-desc {
     color: #525252;
 }
 
-.tours-icons{
+.tours-icons {
     height: auto;
     width: auto;
     max-width: 28px;
     max-height: 20px;
 }
 
-.fleets-sec{
+.fleets-sec {
     margin-top: -24px;
 }
 
-.cg-card{
+.cg-card {
     overflow: hidden;
     border-radius: 20px;
     border: 1px solid #E5E5E5;
     height: 100%;
 }
 
-.cgc-bottom{
+.cgc-bottom {
     padding: 14px;
     background-color: #FAFAFA;
 }
 
-.cgc-img{
+.cgc-img {
     height: 230px;
     aspect-ratio: 30/23;
     width: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+#from-map,
+#to-map {
+    height: 500px;
+    width: 100%;
+}
+
+.bp-select {
+    border-radius: 0 !important;
+    padding: 0 10px !important;
+}
+div.hff-error,
+textarea.hff-error{
+    border-color: red !important;
 }
 @media (min-width: 1200px) {}
 

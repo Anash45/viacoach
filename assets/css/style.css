@@ -83,7 +83,7 @@ header {
     top: 50%;
     left: 0;
     transform: translateY(-50%) translateX(-8%);
-    /* width: 100%; */
+    width: 130% !important;
     height: 97px;
     z-index: 0;
 }
@@ -1775,6 +1775,7 @@ textarea.hff-error{
 
     .hcct-bg {
         height: 65px;
+        width: 110% !important;
     }
 
     .social-icon {

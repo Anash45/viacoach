@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Prepare email
     $to = "futuretest45@gmail.com"; // Replace with the recipient's email
     $subject = "Viacoach - New Booking Request";
-    $headers = "From: $email\r\n";
+    $headers = "From: Viacoach webmaster - <webmaster@travelviacoach.com>\r\n";
     $headers .= "Reply-To: $email\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";

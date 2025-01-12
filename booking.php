@@ -1183,6 +1183,10 @@ if (isset($_REQUEST['get_quote'])) {
                     <div class="modal-body">
                         <div id="from-map"></div>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">Confirm</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1194,6 +1198,10 @@ if (isset($_REQUEST['get_quote'])) {
                     </div>
                     <div class="modal-body">
                         <div id="to-map"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">Confirm</button>
                     </div>
                 </div>
             </div>

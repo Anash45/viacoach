@@ -55,8 +55,8 @@
                                 <h2 class="hcc-title fw-normal d-flex flex-column mb-3">
                                     <span class="lh-sm hcct-1 text-white"> Book the Best Tours </span>
                                     <span class="ins-serif hcct-2">
-                                        <img src="./assets/img/ferozi-blob-1.svg" alt="Blob" class="hcct-bg">
-                                        <span class="position-relative z-1">Coach In UK</span>
+                                        <img src="./assets/img/ferozi-blob-1.png" alt="Blob" class="hcct-bg">
+                                        <span class="position-relative z-1">Coach Hire In UK</span>
                                     </span>
                                 </h2>
                                 <p class="text-white mb-0 hc-desc">Book now a free executive coach upgrade</p>
@@ -166,7 +166,9 @@
                                                         </span>
                                                         <div
                                                             class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
-                                                            <input type="text" id="from-destination" name="from" placeholder="From..." readonly class="hf-inp p-0 border-0" required>
+                                                            <input type="text" id="from-destination" name="from"
+                                                                placeholder="From..." readonly
+                                                                class="hf-inp p-0 border-0" required>
                                                             <!-- <span class="hff-small">Main stop</span> -->
                                                         </div>
                                                     </div>
@@ -202,7 +204,9 @@
                                                         </span>
                                                         <div
                                                             class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
-                                                            <input type="text" id="to-destination" name="to" placeholder="To..." readonly class="hf-inp p-0 border-0" required>
+                                                            <input type="text" id="to-destination" name="to"
+                                                                placeholder="To..." readonly class="hf-inp p-0 border-0"
+                                                                required>
                                                             <!-- <span class="hff-small">Airport stop</span> -->
                                                         </div>
                                                     </div>
@@ -237,7 +241,8 @@
                                                             <div
                                                                 class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
                                                                 <input type="text" class="hf-date hf-inp p-0 border-0"
-                                                                    placeholder="eg: 20 Jan 25" name="pickup-date" required>
+                                                                    placeholder="eg: 20 Jan 25" name="pickup-date"
+                                                                    required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -381,8 +386,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" name="get_quote" class="btn hff-submit-btn btn-ferozi w-100">Get Instant
-                                        Quote</button>
+                                    <button type="submit" name="get_quote"
+                                        class="btn hff-submit-btn btn-ferozi w-100">Get Instant Quote</button>
                                 </form>
                             </div>
                         </div>
@@ -2757,8 +2762,12 @@
                     <div class="modal-header">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body"> 
+                    <div class="modal-body">
                         <div id="from-map"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">Confirm</button>
                     </div>
                 </div>
             </div>
@@ -2769,8 +2778,12 @@
                     <div class="modal-header">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body"> 
+                    <div class="modal-body">
                         <div id="to-map"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">Confirm</button>
                     </div>
                 </div>
             </div>
@@ -2780,7 +2793,9 @@
         <script src="./assets/js/slick.min.js"></script>
         <script src="./assets/js/select2.min.js"></script>
         <script src="./assets/js/jquery-ui.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCGxZXJ2gpN_is2UY1AXp98MN7sQHpIKk&callback=initMap&libraries=places" async defer></script>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCGxZXJ2gpN_is2UY1AXp98MN7sQHpIKk&callback=initMap&libraries=places"
+            async defer></script>
         <script src="./assets/js/custom.js?v=2"></script>
     </body>
 

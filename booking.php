@@ -1185,7 +1185,7 @@ if (isset($_REQUEST['get_quote'])) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-success">Confirm</button>
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Confirm</button>
                     </div>
                 </div>
             </div>
@@ -1201,7 +1201,7 @@ if (isset($_REQUEST['get_quote'])) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-success">Confirm</button>
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Confirm</button>
                     </div>
                 </div>
             </div>

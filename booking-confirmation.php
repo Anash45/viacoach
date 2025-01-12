@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Prepare email
     $to = "futuretest45@gmail.com"; // Replace with the recipient's email
     $subject = "Viacoach - New Booking Request";
-    $headers = "From: Viacoach webmaster - <webmaster@travelviacoach.com>\r\n";
+    $headers = "From: Viacoach webmaster - <webmaster@booknow.travelviacoach.com>\r\n";
     $headers .= "Reply-To: $email\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <link rel="stylesheet" href="./assets/css/slick.css">
         <link rel="stylesheet" href="./assets/css/select2.min.css">
         <link rel="stylesheet" href="./assets/css/jquery-ui.css">
-        <link rel="stylesheet" href="./assets/css/style.css?v=3">
+        <link rel="stylesheet" href="./assets/css/style.css?v=2">
     </head>
 
     <body>
@@ -402,7 +402,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <script src="./assets/js/slick.min.js"></script>
         <script src="./assets/js/select2.min.js"></script>
         <script src="./assets/js/jquery-ui.min.js"></script>
-        <script src="./assets/js/custom.js?v=3"></script>
+        <script src="./assets/js/custom.js?v=2"></script>
     </body>
 
 </html>

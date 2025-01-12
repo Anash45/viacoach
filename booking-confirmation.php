@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <link rel="stylesheet" href="./assets/css/slick.css">
         <link rel="stylesheet" href="./assets/css/select2.min.css">
         <link rel="stylesheet" href="./assets/css/jquery-ui.css">
-        <link rel="stylesheet" href="./assets/css/style.css?v=2">
+        <link rel="stylesheet" href="./assets/css/style.css?v=3">
     </head>
 
     <body>
@@ -402,7 +402,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <script src="./assets/js/slick.min.js"></script>
         <script src="./assets/js/select2.min.js"></script>
         <script src="./assets/js/jquery-ui.min.js"></script>
-        <script src="./assets/js/custom.js?v=2"></script>
+        <script src="./assets/js/custom.js?v=3"></script>
     </body>
 
 </html>

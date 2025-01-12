@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="./assets/css/slick.css">
         <link rel="stylesheet" href="./assets/css/select2.min.css">
         <link rel="stylesheet" href="./assets/css/jquery-ui.css">
-        <link rel="stylesheet" href="./assets/css/style.css?v=2">
+        <link rel="stylesheet" href="./assets/css/style.css?v=3">
     </head>
 
     <body class="homepage">
@@ -2796,7 +2796,7 @@
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCGxZXJ2gpN_is2UY1AXp98MN7sQHpIKk&callback=initMap&libraries=places"
             async defer></script>
-        <script src="./assets/js/custom.js?v=2"></script>
+        <script src="./assets/js/custom.js?v=3"></script>
     </body>
 
 </html>

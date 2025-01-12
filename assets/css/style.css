@@ -323,6 +323,8 @@ header {
     color: #191925 !important;
     font-weight: 600;
     font-size: 14px;
+    box-shadow: none !important;
+    border-radius: 0px !important;
     line-height: 130%;
 }
 

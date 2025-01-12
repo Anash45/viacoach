@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $phone_number = htmlspecialchars(trim($_POST['phone_number'] ?? ''));
 
     // Prepare email
-    $to = "futuretest45@gmail.com"; // Replace with the recipient's email
+    $to = "futuretest45@gmail.com,info@travelviacoach.com"; // Replace with the recipient's email
     $subject = "Viacoach - New Booking Request";
     $headers = "From: Viacoach webmaster - <webmaster@booknow.travelviacoach.com>\r\n";
     $headers .= "Reply-To: $email\r\n";

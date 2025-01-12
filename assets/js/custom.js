@@ -234,7 +234,6 @@ $(document).ready(function () {
   $(document).on('click', function (e) {
     if (!$(e.target).closest('.side-nav').length) {
       let sidebarOpened = $('.aside').attr('data-opened');
-      console.log(sidebarOpened == 'yes');
       if (sidebarOpened == 'yes') {
         closeSidebar();
       }
@@ -289,13 +288,11 @@ function closeSidebar() {
 }
 
 function updateFleetImagesAndModels() {
-  console.log("Starting updateFleetImagesAndModels");
 
   $('.fl-card').each(function () {
     const $card = $(this).parent('div'); // Wrap the card in a jQuery object
     const models = $card.data('models'); // Get and parse data-models
     const images = $card.data('images'); // Get and parse data-images
-    console.log("Card:", $card, "Models:", models);
 
     // Get the first image and model elements
     const $imageElement = $card.find('.lc-img');
@@ -429,7 +426,7 @@ function showPage(page) {
     filteredFleets = fleetsData;
   }
 
-  console.log("Filtered Fleets:", filteredFleets);
+  
 
   const totalItems = filteredFleets.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -437,8 +434,6 @@ function showPage(page) {
   // Ensure the page number is within valid bounds
   page = Math.max(1, Math.min(page, totalPages));
   currentPage = page;
-
-  console.log("Current Page:", page, "Total Pages:", totalPages);
 
   // Clear the fleet container
   $('#fleets-row').empty();
@@ -504,25 +499,23 @@ function filterFleets() {
 
 $(document).ready(function () {
   populateSeatingDropdown("#seatingCapacity");
-  if($('body').hasClass('homepage')){
+  if ($('body').hasClass('homepage')) {
     populateFleetsRow();
-  
+
     // Attach event listeners for pagination buttons
     $('.fp-prev').on('click', function () {
       showPage(currentPage - 1);
-      console.log(currentPage - 1);
     });
-  
+
     $('.fp-next').on('click', function () {
       showPage(currentPage + 1);
-      console.log(currentPage + 1);
     });
-  
+
     // Apply filters and initialize the pagination on dropdown change
     $('#coachType, #seatingCapacity').change(function () {
       filterFleets();
     });
-  
+
     // Initialize with the first page
     setTimeout(() => {
       filterFleets();
@@ -669,7 +662,6 @@ function populateDiscountCarousel(offers) {
               </div>
           </div>
       `;
-    console.log(offer.percentage);
     carouselContainer.append(slide);
   });
 
@@ -785,14 +777,14 @@ function initMap() {
     updateAddress(toMarker.getPosition(), 'to');
   });
 
-  // Add click event listeners to the "From" map to place marker
-  google.maps.event.addListener(fromMap, "click", function (event) {
+  // Add focus event listeners to the "From" map to place marker
+  google.maps.event.addListener(fromMap, "focus", function (event) {
     fromMarker.setPosition(event.latLng);
     updateAddress(event.latLng, 'from');
   });
 
-  // Add click event listeners to the "To" map to place marker
-  google.maps.event.addListener(toMap, "click", function (event) {
+  // Add focus event listeners to the "To" map to place marker
+  google.maps.event.addListener(toMap, "focus", function (event) {
     toMarker.setPosition(event.latLng);
     updateAddress(event.latLng, 'to');
   });
@@ -800,8 +792,6 @@ function initMap() {
 
 
 function checkBookingForm() {
-  
-  console.log(232323);
   let isValid = true;  // Flag to track if form is valid
 
   // Loop through all form elements that might have the 'required' attribute
@@ -810,10 +800,9 @@ function checkBookingForm() {
     if ($(this).prop("required")) {
       // If the field is empty, apply a red border and set the form as invalid
       if ($(this).val() === "") {
-        console.log($(this));
         if ($(this).hasClass('no-box')) {
           $(this).addClass('hff-error');
-        }else{
+        } else {
           $(this).closest('.hff-box').addClass('hff-error');
         }
         isValid = false;
@@ -821,7 +810,7 @@ function checkBookingForm() {
         // If the field is filled, remove the red border
         if ($(this).hasClass('no-box')) {
           $(this).removeClass('hff-error');
-        }else{
+        } else {
           $(this).closest('.hff-box').removeClass('hff-error');
         }
       }
@@ -852,10 +841,40 @@ $(document).ready(function () {
   })
 
   $('#booking-form').on('submit', function (e) {
-    
-    if(!checkBookingForm()){
+
+    if (!checkBookingForm()) {
       e.preventDefault();
       $('#bf-error').html(`<div class="alert alert-danger">The form has errors, resolve them and submit again!</div>`);
     }
   })
+
+  $('.hff-box').find(':input').on('click', function (e) {
+    e.stopPropagation();
+  })
+  
+  $('.hff-box').on('click', function (event) {
+    event.stopPropagation();
+    console.log('Box clicked');
+  
+    // Check for `.hff-group` elements inside the clicked `.hff-box`
+    const $hfgGroups = $(this).find('.hff-group');
+  
+    if ($hfgGroups.length > 1) {
+      // Multiple `.hff-group` scenario
+      const $clickedGroup = $(event.target).closest('.hff-group');
+  
+      if ($clickedGroup.length) {
+        // Focus input within the clicked `.hff-group`
+        $clickedGroup.find(':input').trigger('focus');
+      } else {
+        // Focus input within the first `.hff-group` if no specific group was clicked
+        $hfgGroups.first().find(':input').trigger('focus');
+      }
+    } else if ($hfgGroups.length === 1) {
+      // Single `.hff-group` scenario
+      $hfgGroups.find(':input').trigger('focus');
+    }
+  });
+  
+
 });

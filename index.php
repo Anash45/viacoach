@@ -167,7 +167,7 @@
                                                         <div
                                                             class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
                                                             <input type="text" id="from-destination" name="from"
-                                                                placeholder="From..." readonly
+                                                                placeholder="From..."
                                                                 class="hf-inp p-0 border-0" required>
                                                             <!-- <span class="hff-small">Main stop</span> -->
                                                         </div>
@@ -205,7 +205,7 @@
                                                         <div
                                                             class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
                                                             <input type="text" id="to-destination" name="to"
-                                                                placeholder="To..." readonly class="hf-inp p-0 border-0"
+                                                                placeholder="To..." class="hf-inp p-0 border-0"
                                                                 required>
                                                             <!-- <span class="hff-small">Airport stop</span> -->
                                                         </div>
@@ -290,19 +290,7 @@
                                                             </span>
                                                             <div
                                                                 class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
-                                                                <select name="passengers" class="hf-select">
-                                                                    <option value="">Select persons</option>
-                                                                    <option value="1 adult" selected>1 adult</option>
-                                                                    <option value="2 adults">2 adults</option>
-                                                                    <option value="3 adults">3 adults</option>
-                                                                    <option value="4 adults">4 adults</option>
-                                                                    <option value="5 adults">5 adults</option>
-                                                                    <option value="6 adults">6 adults</option>
-                                                                    <option value="7 adults">7 adults</option>
-                                                                    <option value="8 adults">8 adults</option>
-                                                                    <option value="9 adults">9 adults</option>
-                                                                    <option value="10+ adults">10+ adults</option>
-                                                                </select>
+                                                                <input type="number" class="hf-inp form-control p-0 border-0">
                                                             </div>
                                                         </div>
                                                     </div>

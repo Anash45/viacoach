@@ -97,12 +97,12 @@ if (isset($_REQUEST['get_quote'])) {
     try {
         // Server settings
         $mail->isSMTP();
-        $mail->Host = 'getquotenow.travelviacoach.com'; // Replace with your SMTP host
+        $mail->Host = 'mail.getquotenow.travelviacoach.com'; // Replace with your SMTP host
         $mail->SMTPAuth = true;
         $mail->Username = 'webmaster@getquotenow.travelviacoach.com'; // Replace with your email
         $mail->Password = ',}{EnQ52w9N%';   // Replace with your email password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 465;
+        $mail->Port = 587;
 
         // Recipients
         $mail->setFrom('webmaster@getquotenow.travelviacoach.com', 'Viacoach'); // Sender email and name

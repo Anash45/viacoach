@@ -1,15 +1,8 @@
 <?php
-print_r($_REQUEST);
-// $name = $_REQUEST['name'] ?? null;
-// $email = $_REQUEST['email'] ?? null;
-// $to = $_REQUEST['to'] ?? null;
-// $from = $_REQUEST['from'] ?? null;
-// $pickup_date = $_REQUEST['pickup-date'] ?? null;
-// $return_date = $_REQUEST['return-date'] ?? null;
-// $passengers = $_REQUEST['passengers'] ?? 0;
-// $cabin_bags = $_REQUEST['cabin-bags'] ?? 0;
-// $luggage_bags = $_REQUEST['luggage-bags'] ?? 0;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
+require 'vendor/autoload.php'; // Load PHPMailer via Composer autoload
 
 if (isset($_REQUEST['get_quote'])) {
     // Retrieve form data with fallback defaults
@@ -38,14 +31,6 @@ if (isset($_REQUEST['get_quote'])) {
     $luggage_bags = $_REQUEST['luggage_bags'] ?? 0;
     $additional_info = $_REQUEST['additional_info'] ?? null;
 
-    // Prepare email
-    $to = "futuretest45@gmail.com,info@travelviacoach.com";
-    $subject = "Viacoach - New Booking Request";
-    $headers = "From: Viacoach Webmaster <webmaster@getquotenow.travelviacoach.com>\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-
     // Build Google Maps links
     $from_map_link = !empty($from_lat) && !empty($from_lng) 
         ? "<a href='https://www.google.com/maps?q={$from_lat},{$from_lng}' target='_blank'>View on Map</a>" 
@@ -60,7 +45,7 @@ if (isset($_REQUEST['get_quote'])) {
         : "Not available";
 
     // Build email content
-    $message = "
+    $email_body = "
     <html>
         <head>
             <style>
@@ -69,7 +54,6 @@ if (isset($_REQUEST['get_quote'])) {
                 .header { background-color: rgb(0, 31, 63); padding: 20px; text-align: center; color: #ffffff; border-radius: 8px 8px 0 0; }
                 .content { padding: 20px; color: #333333; }
                 .footer { text-align: center; font-size: 12px; margin-top: 10px; color: #777777; }
-                .button { display: inline-block; padding: 10px 20px; margin-top: 10px; background-color: #ec4621; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
             </style>
         </head>
         <body>
@@ -82,8 +66,8 @@ if (isset($_REQUEST['get_quote'])) {
                     <p><strong>Email:</strong> {$email}</p>
                     <p><strong>Phone:</strong> {$phone}</p>
                     <p><strong>Hire Reason:</strong> {$hire_reason}</p>
-                    <p><strong>Pickup Location:</strong> {$from} (Lat: {$from_lat}, Lng: {$from_lng}) {$from_map_link}</p>
-                    <p><strong>Dropoff Location:</strong> {$to} (Lat: {$to_lat}, Lng: {$to_lng}) {$to_map_link}</p>
+                    <p><strong>Pickup Location:</strong> {$from} {$from_map_link}</p>
+                    <p><strong>Dropoff Location:</strong> {$to} {$to_map_link}</p>
                     <p><strong>Pickup Date & Time:</strong> {$pickup_date} at {$pickup_time}</p>
                     <p><strong>Passengers:</strong> {$passengers}</p>
                     <p><strong>Vehicle Size:</strong> {$vehicle_size}</p>
@@ -91,15 +75,13 @@ if (isset($_REQUEST['get_quote'])) {
                     <p><strong>Cabin Bags:</strong> {$cabin_bags}</p>
                     <p><strong>Luggage Bags:</strong> {$luggage_bags}</p>
                     <p><strong>Additional Info:</strong> {$additional_info}</p>";
-
     if (!empty($return_dropoff)) {
-        $message .= "
-                    <p><strong>Return Dropoff:</strong> {$return_dropoff} (Lat: {$return_lat}, Lng: {$return_lng}) {$return_map_link}</p>
+        $email_body .= "
+                    <p><strong>Return Dropoff:</strong> {$return_dropoff} {$return_map_link}</p>
                     <p><strong>Return Dropoff Date & Time:</strong> {$return_dropoff_date} at {$return_dropoff_time}</p>
                     <p><strong>Return Passengers:</strong> {$return_passengers}</p>";
     }
-
-    $message .= "
+    $email_body .= "
                 </div>
                 <div class='footer'>
                     <p>&copy; Viacoach. All rights reserved.</p>
@@ -108,25 +90,45 @@ if (isset($_REQUEST['get_quote'])) {
         </body>
     </html>";
 
-    // Send email
-    if (mail($to, $subject, $message, $headers)) {
+    // Send email using PHPMailer
+    $mail = new PHPMailer(true);
+
+    try {
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host = 'getquotenow.travelviacoach.com'; // Replace with your SMTP host
+        $mail->SMTPAuth = true;
+        $mail->Username = 'webmaster@getquotenow.travelviacoach.com'; // Replace with your email
+        $mail->Password = ',}{EnQ52w9N%';   // Replace with your email password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 465;
+
+        // Recipients
+        $mail->setFrom('webmaster@getquotenow.travelviacoach.com', 'Viacoach'); // Sender email and name
+        $mail->addAddress('futuretest45@gmail.com');
+        $mail->addAddress('info@travelviacoach.com');
+
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = 'Viacoach - New Booking Request';
+        $mail->Body = $email_body;
+
+        $mail->send();
         $info = '<h5 class="fw-medium mb-0 df-title-1 text-main">Provisional Booking Complete! </h5>
-                                    <p class="text-secondary qc-desc my-1"> Thank You! <br><br> We\'ve received your
-                                        request and reserved a slot for your journey. 🎉 <br> Our team is already
-                                        reviewing your details to provide the perfect quote tailored to your needs. <br>
-                                        We appreciate you choosing us and can\'t wait to help make your trip seamless!
-                                        You\'ll hear from us shortly. <br><br> 🚍 Your journey, our priority!<br>The Viacoach Team
-                                    </p>';
-    } else {
+                <p class="text-secondary qc-desc my-1"> Thank You! <br><br> We\'ve received your
+                    request and reserved a slot for your journey. 🎉 <br> Our team is already
+                    reviewing your details to provide the perfect quote tailored to your needs. <br>
+                    We appreciate you choosing us and can\'t wait to help make your trip seamless!
+                    You\'ll hear from us shortly. <br><br> 🚍 Your journey, our priority!<br>The Viacoach Team
+                </p>';
+    } catch (Exception $e) {
         $info = '<h5 class="fw-medium mb-0 df-title-1 text-main">Provisional Booking Failed! </h5>
-                                    <p class="text-secondary qc-desc my-1"> Booking cannot be made at the moment, feel free to <a href="tel:+44208 050 0110">contact us</a>.<br>The Viacoach Team
-                                    </p>';
+                <p class="text-secondary qc-desc my-1"> Booking cannot be made at the moment, feel free to <a href="tel:+44208 050 0110">contact us</a>.<br>The Viacoach Team
+                </p>';
     }
 } else {
-    header('location: index.php');
+    header('Location: index.php');
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

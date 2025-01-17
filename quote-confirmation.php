@@ -4,6 +4,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php'; // Load PHPMailer via Composer autoload
 
+$info = '';
 if (isset($_REQUEST['get_quote'])) {
     // Retrieve form data with fallback defaults
     $name = $_REQUEST['name'] ?? null;

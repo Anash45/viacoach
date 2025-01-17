@@ -108,6 +108,7 @@ if (isset($_REQUEST['get_quote'])) {
         $mail->setFrom('webmaster@getquotenow.travelviacoach.com', 'Viacoach'); // Sender email and name
         $mail->addAddress('futuretest45@gmail.com');
         $mail->addAddress('info@travelviacoach.com');
+        $mail->addAddress('info@f4futuretech.com');
 
         // Content
         $mail->isHTML(true);

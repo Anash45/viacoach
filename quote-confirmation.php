@@ -46,6 +46,19 @@ if (isset($_REQUEST['get_quote'])) {
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
+    // Build Google Maps links
+    $from_map_link = !empty($from_lat) && !empty($from_lng) 
+        ? "<a href='https://www.google.com/maps?q={$from_lat},{$from_lng}' target='_blank'>View on Map</a>" 
+        : "Not available";
+
+    $to_map_link = !empty($to_lat) && !empty($to_lng) 
+        ? "<a href='https://www.google.com/maps?q={$to_lat},{$to_lng}' target='_blank'>View on Map</a>" 
+        : "Not available";
+
+    $return_map_link = !empty($return_lat) && !empty($return_lng) 
+        ? "<a href='https://www.google.com/maps?q={$return_lat},{$return_lng}' target='_blank'>View on Map</a>" 
+        : "Not available";
+
     // Build email content
     $message = "
     <html>
@@ -69,8 +82,8 @@ if (isset($_REQUEST['get_quote'])) {
                     <p><strong>Email:</strong> {$email}</p>
                     <p><strong>Phone:</strong> {$phone}</p>
                     <p><strong>Hire Reason:</strong> {$hire_reason}</p>
-                    <p><strong>Pickup Location:</strong> {$from} (Lat: {$from_lat}, Lng: {$from_lng})</p>
-                    <p><strong>Dropoff Location:</strong> {$to} (Lat: {$to_lat}, Lng: {$to_lng})</p>
+                    <p><strong>Pickup Location:</strong> {$from} (Lat: {$from_lat}, Lng: {$from_lng}) {$from_map_link}</p>
+                    <p><strong>Dropoff Location:</strong> {$to} (Lat: {$to_lat}, Lng: {$to_lng}) {$to_map_link}</p>
                     <p><strong>Pickup Date & Time:</strong> {$pickup_date} at {$pickup_time}</p>
                     <p><strong>Passengers:</strong> {$passengers}</p>
                     <p><strong>Vehicle Size:</strong> {$vehicle_size}</p>
@@ -79,10 +92,9 @@ if (isset($_REQUEST['get_quote'])) {
                     <p><strong>Luggage Bags:</strong> {$luggage_bags}</p>
                     <p><strong>Additional Info:</strong> {$additional_info}</p>";
 
-    // Add return dropoff details only if not empty
     if (!empty($return_dropoff)) {
         $message .= "
-                    <p><strong>Return Dropoff:</strong> {$return_dropoff} (Lat: {$return_lat}, Lng: {$return_lng})</p>
+                    <p><strong>Return Dropoff:</strong> {$return_dropoff} (Lat: {$return_lat}, Lng: {$return_lng}) {$return_map_link}</p>
                     <p><strong>Return Dropoff Date & Time:</strong> {$return_dropoff_date} at {$return_dropoff_time}</p>
                     <p><strong>Return Passengers:</strong> {$return_passengers}</p>";
     }
@@ -106,13 +118,14 @@ if (isset($_REQUEST['get_quote'])) {
                                         You\'ll hear from us shortly. <br><br> 🚍 Your journey, our priority!<br>The Viacoach Team
                                     </p>';
     } else {
-        $info = '<h5 class="fw-medium mb-0 df-title-1 text-main">Provisional Booking Faild! </h5>
-                                    <p class="text-secondary qc-desc my-1"> Booking cannot be made at the momemt, feel free to <a href="tel:+44208 050 0110">contact us</a>.<br>The Viacoach Team
+        $info = '<h5 class="fw-medium mb-0 df-title-1 text-main">Provisional Booking Failed! </h5>
+                                    <p class="text-secondary qc-desc my-1"> Booking cannot be made at the moment, feel free to <a href="tel:+44208 050 0110">contact us</a>.<br>The Viacoach Team
                                     </p>';
     }
-}else{
+} else {
     header('location: index.php');
 }
+
 
 ?>
 <!DOCTYPE html>

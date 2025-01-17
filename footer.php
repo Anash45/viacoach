@@ -119,7 +119,5 @@
 <script src="./assets/js/slick.min.js"></script>
 <script src="./assets/js/select2.min.js"></script>
 <script src="./assets/js/jquery-ui.min.js"></script>
-<script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCGxZXJ2gpN_is2UY1AXp98MN7sQHpIKk&libraries=places"
-    async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCGxZXJ2gpN_is2UY1AXp98MN7sQHpIKk&libraries=places"></script>
 <script src="./assets/js/custom.js?v=3"></script>

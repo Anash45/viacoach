@@ -44,7 +44,41 @@ a {
     background-color: #FFFFFF !important;
     border: 1px solid rgba(255, 255, 255, 0.5) !important;
 }
+.btn-cancel{
+    background-color: #FFFFFF !important;
+    border-color: #000000 !important;
+    border-radius: 100px;
+}
 
+.btn-cancel:hover{
+    color: #FFFFFF !important;
+    background-color: #000000 !important;
+}
+
+.moreCoachesModal .btn{
+    padding: 10px;
+    color: #000000;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.modal-sm{
+    max-width: 530px !important;
+}
+
+.moreCoachesModal .modal-content{
+    padding: 10px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.moreCoachesModal .modal-body{
+    background-color: #FFFFFF !important;
+    border-radius: 20px !important;
+}
 header {
     position: relative;
     border-radius: 20px;
@@ -207,8 +241,16 @@ header {
     max-width: 100%;
     width: 530px;
     position: absolute;
-    top: 62px;
+    top: 80px;
     right: 0;
+    user-select: none; /* Disable text selection for all elements */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.nav-phone{
+    font-size: 20px;
 }
 
 .hero-cont {
@@ -222,7 +264,6 @@ header {
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
 
 }
 
@@ -282,7 +323,7 @@ header {
 .hff-box {
     display: flex;
     flex-direction: column;
-    padding: 6px 16px;
+    padding: 6px 10px;
     border-radius: 12px;
     background-color: rgba(255, 255, 255, 1);
     border: 1px solid rgba(232, 236, 241, 1);
@@ -306,7 +347,7 @@ header {
 }
 
 .hff-label {
-    font-size: 14px;
+    font-size: 13px;
     color: #656E77;
 }
 
@@ -363,16 +404,11 @@ header {
 }
 
 .hfb-round {
-    display: none;
+    display: none !important;
 }
 
 .hff-round-trip .hfb-round {
-    display: flex;
-}
-
-
-.hff-round-trip .hffr-row .hfb-sm {
-    width: calc(33.33% - 4px);
+    display: flex !important;
 }
 
 footer {
@@ -1255,6 +1291,7 @@ footer {
 }
 
 .sn .nav-item {
+    max-width: 240px;
     flex-grow: 1;
 }
 
@@ -1298,7 +1335,7 @@ footer {
     padding: 16px;
     border-radius: 10px;
     border: 1px solid #E8ECF1;
-    background-color: #FFFFFF;
+    background-color: #FAFAFA;
 }
 
 .dc-flex {
@@ -1354,6 +1391,10 @@ footer {
     font-size: 30px;
 }
 
+.df-title-1 {
+    font-size: 50px;
+}
+
 .text-main {
     color: #171717;
 }
@@ -1385,6 +1426,19 @@ footer {
     color: #1F2937;
 }
 
+
+.dfc-inp-sm{
+    height: 14px !important;
+    width: 14px !important;
+}
+
+.dfc-inp-sm:checked{
+    background-size: 8px !important;
+}
+
+.dfc-inp-sm~.dfci-text{
+    font-size: 14px !important;
+}
 .inter {
     font-family: "Inter", sans-serif;
 }
@@ -1444,7 +1498,7 @@ footer {
     background-color: #D4DD66;
     height: 7px;
     border-radius: 10px;
-    width: 60px;
+    flex-grow: 1;
 }
 
 .sn .nav-item.step-active~.sn-progress-pill {
@@ -1598,8 +1652,7 @@ footer {
     object-position: center;
 }
 
-#from-map,
-#to-map {
+#locMap {
     height: 500px;
     width: 100%;
 }
@@ -1612,13 +1665,123 @@ div.hff-error,
 textarea.hff-error{
     border-color: red !important;
 }
+.ui-datepicker{
+    width: 328px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    border: 1px solid #fff;
+}
+
+.ui-datepicker-header{
+    position: relative;
+    padding: 12px !important;
+    background-color: transparent !important;
+    border: 0 !important;
+}
+.ui-datepicker-next{
+    right: 12px !important;
+}
+.ui-datepicker-prev{
+    left: 12px !important;
+}
+
+.ui-datepicker-next,.ui-datepicker-prev{
+    border: 1px solid rgba(232, 236, 241, 1);
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    top: 50% !important;
+    transform: translateY(-50%);
+}
+
+.ui-widget-header .ui-datepicker-prev .ui-icon{
+    background-image: url(../img/arrow-left.svg) !important;
+    background-position: center !important;
+    background-size: 12px !important;
+}
+
+.ui-widget-header .ui-datepicker-next .ui-icon{
+    background-image: url(../img/arrow-right.svg) !important;
+    background-position: center !important;
+    background-size: 12px !important;
+}
+.ui-datepicker-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ui-datepicker-title>select{
+    font-family: "Figtree", sans-serif;
+    background-color: transparent !important;
+    outline: 0 !important;
+    border: 0 !important;
+    font-weight: 600;
+    color: #191925;
+}
+.ui-datepicker-calendar{
+    margin-top: 12px !important;
+    margin-bottom: 0 !important;
+}
+.ui-datepicker-buttonpane{
+    display: none;
+}
+.ui-datepicker-calendar th, .ui-datepicker-calendar td{
+    padding: 0 0 4px !important;
+}
+
+.ui-datepicker-calendar th span, .ui-datepicker-calendar td a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    font-size: 14px !important;
+    color: #1B1C40 !important;
+    width: 40px;
+    background-color: transparent !important;
+    border: 0 !important;
+    border-radius: 100px;
+}
+
+.ui-datepicker-calendar th span{
+    font-weight: 500;
+}
+
+.ui-datepicker-calendar td a{
+    font-weight: 400;
+}
+
+.ui-datepicker-calendar td a.ui-state-active{
+    background-color: #0FE4EA !important;
+    font-weight: 600 !important;
+}
+
+.pac-matched{
+    font-weight: 500;
+}
+.pac-item{
+    font-family: "Nunito Sans", sans-serif;
+    border-top: 0 !important;
+    color: #000000 !important;
+    cursor: pointer !important;
+}
+
+.qc-desc{
+    font-size: 20px;
+}
+
+.text-secondary{
+    line-height: 130% !important;
+    color: #525252 !important;
+}
 @media (min-width: 1200px) {}
 
 @media (min-width: 1400px) {}
 
 @media (max-width: 1400px) {
     .hf-vertical {
-        width: 450px;
+        width: 480px;
     }
 
     .cta-sec {
@@ -1652,6 +1815,10 @@ textarea.hff-error{
     .sc-img {
         width: 100%;
         height: 230px;
+    }
+
+    .header-companies {
+        padding: 20px 0 40px;
     }
 }
 
@@ -1733,15 +1900,20 @@ textarea.hff-error{
     .testimonials-carousel .slick-track {
         gap: 0;
     }
+
+    .hfb-sm {
+        width: 100%;
+        flex-basis: unset;
+    }
+    .df-title-1 {
+        font-size: 36px;
+    }
+
 }
 
 @media (max-width: 576px) {
     .cta-features {
         max-width: 100%;
-    }
-
-    .hfb-sm {
-        flex-basis: unset;
     }
 
     .dc-img {
@@ -1784,11 +1956,6 @@ textarea.hff-error{
         height: 40px;
         width: 40px;
     }
-
-    .hfb-sm {
-        width: 100%;
-    }
-
 
     .sn .sn-progress-pill {
         display: none;

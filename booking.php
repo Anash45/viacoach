@@ -1,5 +1,14 @@
 <?php
 // print_r($_REQUEST);
+    $name = $_REQUEST['name'] ?? null;
+    $email = $_REQUEST['email'] ?? null;
+    $to = $_REQUEST['to'] ?? null;
+    $from = $_REQUEST['from'] ?? null;
+    $pickup_date = $_REQUEST['pickup-date'] ?? null;
+    $return_date = $_REQUEST['return-date'] ?? null;
+    $passengers = $_REQUEST['passengers'] ?? 0;
+    $cabin_bags = $_REQUEST['cabin-bags'] ?? 0;
+    $luggage_bags = $_REQUEST['luggage-bags'] ?? 0;
 if (isset($_REQUEST['get_quote'])) {
     $name = $_REQUEST['name'] ?? null;
     $email = $_REQUEST['email'] ?? null;
@@ -62,21 +71,27 @@ if (isset($_REQUEST['get_quote'])) {
                         <!-- Logo -->
                         <!-- Navigation items -->
                         <div class="ms-auto">
-                            <button class="btn btn-dark btn-navbar">
-                                <div class="bn-inner">
-                                    <div class="d-flex align-items-center gap-3">
-                                        <span>Login</span>
-                                        <span class="ms-1">
-                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M15.495 8.49497C15.7683 8.22161 15.7683 7.77839 15.495 7.50502L11.0402 3.05025C10.7668 2.77688 10.3236 2.77688 10.0503 3.05025C9.77689 3.32362 9.77689 3.76683 10.0503 4.0402L14.0101 8L10.0503 11.9598C9.77689 12.2332 9.77689 12.6764 10.0503 12.9497C10.3236 13.2231 10.7668 13.2231 11.0402 12.9497L15.495 8.49497ZM1 8.7L15 8.7L15 7.3L1 7.3L1 8.7Z"
-                                                    fill="#191919" />
-                                            </svg>
-                                        </span>
-                                    </div>
-                                </div>
-                            </button>
+                            <a href="tel:+44208 050 0110" class="d-flex align-items-center text-white gap-2 fw-bold nav-phone">
+                                <span>
+                                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="17.7096" cy="16.2917" r="16.2917" fill="#0EE1E8" />
+                                        <g clip-path="url(#clip0_734_5799)">
+                                            <path
+                                                d="M12.6332 10.3889H15.9388L17.5916 14.5209L15.5256 15.7604C16.4106 17.555 17.863 19.0074 19.6576 19.8924L20.8971 17.8264L25.0291 19.4792V22.7847C25.0291 23.2231 24.8549 23.6435 24.545 23.9534C24.235 24.2634 23.8146 24.4375 23.3763 24.4375C20.1528 24.2416 17.1124 22.8728 14.8288 20.5892C12.5452 18.3056 11.1764 15.2652 10.9805 12.0417C10.9805 11.6033 11.1546 11.183 11.4646 10.873C11.7745 10.563 12.1949 10.3889 12.6332 10.3889Z"
+                                                stroke="#171717" stroke-width="1.41667" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_734_5799">
+                                                <rect width="19.8333" height="19.8333" fill="white"
+                                                    transform="translate(8.5 7.08325)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </span>
+                                <span class="lh-1 ms-1 d-sm-block d-none">0208 050 0110</span>
+                            </a>
                         </div>
                     </div>
                 </nav>
@@ -155,44 +170,6 @@ if (isset($_REQUEST['get_quote'])) {
                                     </span>
                                     <span class="d-flex flex-column sn-text">
                                         <span class="fw-bold lh-1">Additional </span>
-                                        <span class="lh-1">Details</span>
-                                    </span>
-                                </div>
-                            </button>
-                        </li>
-                        <li class="sn-progress-pill"></li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="3-tab" data-bs-toggle="tab" data-bs-target="#3" type="button"
-                                role="tab" aria-controls="3" aria-selected="false">
-                                <div class="d-flex align-items-center gap-10px">
-                                    <span>
-                                        <svg width="50" height="50" class="sn-icon" viewBox="0 0 50 50" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="25" cy="25" r="24.5" fill="#3C4154" stroke="#3C4154" />
-                                            <path
-                                                d="M17 30C17 30.5304 17.2107 31.0391 17.5858 31.4142C17.9609 31.7893 18.4696 32 19 32C19.5304 32 20.0391 31.7893 20.4142 31.4142C20.7893 31.0391 21 30.5304 21 30C21 29.4696 20.7893 28.9609 20.4142 28.5858C20.0391 28.2107 19.5304 28 19 28C18.4696 28 17.9609 28.2107 17.5858 28.5858C17.2107 28.9609 17 29.4696 17 30Z"
-                                                stroke="white" stroke-width="1.4" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M29 30C29 30.5304 29.2107 31.0391 29.5858 31.4142C29.9609 31.7893 30.4696 32 31 32C31.5304 32 32.0391 31.7893 32.4142 31.4142C32.7893 31.0391 33 30.5304 33 30C33 29.4696 32.7893 28.9609 32.4142 28.5858C32.0391 28.2107 31.5304 28 31 28C30.4696 28 29.9609 28.2107 29.5858 28.5858C29.2107 28.9609 29 29.4696 29 30Z"
-                                                stroke="white" stroke-width="1.4" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M17 30H15V19C15 18.7348 15.1054 18.4804 15.2929 18.2929C15.4804 18.1054 15.7348 18 16 18H30C31.3261 18 32.5979 18.7375 33.5355 20.0503C34.4732 21.363 35 23.1435 35 25V30H33M29 30H21"
-                                                stroke="white" stroke-width="1.4" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M29 18L30.5 25H35" stroke="white" stroke-width="1.4"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M15 23H30" stroke="white" stroke-width="1.4" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M20 18V23" stroke="white" stroke-width="1.4" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M25 18V23" stroke="white" stroke-width="1.4" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                    </span>
-                                    <span class="d-flex flex-column sn-text">
-                                        <span class="fw-bold lh-1">Contact </span>
                                         <span class="lh-1">Details</span>
                                     </span>
                                 </div>
@@ -573,13 +550,9 @@ if (isset($_REQUEST['get_quote'])) {
                                                                             <div
                                                                                 class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-center">
                                                                                 <select id="hire_reason"
-                                                                                    class="hf-inp bp-select form-select p-0 border-0">
+                                                                                    class="hf-inp events_inp bp-select form-select p-0 border-0">
                                                                                     <option value=""> Select reason
                                                                                     </option>
-                                                                                    <option value="Airport Transfer">
-                                                                                        Airport Transfer</option>
-                                                                                    <option value="Home Transfer">Home
-                                                                                        Transfer</option>
                                                                                 </select>
                                                                             </div>
                                                                         </div>
@@ -603,7 +576,7 @@ if (isset($_REQUEST['get_quote'])) {
                                                 <div>
                                                     <button type="button"
                                                         class="btn hff-submit-btn df-btn btn-ferozi fw-bold"
-                                                        onclick="switchTab('3-tab')">Next</button>
+                                                        onclick="switchTab('4-tab')">Next</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -676,187 +649,6 @@ if (isset($_REQUEST['get_quote'])) {
                                                             <span class="dc-dark figtree fw-semibold">Pickup
                                                                 point</span>
                                                             <span class="dc-light return-pp-detail">--</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="3" role="tabpanel" aria-labelledby="3-tab">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-xl-9 col-lg-8">
-                                        <div class="details-form pe-xxl-4">
-                                            <div class="d-flex flex-column df-flex-1">
-                                                <div class="d-flex flex-column">
-                                                    <h5 class="fw-medium mb-0 df-title text-main">Contact Information
-                                                    </h5>
-                                                    <p class="mb-0 df-note">Please enter your contact details where you
-                                                        wish to get contacted later on. These details will be used for
-                                                        all future communications.</p>
-                                                </div>
-                                                <div class="d-flex flex-column gap-4">
-                                                    <div class="d-flex flex-column gap-10px">
-                                                        <div class="d-flex flex-column hff-flex-1">
-                                                            <div
-                                                                class="hff-row d-flex flex-sm-row flex-column hff-flex-1">
-                                                                <div class="hff-box hfb-sm">
-                                                                    <div class="hff-group hfg-from">
-                                                                        <label class="hff-label fw-bold"> First Name*
-                                                                        </label>
-                                                                        <div
-                                                                            class="d-flex align-items-center hff-flex-1">
-                                                                            <div
-                                                                                class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-center">
-                                                                                <input type="text"
-                                                                                    class="hf-inp p-0 border-0"
-                                                                                    name="first_name" id="first_name"
-                                                                                    placeholder="eg: John"
-                                                                                    value="<?php echo $name; ?>"
-                                                                                    required>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hff-box hfb-sm">
-                                                                    <div class="hff-group hfg-from">
-                                                                        <label class="hff-label fw-bold"> Last Name*
-                                                                        </label>
-                                                                        <div
-                                                                            class="d-flex align-items-center hff-flex-1">
-                                                                            <div
-                                                                                class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-center">
-                                                                                <input type="text" name="last_name"
-                                                                                    id="last_name"
-                                                                                    class="hf-inp p-0 border-0"
-                                                                                    placeholder="eg: Doe" value=""
-                                                                                    required>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div
-                                                                class="hff-row d-flex flex-sm-row flex-column hff-flex-1">
-                                                                <div class="hff-box hfb-sm">
-                                                                    <div class="hff-group hfg-from">
-                                                                        <label class="hff-label fw-bold"> Your Email*
-                                                                        </label>
-                                                                        <div
-                                                                            class="d-flex align-items-center hff-flex-1">
-                                                                            <div
-                                                                                class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-center">
-                                                                                <input type="email" name="email"
-                                                                                    id="email"
-                                                                                    class="hf-inp p-0 border-0"
-                                                                                    placeholder="eg: abc@--.com"
-                                                                                    value="<?php echo $email; ?>"
-                                                                                    required>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hff-box hfb-sm">
-                                                                    <div class="hff-group hfg-from">
-                                                                        <label class="hff-label fw-bold"> Phone Number*
-                                                                        </label>
-                                                                        <div
-                                                                            class="d-flex align-items-center hff-flex-1">
-                                                                            <div
-                                                                                class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-center">
-                                                                                <input type="text"
-                                                                                    class="hf-inp p-0 border-0"
-                                                                                    name="phone_number"
-                                                                                    id="phone_number"
-                                                                                    placeholder="eg: +1 198 243 9824"
-                                                                                    value="" required>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <button type="button"
-                                                        class="btn hff-submit-btn df-btn btn-ferozi fw-bold"
-                                                        onclick="switchTab('4-tab')">Go to final step</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4">
-                                        <div class="details-card">
-                                            <div class="d-flex flex-column dc-flex">
-                                                <div class="d-flex flex-column gap-10px">
-                                                    <h5 class="dc-title mb-0 fw-bold">Journey Details</h5>
-                                                    <div class="d-flex flex-column">
-                                                        <div class="d-flex align-items-center dc-row">
-                                                            <span class="dc-dark figtree fw-semibold">No. of
-                                                                travelers</span>
-                                                            <span class="dc-light not-detail">--</span>
-                                                        </div>
-                                                        <div class="d-flex align-items-center dc-row">
-                                                            <span class="dc-dark figtree fw-semibold">From</span>
-                                                            <span class="dc-light from-detail">--</span>
-                                                        </div>
-                                                        <div class="d-flex align-items-center dc-row">
-                                                            <span class="dc-dark figtree fw-semibold">To</span>
-                                                            <span class="dc-light to-detail">--</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex flex-column gap-10px">
-                                                    <h5 class="dc-title mb-0 fw-bold">Outbound Journey Details</h5>
-                                                    <div class="d-flex flex-column">
-                                                        <div class="d-flex align-items-center dc-row">
-                                                            <span class="dc-dark figtree fw-semibold">Pickup Date &
-                                                                Time:</span>
-                                                            <span class="dc-light out-date-detail">--</span>
-                                                        </div>
-                                                        <div class="d-flex align-items-center dc-row">
-                                                            <span class="dc-dark figtree fw-semibold">Pickup
-                                                                point</span>
-                                                            <span class="dc-light">--</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex flex-column gap-10px">
-                                                    <h5 class="dc-title mb-0 fw-bold">Additional Info</h5>
-                                                    <div class="d-flex flex-column">
-                                                        <div class="d-flex align-items-center dc-row">
-                                                            <span class="dc-dark figtree fw-semibold">Vehicle
-                                                                Type:</span>
-                                                            <span class="dc-light vt-detail">--</span>
-                                                        </div>
-                                                        <div class="d-flex align-items-center dc-row">
-                                                            <span class="dc-dark figtree fw-semibold">Reason For
-                                                                Travel:</span>
-                                                            <span class="dc-light rft-detail">--</span>
-                                                        </div>
-                                                        <div class="d-flex align-items-center dc-row">
-                                                            <span class="dc-dark figtree fw-semibold">Number Of
-                                                                Passenger:</span>
-                                                            <span class="dc-light nop-detail">-</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex flex-column gap-10px">
-                                                    <h5 class="dc-title mb-0 fw-bold">Return Journey Details</h5>
-                                                    <div class="d-flex flex-column">
-                                                        <div class="d-flex align-items-center dc-row">
-                                                            <span class="dc-dark figtree fw-semibold">Return Date &
-                                                                Time:</span>
-                                                            <span class="dc-light return-date-detail">--</span>
-                                                        </div>
-                                                        <div class="d-flex align-items-center dc-row">
-                                                            <span class="dc-dark figtree fw-semibold">Pickup
-                                                                point</span>
-                                                            <span class="dc-light">--</span>
                                                         </div>
                                                     </div>
                                                 </div>

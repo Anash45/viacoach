@@ -16,7 +16,7 @@
       "price_per": "pp",
       "type": "domestic",
       "description": "Uncover England's ancient secrets and timeless charm on this enriching escape.",
-      "image": "tours-1.jpg"
+      "image": "Stonehenge.png"
     },
     {
       "id": 2,
@@ -35,7 +35,7 @@
       "price_per": "pp",
       "type": "domestic",
       "description": "Refresh your senses amid pristine lakes, rolling hills, and peaceful trails.",
-      "image": "tours-2.jpg"
+      "image": "Lake District.png"
     },
     {
       "id": 3,
@@ -54,7 +54,7 @@
       "price_per": "pp",
       "type": "domestic",
       "description": "Immerse yourself in sweeping scenery, enchanting castles, and legendary lore.",
-      "image": "tours-3.jpg"
+      "image": "Scottish Highlands.png"
     },
     {
       "id": 4,
@@ -73,7 +73,7 @@
       "price_per": "pp",
       "type": "domestic",
       "description": "Step back in time through medieval streets before savoring coastal breezes.",
-      "image": "tours-4.jpg"
+      "image": "York & Whitby.png"
     },
     {
       "id": 5,
@@ -92,7 +92,7 @@
       "price_per": "pp",
       "type": "domestic",
       "description": "Discover rugged coastlines, royal fortresses, and the soul of Welsh culture.",
-      "image": "tours-5.jpg"
+      "image": "Welsh Wonders.png"
     },
     {
       "id": 6,
@@ -111,7 +111,7 @@
       "price_per": "pp",
       "type": "international",
       "description": "Fall in love with exquisite art, cuisine, and the grandeur of Versailles.",
-      "image": "tours-6.jpg"
+      "image": "Paris & Versailles.png"
     },
     {
       "id": 7,
@@ -130,7 +130,7 @@
       "price_per": "pp",
       "type": "international",
       "description": "Cruise picture-perfect canals and indulge in Europe's most tempting treats.",
-      "image": "tours-7.jpg"
+      "image": "Amsterdam & Brussels.png"
     },
     {
       "id": 8,
@@ -149,7 +149,7 @@
       "price_per": "pp",
       "type": "international",
       "description": "Witness centuries of culture, compelling stories, and breathtaking landmarks.",
-      "image": "tours-8.jpg"
+      "image": "Berlin & Prague.png"
     }
   ]
   

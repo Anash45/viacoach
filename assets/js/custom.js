@@ -1,4 +1,54 @@
+const reasons = [
+  "Event",
+  "Airport Transfer",
+  "Birthday Party",
+  "Charity Event",
+  "Christmas Party",
+  "Corporate Event",
+  "Night Club Run",
+  "Day Out",
+  "Ferry Port Transfer",
+  "Football Event",
+  "Funeral",
+  "Family Function",
+  "Hen Event",
+  "Horse Racing Day",
+  "Music Event",
+  "Night Out",
+  "Other Sporting Event",
+  "Seaside Trip",
+  "Religious Trip",
+  "School Trip",
+  "Shopping Trip",
+  "Stag Event",
+  "Theme Park Trip",
+  "Train Station Transfer",
+  "TV Media",
+  "UK Tour",
+  "Weddings",
+  "Europe Tour",
+  "Other Not Listed",
+  "Theatre plays",
+  "Movie premiers",
+  "Concerts",
+  "Shopping Trips",
+  "London Cruise Transfer",
+  "Football matches",
+  "Sports Festivals",
+  "Golfing / Bowling / Theme Parks Days out",
+  "Beth, Cambridge & Oxford Tour",
+  "Windsor Castle and Bicester Village Tour",
+  "Private Luxury Tours"
+];
+
+function populateReasons() {
+  reasons.forEach((reason, index) => {
+    $('.events_inp').append(`<option value="${reason}">${reason}</option>`);
+  })
+}
+
 $(document).ready(function () {
+  populateReasons();
   $('.hf-select').select2({
     dropdownCssClass: 'hfs-dropdown',
     containerCssClass: 'hfs-container'
@@ -245,11 +295,9 @@ $(document).ready(function () {
     if (targetFormType == 'one-way') {
       $('.hf-form').removeClass('hff-round-trip');
       $('.hf-form').addClass('hff-single-trip');
-      $('.hf-form').find('.hfb-round input').prop('required', false);
     } else if (targetFormType == 'round-trip') {
       $('.hf-form').removeClass('hff-single-trip');
       $('.hf-form').addClass('hff-round-trip');
-      $('.hf-form').find('.hfb-round input').prop('required', true);
     }
     $('.hf-filter-btns').find('.hff-btn').removeClass('active');
     $(this).addClass('active');
@@ -381,6 +429,7 @@ function populateSeatingDropdown(selector) {
     $.each(data, function (index, fleet) {
       $(selector).append(`<option value="${fleet.seat_capacity}">${fleet.seat_capacity}</option>`);
       $('#bp_vehicle_type').append(`<option value="${fleet.seat_capacity} Seater - ${fleet.model}  ">${fleet.seat_capacity} Seater - ${fleet.model} </option>`);
+      $('#bp_vehicle_size').append(`<option value="${fleet.seat_capacity} ${fleet.bus_type}">${fleet.seat_capacity} ${fleet.bus_type} </option>`);
     });
   });
 
@@ -426,7 +475,7 @@ function showPage(page) {
     filteredFleets = fleetsData;
   }
 
-  
+
 
   const totalItems = filteredFleets.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -707,88 +756,6 @@ function populateDiscountCarousel(offers) {
   });
 }
 
-function initMap() {
-  // Default location (England)
-  const england = { lat: 52.3555, lng: -1.1743 };
-  const toInitial = { lat: 52.3555, lng: -1.1743 };
-  const fromInitial = { lat: 53.3555, lng: -1.5743 };
-
-  // Initialize the map for the "From" location
-  const fromMap = new google.maps.Map(document.getElementById("from-map"), {
-    zoom: 7,
-    center: england,
-  });
-
-  // Initialize the map for the "To" location
-  const toMap = new google.maps.Map(document.getElementById("to-map"), {
-    zoom: 7,
-    center: england,
-  });
-
-  // Create a marker for the "From" location
-  const fromMarker = new google.maps.Marker({
-    position: fromInitial,
-    map: fromMap,
-    draggable: true, // Allow dragging the pin
-    title: 'From Location',
-  });
-
-  // Create a marker for the "To" location
-  const toMarker = new google.maps.Marker({
-    position: toInitial,
-    map: toMap,
-    draggable: true, // Allow dragging the pin
-    title: 'To Location',
-  });
-
-  // Initialize Geocoder
-  const geocoder = new google.maps.Geocoder();
-
-  // Function to update the address input based on the marker position
-  function updateAddress(location, destination) {
-    geocoder.geocode({ location: location }, function (results, status) {
-      if (status === "OK" && results[0]) {
-        // Set the formatted address to the corresponding input field
-        if (destination === 'from') {
-          $("#from-destination").val(results[0].formatted_address);
-          $("#booking-form").trigger('input');
-        } else if (destination === 'to') {
-          $("#to-destination").val(results[0].formatted_address);
-          $("#booking-form").trigger('input');
-        }
-      } else {
-        console.error("Geocoder failed due to: " + status);
-        if (destination === 'from') {
-          $("#from-destination").val("Unable to retrieve address");
-        } else {
-          $("#to-destination").val("Unable to retrieve address");
-        }
-      }
-    });
-  }
-
-  // Add event listeners for the "From" marker to update the address
-  google.maps.event.addListener(fromMarker, "dragend", function () {
-    updateAddress(fromMarker.getPosition(), 'from');
-  });
-
-  // Add event listeners for the "To" marker to update the address
-  google.maps.event.addListener(toMarker, "dragend", function () {
-    updateAddress(toMarker.getPosition(), 'to');
-  });
-
-  // Add focus event listeners to the "From" map to place marker
-  google.maps.event.addListener(fromMap, "focus", function (event) {
-    fromMarker.setPosition(event.latLng);
-    updateAddress(event.latLng, 'from');
-  });
-
-  // Add focus event listeners to the "To" map to place marker
-  google.maps.event.addListener(toMap, "focus", function (event) {
-    toMarker.setPosition(event.latLng);
-    updateAddress(event.latLng, 'to');
-  });
-}
 
 
 function checkBookingForm() {
@@ -832,13 +799,13 @@ $(document).ready(function () {
     populateDiscountCarousel(offers);
   });
 
-  $('#from-destination').on('click', function () {
-    $('#fromModal').modal('show');
-  })
+  // $('#from-destination').on('click', function () {
+  //   $('#fromModal').modal('show');
+  // })
 
-  $('#to-destination').on('click', function () {
-    $('#toModal').modal('show');
-  })
+  // $('#to-destination').on('click', function () {
+  //   $('#toModal').modal('show');
+  // })
 
   $('#booking-form').on('submit', function (e) {
 
@@ -851,18 +818,18 @@ $(document).ready(function () {
   $('.hff-box').find(':input').on('click', function (e) {
     e.stopPropagation();
   })
-  
+
   $('.hff-box').on('click', function (event) {
     event.stopPropagation();
     console.log('Box clicked');
-  
+
     // Check for `.hff-group` elements inside the clicked `.hff-box`
     const $hfgGroups = $(this).find('.hff-group');
-  
+
     if ($hfgGroups.length > 1) {
       // Multiple `.hff-group` scenario
       const $clickedGroup = $(event.target).closest('.hff-group');
-  
+
       if ($clickedGroup.length) {
         // Focus input within the clicked `.hff-group`
         $clickedGroup.find(':input').trigger('focus');
@@ -875,6 +842,94 @@ $(document).ready(function () {
       $hfgGroups.find(':input').trigger('focus');
     }
   });
-  
+});
+
+
+function openPinLocation(id) {
+
+}
+
+let map, marker; // Global variables for map and marker
+
+$(document).ready(function () {
+  $('.loc-inp').each(function () {
+    const inputElement = this; // Reference to the input field
+
+    // Define Autocomplete options with componentRestrictions for Europe
+    const autocompleteOptions = {
+      componentRestrictions: { country: ["ad", "al", "at", "be", "bg", "by", "ch", "cy", "cz", "de", "dk", "ee", "es", "fi", "fr", "gb", "gr", "hr", "hu", "ie", "is", "it", "li", "lt", "lu", "lv", "mc", "me", "mk", "mt", "nl", "no", "pl", "pt", "ro", "rs", "se", "si", "sk", "sm", "ua"] },
+    };
+
+    // Initialize Autocomplete with restrictions
+    const autocomplete = new google.maps.places.Autocomplete(inputElement, autocompleteOptions);
+
+    // Event listener for place selection
+    google.maps.event.addListener(autocomplete, 'place_changed', function () {
+      const place = autocomplete.getPlace();
+
+      if (place && place.geometry && place.geometry.location) {
+        // Populate the input with the formatted address
+        $(inputElement).val(place.formatted_address);
+
+        // Get latitude and longitude
+        const lat = place.geometry.location.lat();
+        const lng = place.geometry.location.lng();
+
+        // Run the custom function with the input's ID and location
+        const inputId = $(inputElement).attr('id');
+        if (inputId) {
+          openPinLocation(inputId, lat, lng);
+        }
+      }
+    });
+  });
+
 
 });
+
+function setLatLng(inputId, defaultLat, defaultLng) {
+  $('#' + inputId).siblings('.hidden_lat').val(defaultLat);
+  $('#' + inputId).siblings('.hidden_lng').val(defaultLng);
+}
+
+// Function to open the location picker modal
+function openPinLocation(inputId, defaultLat, defaultLng) {
+  let newLat = defaultLat;
+  let newLng = defaultLng;
+  setLatLng(inputId, newLat, newLng);
+  // Initialize or reinitialize the map
+  const locMapDiv = document.getElementById('locMap');
+
+  // Default location (from autocomplete)
+  const defaultPosition = { lat: defaultLat, lng: defaultLng };
+
+  // Initialize the map
+  map = new google.maps.Map(locMapDiv, {
+    center: defaultPosition,
+    zoom: 15,
+  });
+
+  // Initialize the marker
+  marker = new google.maps.Marker({
+    position: defaultPosition,
+    map: map,
+    draggable: true, // Allow the marker to be moved
+  });
+
+  // Update marker position on drag
+  google.maps.event.addListener(marker, 'dragend', function () {
+    newLat = marker.getPosition().lat();
+    newLng = marker.getPosition().lng();
+    setLatLng(inputId, newLat, newLng);
+    console.log('Selected Pin Location:', { lat: newLat, lng: newLng });
+  });
+
+  // Open the modal (use your modal logic here)
+  $('#pinLocationModal').modal('show');
+}
+
+function isValidEmail(email) {
+  // Regular expression for email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}

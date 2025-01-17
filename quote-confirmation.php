@@ -1,73 +1,62 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Sanitize and validate input data
-    $outbound_pickup = htmlspecialchars(trim($_POST['outbound_pickup'] ?? 'No'));
-    $outbound_pickup_location = htmlspecialchars(trim($_POST['outbound_pickup_location'] ?? ''));
-    $return_pickup = htmlspecialchars(trim($_POST['return_pickup'] ?? 'No'));
-    $return_pickup_location = htmlspecialchars(trim($_POST['return_pickup_location'] ?? ''));
-    $small_luggage = intval($_POST['small_luggage'] ?? 0);
-    $large_luggage = intval($_POST['large_luggage'] ?? 0);
-    $vehicle_type = htmlspecialchars(trim($_POST['vehicle_type'] ?? ''));
-    $additional = htmlspecialchars(trim($_POST['additional'] ?? ''));
-    $first_name = htmlspecialchars(trim($_POST['first_name'] ?? ''));
-    $last_name = htmlspecialchars(trim($_POST['last_name'] ?? ''));
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $phone_number = htmlspecialchars(trim($_POST['phone_number'] ?? ''));
+print_r($_REQUEST);
+// $name = $_REQUEST['name'] ?? null;
+// $email = $_REQUEST['email'] ?? null;
+// $to = $_REQUEST['to'] ?? null;
+// $from = $_REQUEST['from'] ?? null;
+// $pickup_date = $_REQUEST['pickup-date'] ?? null;
+// $return_date = $_REQUEST['return-date'] ?? null;
+// $passengers = $_REQUEST['passengers'] ?? 0;
+// $cabin_bags = $_REQUEST['cabin-bags'] ?? 0;
+// $luggage_bags = $_REQUEST['luggage-bags'] ?? 0;
+
+
+if (isset($_REQUEST['get_quote'])) {
+    // Retrieve form data with fallback defaults
+    $name = $_REQUEST['name'] ?? null;
+    $email = $_REQUEST['email'] ?? null;
+    $phone = $_REQUEST['phone'] ?? null;
+    $hire_reason = $_REQUEST['hire_reason'] ?? null;
+    $from = $_REQUEST['from'] ?? null;
+    $from_lat = $_REQUEST['from_lat'] ?? null;
+    $from_lng = $_REQUEST['from_lng'] ?? null;
+    $to = $_REQUEST['to'] ?? null;
+    $to_lat = $_REQUEST['to_lat'] ?? null;
+    $to_lng = $_REQUEST['to_lng'] ?? null;
+    $pickup_date = $_REQUEST['pickup_date'] ?? null;
+    $pickup_time = $_REQUEST['pickup_time'] ?? null;
+    $return_dropoff = $_REQUEST['return_dropoff'] ?? null;
+    $return_lat = $_REQUEST['return_lat'] ?? null;
+    $return_lng = $_REQUEST['return_lng'] ?? null;
+    $return_dropoff_date = $_REQUEST['return_dropoff_date'] ?? null;
+    $return_dropoff_time = $_REQUEST['return_dropoff_time'] ?? null;
+    $passengers = $_REQUEST['passengers'] ?? 0;
+    $return_passengers = $_REQUEST['return_passengers'] ?? 0;
+    $vehicle_size = $_REQUEST['vehicle_size'] ?? null;
+    $extra_stops = $_REQUEST['extra_stops'] ?? null;
+    $cabin_bags = $_REQUEST['cabin_bags'] ?? 0;
+    $luggage_bags = $_REQUEST['luggage_bags'] ?? 0;
+    $additional_info = $_REQUEST['additional_info'] ?? null;
 
     // Prepare email
-    $to = "futuretest45@gmail.com,info@travelviacoach.com"; // Replace with the recipient's email
+    $to = "futuretest45@gmail.com,info@travelviacoach.com";
     $subject = "Viacoach - New Booking Request";
-    $headers = "From: Viacoach webmaster - <webmaster@booknow.travelviacoach.com>\r\n";
+    $headers = "From: Viacoach Webmaster <webmaster@getquotenow.travelviacoach.com>\r\n";
     $headers .= "Reply-To: $email\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
-    // Email body in HTML format
+    // Build email content
     $message = "
     <html>
         <head>
             <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    background-color: #f4f4f4;
-                    margin: 0;
-                    padding: 0;
-                }
-                .container {
-                    max-width: 600px;
-                    margin: 20px auto;
-                    padding: 20px;
-                    background-color: #ffffff;
-                    border-radius: 8px;
-                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                }
-                .header {
-                    background-color: rgb(0, 31, 63);
-                    padding: 20px;
-                    text-align: center;
-                    color: #ffffff;
-                    border-radius: 8px 8px 0 0;
-                }
-                .content {
-                    padding: 20px;
-                    color: #333333;
-                }
-                .footer {
-                    text-align: center;
-                    font-size: 12px;
-                    margin-top: 10px;
-                    color: #777777;
-                }
-                .button {
-                    display: inline-block;
-                    padding: 10px 20px;
-                    margin-top: 10px;
-                    background-color: #ec4621;
-                    color: white;
-                    text-decoration: none;
-                    border-radius: 5px;
-                    font-weight: bold;
-                }
+                body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+                .container { max-width: 600px; margin: 20px auto; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+                .header { background-color: rgb(0, 31, 63); padding: 20px; text-align: center; color: #ffffff; border-radius: 8px 8px 0 0; }
+                .content { padding: 20px; color: #333333; }
+                .footer { text-align: center; font-size: 12px; margin-top: 10px; color: #777777; }
+                .button { display: inline-block; padding: 10px 20px; margin-top: 10px; background-color: #ec4621; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
             </style>
         </head>
         <body>
@@ -76,16 +65,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <h2>Viacoach</h2>
                 </div>
                 <div class='content'>
-                    <p><strong>Name:</strong> {$first_name} {$last_name}</p>
+                    <p><strong>Name:</strong> {$name}</p>
                     <p><strong>Email:</strong> {$email}</p>
-                    <p><strong>Phone:</strong> {$phone_number}</p>
-                    <p><strong>Outbound Pickup:</strong> {$outbound_pickup} - {$outbound_pickup_location}</p>
-                    <p><strong>Return Pickup:</strong> {$return_pickup} - {$return_pickup_location}</p>
-                    <p><strong>Small Luggage:</strong> {$small_luggage}</p>
-                    <p><strong>Large Luggage:</strong> {$large_luggage}</p>
-                    <p><strong>Vehicle Type:</strong> {$vehicle_type}</p>
-                    <p><strong>Additional Info:</strong> {$additional}</p>
-                    <a href='mailto:{$email}' class='button'>Reply to {$first_name}</a>
+                    <p><strong>Phone:</strong> {$phone}</p>
+                    <p><strong>Hire Reason:</strong> {$hire_reason}</p>
+                    <p><strong>Pickup Location:</strong> {$from} (Lat: {$from_lat}, Lng: {$from_lng})</p>
+                    <p><strong>Dropoff Location:</strong> {$to} (Lat: {$to_lat}, Lng: {$to_lng})</p>
+                    <p><strong>Pickup Date & Time:</strong> {$pickup_date} at {$pickup_time}</p>
+                    <p><strong>Passengers:</strong> {$passengers}</p>
+                    <p><strong>Vehicle Size:</strong> {$vehicle_size}</p>
+                    <p><strong>Extra Stops:</strong> {$extra_stops}</p>
+                    <p><strong>Cabin Bags:</strong> {$cabin_bags}</p>
+                    <p><strong>Luggage Bags:</strong> {$luggage_bags}</p>
+                    <p><strong>Additional Info:</strong> {$additional_info}</p>";
+
+    // Add return dropoff details only if not empty
+    if (!empty($return_dropoff)) {
+        $message .= "
+                    <p><strong>Return Dropoff:</strong> {$return_dropoff} (Lat: {$return_lat}, Lng: {$return_lng})</p>
+                    <p><strong>Return Dropoff Date & Time:</strong> {$return_dropoff_date} at {$return_dropoff_time}</p>
+                    <p><strong>Return Passengers:</strong> {$return_passengers}</p>";
+    }
+
+    $message .= "
                 </div>
                 <div class='footer'>
                     <p>&copy; Viacoach. All rights reserved.</p>
@@ -96,15 +98,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Send email
     if (mail($to, $subject, $message, $headers)) {
-        $info = '<h2 class="fw-medium text-main mb-0 bs-title">Booking Success</h2>
-                        <p class="mb-0 bs-text">Check your email for booking details</p>';
+        $info = '<h5 class="fw-medium mb-0 df-title-1 text-main">Provisional Booking Complete! </h5>
+                                    <p class="text-secondary qc-desc my-1"> Thank You! <br><br> We\'ve received your
+                                        request and reserved a slot for your journey. 🎉 <br> Our team is already
+                                        reviewing your details to provide the perfect quote tailored to your needs. <br>
+                                        We appreciate you choosing us and can\'t wait to help make your trip seamless!
+                                        You\'ll hear from us shortly. <br><br> 🚍 Your journey, our priority!<br>The Viacoach Team
+                                    </p>';
     } else {
-        $info = '<h2 class="fw-medium text-main mb-0 bs-title">Booking Failed</h2>
-                        <p class="mb-0 bs-text">Contact the administrator.</p>';
+        $info = '<h5 class="fw-medium mb-0 df-title-1 text-main">Provisional Booking Faild! </h5>
+                                    <p class="text-secondary qc-desc my-1"> Booking cannot be made at the momemt, feel free to <a href="tel:+44208 050 0110">contact us</a>.<br>The Viacoach Team
+                                    </p>';
     }
+}else{
+    header('location: index.php');
 }
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -120,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <link rel="stylesheet" href="./assets/css/slick.css">
         <link rel="stylesheet" href="./assets/css/select2.min.css">
         <link rel="stylesheet" href="./assets/css/jquery-ui.css">
-        <link rel="stylesheet" href="./assets/css/style.css?v=2">
+        <link rel="stylesheet" href="./assets/css/style.css?v=3">
     </head>
 
     <body>
@@ -181,14 +191,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </nav>
             </header>
         </div>
-        <main class="main-1">
-            <section class="booking-sec">
-                <div class="d-flex flex-column gap-4 text-center align-items-center">
-                    <div class="d-flex flex-column align-items-center">
-                        <?php echo $info; ?>
-                    </div>
-                    <div>
-                        <a href="./index.php" class="btn hff-submit-btn df-btn btn-ferozi fw-bold">Go home</a>
+        <main class="">
+            <section class="booking-sec py-lg-5 py-4">
+                <div class="container my-2 py-1">
+                    <div class="row align-items-center flex-lg-row flex-column-reverse gap-lg-0 gap-4">
+                        <div class="col-xl-9 col-lg-8">
+                            <div class="details-form pe-xxl-4">
+                                <div class="d-flex flex-column gap-3">
+                                    <?php echo $info; ?>
+                                    <div>
+                                        <a href="./index.php" class="btn hff-submit-btn df-btn btn-ferozi fw-bold">Go home</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4">
+                            <div class="details-card">
+                                <div class="d-flex flex-column dc-flex">
+                                    <div class="d-flex flex-column gap-10px">
+                                        <div class="d-flex flex-column">
+                                            <div class="d-flex align-items-center dc-row">
+                                                <span class="dc-dark figtree fw-semibold">Name</span>
+                                                <span class="dc-light to-detail"><?php echo $name; ?></span>
+                                            </div>
+                                            <div class="d-flex align-items-center dc-row">
+                                                <span class="dc-dark figtree fw-semibold">Email</span>
+                                                <span class="dc-light not-detail"><?php echo $email; ?></span>
+                                            </div>
+                                            <div class="d-flex align-items-center dc-row">
+                                                <span class="dc-dark figtree fw-semibold">Phone number</span>
+                                                <span class="dc-light from-detail"><?php echo $phone; ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -404,12 +442,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </div>
         </aside>
+        <!-- Modal -->
+        <div class="modal fade" id="fromModal" tabindex="-1" aria-labelledby="fromModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="from-map"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="toModal" tabindex="-1" aria-labelledby="toModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="to-map"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="./assets/js/jquery-3.7.1.min.js"></script>
         <script src="./assets/js/bootstrap.bundle.min.js"></script>
         <script src="./assets/js/slick.min.js"></script>
         <script src="./assets/js/select2.min.js"></script>
         <script src="./assets/js/jquery-ui.min.js"></script>
-        <script src="./assets/js/custom.js?v=2"></script>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCGxZXJ2gpN_is2UY1AXp98MN7sQHpIKk&callback=initMap&libraries=places"
+            async defer></script>
+        <script src="./assets/js/custom.js?v=3"></script>
+        <script>
+        </script>
     </body>
 
 </html>

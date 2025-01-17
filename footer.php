@@ -95,46 +95,31 @@
     </div>
 </aside>
 <!-- Modal -->
-<div class="modal fade" id="fromModal" tabindex="-1" aria-labelledby="fromModalLabel" aria-hidden="true">
+<div class="modal fade" id="pinLocationModal" tabindex="-1" aria-labelledby="pinLocationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h3 class="mb-0 modal-title">Pick ppin point location</h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div id="from-map"></div>
+                <div id="locMap"></div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Confirm</button>
+                <button type="button" class="btn rounded-pill fw-semibold text-black btn-cancel" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn rounded-pill fw-semibold text-black btn-ferozi" data-bs-dismiss="modal">Confirm</button>
             </div>
         </div>
     </div>
 </div>
-<div class="modal fade" id="toModal" tabindex="-1" aria-labelledby="toModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div id="to-map"></div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Confirm</button>
-            </div>
-        </div>
-    </div>
-</div>
-<script src="https://static.elfsight.com/platform/platform.js" async></script>
-<div class="elfsight-app-07039bca-a63c-4010-885b-b47427233d0f" data-elfsight-app-lazy></div>
+<!-- <script src="https://static.elfsight.com/platform/platform.js" async></script>
+<div class="elfsight-app-07039bca-a63c-4010-885b-b47427233d0f" data-elfsight-app-lazy></div> -->
 <script src="./assets/js/jquery-3.7.1.min.js"></script>
 <script src="./assets/js/bootstrap.bundle.min.js"></script>
 <script src="./assets/js/slick.min.js"></script>
 <script src="./assets/js/select2.min.js"></script>
 <script src="./assets/js/jquery-ui.min.js"></script>
 <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCGxZXJ2gpN_is2UY1AXp98MN7sQHpIKk&callback=initMap&libraries=places"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCGxZXJ2gpN_is2UY1AXp98MN7sQHpIKk&libraries=places"
     async defer></script>
 <script src="./assets/js/custom.js?v=3"></script>

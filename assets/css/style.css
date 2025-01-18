@@ -1775,6 +1775,87 @@ textarea.hff-error{
     line-height: 130% !important;
     color: #525252 !important;
 }
+
+.pac-container{
+    padding: 10px 20px;
+    background-color: #FAFAFA !important;
+    border-radius: 10px !important;
+    border: 1px solid #D4D4D4 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.pac-logo:after{
+    display: none !important;
+}
+.pac-item{
+    display: flex;
+    align-items: center;
+    padding: 0 !important;
+    background-color: transparent;
+    font-size: 16px !important;
+    color: #000000 !important;
+    font-weight: 400 !important;
+    line-height:  100% !important;
+}
+.pac-icon{
+    flex-shrink: 0;
+    margin-top: 0 !important;
+}
+.pac-item *{
+    font-size: inherit !important;
+    color: inherit !important;
+    font-weight: inherit !important;
+}
+
+.hfi-time option{
+    padding: 5px 20px;
+}
+
+.hfi-select~.select2 .select2-selection{
+    border: 0 !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    height: unset !important;
+}
+.hfi-select~.select2 .select2-selection__arrow{
+    display: none !important;
+}
+
+.hfi-select~.select2 .select2-selection__rendered{
+    font-size: 14px !important;
+    color: #191925 !important;
+    font-weight: 600 !important;
+    padding: 0 !important;
+    line-height: 130% !important;
+}
+
+.hfis-dropdown{
+    width: auto !important;
+    padding: 5px 0;
+    background-color: #FAFAFA;
+    border: 1px solid #D4D4D4;
+    border-radius: 10px !important;
+}
+
+.hfis-dropdown .select2-results__options{
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: thin;
+}
+
+.hfis-dropdown .select2-results__option--selectable{
+    font-size: 14px !important;
+    color: #191925 !important;
+    font-weight: 600 !important;
+    padding: 5px 20px !important;
+    line-height: 130% !important;
+    white-space: nowrap;
+}
+
+.hfis-dropdown .select2-results__option--highlighted{
+    background-color: #0FE4EA !important;
+}
 @media (min-width: 1200px) {}
 
 @media (min-width: 1400px) {}
@@ -1976,5 +2057,11 @@ textarea.hff-error{
 
     .wrfs-cont .select2 {
         width: 100% !important;
+    }
+    .hfis-dropdown{
+        width: 250px !important;
+    }
+    .hfis-dropdown .select2-results__option--selectable{
+        white-space: wrap;
     }
 }

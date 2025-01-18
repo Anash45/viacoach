@@ -41,6 +41,20 @@ const reasons = [
   "Private Luxury Tours"
 ];
 
+const additionalVehicles = [
+  "WW campervan hire",
+  "Party bus for birthdays",
+  "Exotic car hire",
+  "Vintage bus hire",
+  "Limousine party hire",
+  "Party limo hire",
+  "Fire engine hire",
+  "Wedding coach hire",
+  "Children's party bus hire",
+  "Tuk tuk hire",
+  "Party car hire"
+];
+
 function populateReasons() {
   reasons.forEach((reason, index) => {
     $('.events_inp').append(`<option value="${reason}">${reason}</option>`);
@@ -52,6 +66,11 @@ $(document).ready(function () {
   $('.hf-select').select2({
     dropdownCssClass: 'hfs-dropdown',
     containerCssClass: 'hfs-container'
+  });
+  $('.hfi-select').select2({
+    minimumResultsForSearch: Infinity,
+    dropdownCssClass: 'hfis-dropdown',
+    containerCssClass: 'hfis-container'
   });
 
   $('.revese-btn').each(function () {
@@ -432,6 +451,10 @@ function populateSeatingDropdown(selector) {
       $('#bp_vehicle_size').append(`<option value="${fleet.seat_capacity} ${fleet.bus_type}">${fleet.seat_capacity} ${fleet.bus_type} </option>`);
     });
   });
+
+  $.each(additionalVehicles, function (index, addVehicle) {
+    $('#bp_vehicle_size').append(`<option value="${addVehicle}">${addVehicle}</option>`);
+  })
 
 
   $('.wrf-select').each(function () {
@@ -933,3 +956,30 @@ function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
+
+$(document).ready(function () {
+  // Function to generate time options
+  function generateTimeOptions() {
+    const times = [];
+    const period = ['am', 'pm'];
+    for (let hour = 0; hour < 24; hour++) {
+      for (let minute = 15; minute < 60; minute += 15) {
+        let displayHour = hour === 0 ? '00' : hour % 12 === 0 ? 12 : hour % 12;
+        let displayMinute = minute.toString().padStart(2, '0');
+        let displayPeriod = period[Math.floor(hour / 12)];
+        times.push(`${displayHour}:${displayMinute} ${displayPeriod}`);
+      }
+    }
+    return times;
+  }
+
+
+  // Populate all .hfi-time select elements
+  const options = generateTimeOptions();
+  $(".hfi-time").each(function () {
+    const $select = $(this);
+    options.forEach((time) => {
+      $select.append($("<option>").text(time).val(time));
+    });
+  });
+});

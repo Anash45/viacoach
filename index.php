@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="./assets/css/slick.css">
         <link rel="stylesheet" href="./assets/css/select2.min.css">
         <link rel="stylesheet" href="./assets/css/jquery-ui.css">
-        <link rel="stylesheet" href="./assets/css/style.css?v=3">
+        <link rel="stylesheet" href="./assets/css/style.css?v=4">
     </head>
 
     <body class="homepage">
@@ -48,7 +48,8 @@
                                 </a>
                             </div>
                             <div class="ms-auto">
-                                <a href="tel:+44208 050 0110" class="d-flex align-items-center text-white gap-2 fw-bold nav-phone">
+                                <a href="tel:+44208 050 0110"
+                                    class="d-flex align-items-center text-white gap-2 fw-bold nav-phone">
                                     <span>
                                         <svg width="34" height="34" viewBox="0 0 34 34" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -101,7 +102,7 @@
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
                                                         <label class="hff-label fw-bold"> Name </label>
-                                                        <div class="d-flex align-items-center hff-flex-1">
+                                                        <div class="d-flex align-items-center gap-2">
                                                             <span>
                                                                 <svg width="19" height="19" viewBox="0 0 19 19"
                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -128,7 +129,7 @@
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
                                                         <label class="hff-label fw-bold"> Email </label>
-                                                        <div class="d-flex align-items-center hff-flex-1">
+                                                        <div class="d-flex align-items-center gap-2">
                                                             <span>
                                                                 <svg width="19" height="19" viewBox="0 0 19 19"
                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -165,7 +166,7 @@
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
                                                         <label class="hff-label fw-bold"> Telephone number </label>
-                                                        <div class="d-flex align-items-center hff-flex-1">
+                                                        <div class="d-flex align-items-center gap-2">
                                                             <span>
                                                                 <svg width="19" height="19" viewBox="0 0 19 19"
                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -183,8 +184,8 @@
                                                             </span>
                                                             <div
                                                                 class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
-                                                                <input type="text" class="hf-inp p-0 border-0"
-                                                                    placeholder="eg: +1 2345674455" name="phone"
+                                                                <input type="number" class="hf-inp p-0 border-0"
+                                                                    placeholder="eg: 12345674455" name="phone"
                                                                     id="phone">
                                                             </div>
                                                         </div>
@@ -193,7 +194,7 @@
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
                                                         <label class="hff-label fw-bold"> Purpose </label>
-                                                        <div class="d-flex align-items-center hff-flex-1">
+                                                        <div class="d-flex align-items-center gap-2">
                                                             <span>
                                                                 <svg width="18" height="19" viewBox="0 0 18 19"
                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -212,7 +213,7 @@
                                                             <div
                                                                 class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-center">
                                                                 <select id="hire_reason" name="hire_reason"
-                                                                    class="hf-inp events_inp bp-select form-select p-0 border-0">
+                                                                    class="hf-inp hfi-select events_inp bp-select form-select p-0 border-0">
                                                                     <option value=""> Select reason </option>
                                                                 </select>
                                                             </div>
@@ -222,8 +223,8 @@
                                             </div>
                                             <div class="hff-box hfb-destinations position-relative">
                                                 <div class="hff-group hfg-from">
-                                                    <label class="hff-label fw-bold"> From </label>
-                                                    <div class="d-flex align-items-center hff-flex-1">
+                                                    <label class="hff-label fw-bold"> Pickup </label>
+                                                    <div class="d-flex align-items-center gap-2">
                                                         <span>
                                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                                 xmlns="http://www.w3.org/2000/svg">
@@ -264,8 +265,8 @@
                                                 </div>
                                                 <div class="hffb-line"></div>
                                                 <div class="hff-group hfg-to">
-                                                    <label class="hff-label fw-bold"> To </label>
-                                                    <div class="d-flex align-items-center hff-flex-1">
+                                                    <label class="hff-label fw-bold"> Drop-off </label>
+                                                    <div class="d-flex align-items-center gap-2">
                                                         <span>
                                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                                 xmlns="http://www.w3.org/2000/svg">
@@ -319,7 +320,7 @@
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
                                                         <label class="hff-label fw-bold"> Pickup date </label>
-                                                        <div class="d-flex align-items-center hff-flex-1">
+                                                        <div class="d-flex align-items-center gap-2">
                                                             <span>
                                                                 <svg width="18" height="19" viewBox="0 0 18 19"
                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -342,7 +343,7 @@
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
                                                         <label class="hff-label fw-bold"> Pickup time </label>
-                                                        <div class="d-flex align-items-center hff-flex-1">
+                                                        <div class="d-flex align-items-center gap-2">
                                                             <span>
                                                                 <svg width="17" height="18" viewBox="0 0 17 18"
                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -369,9 +370,11 @@
                                                             </span>
                                                             <div
                                                                 class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
-                                                                <input type="time" class="hf-inp p-0 border-0"
-                                                                    placeholder="eg: 20 Jan 25" name="pickup_time"
-                                                                    id="pickup_time">
+                                                                <select
+                                                                    class="hf-inp hfi-select hfi-time p-0 border-0 form-control"
+                                                                    name="pickup_time" id="pickup_time">
+                                                                    <option value="">Select time...</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -379,7 +382,7 @@
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
                                                         <label class="hff-label fw-bold"> Passengers </label>
-                                                        <div class="d-flex align-items-center hff-flex-1">
+                                                        <div class="d-flex align-items-center gap-2">
                                                             <span>
                                                                 <svg width="18" height="19" viewBox="0 0 18 19"
                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -408,7 +411,7 @@
                                                 <div class="hff-group hfg-from">
                                                     <label class="hff-label fw-bold"> Return drop-off address (If
                                                         different from pickup address) </label>
-                                                    <div class="d-flex align-items-center hff-flex-1">
+                                                    <div class="d-flex align-items-center gap-2">
                                                         <span>
                                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                                 xmlns="http://www.w3.org/2000/svg">
@@ -453,7 +456,7 @@
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
                                                         <label class="hff-label fw-bold"> Return Drop-off date </label>
-                                                        <div class="d-flex align-items-center hff-flex-1">
+                                                        <div class="d-flex align-items-center gap-2">
                                                             <span>
                                                                 <svg width="18" height="19" viewBox="0 0 18 19"
                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -476,7 +479,7 @@
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
                                                         <label class="hff-label fw-bold"> Return Drop-off time </label>
-                                                        <div class="d-flex align-items-center hff-flex-1">
+                                                        <div class="d-flex align-items-center gap-2">
                                                             <span>
                                                                 <svg width="17" height="18" viewBox="0 0 17 18"
                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -503,9 +506,11 @@
                                                             </span>
                                                             <div
                                                                 class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
-                                                                <input type="time" class="hf-inp p-0 border-0"
-                                                                    placeholder="eg: 20 Jan 25"
-                                                                    name="return_dropoff_time">
+                                                                <select
+                                                                    class="hf-inp hfi-select hfi-time p-0 border-0 form-control"
+                                                                    name="return_dropoff_time" id="return_dropoff_time">
+                                                                    <option value="">Select time...</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -513,7 +518,7 @@
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
                                                         <label class="hff-label fw-bold"> Passengers </label>
-                                                        <div class="d-flex align-items-center hff-flex-1">
+                                                        <div class="d-flex align-items-center gap-2">
                                                             <span>
                                                                 <svg width="18" height="19" viewBox="0 0 18 19"
                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -543,7 +548,7 @@
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
                                                         <label class="hff-label fw-bold"> Vehicle Size </label>
-                                                        <div class="d-flex align-items-center hff-flex-1">
+                                                        <div class="d-flex align-items-center gap-2">
                                                             <span>
                                                                 <svg width="20" height="21" viewBox="0 0 20 21"
                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -572,7 +577,8 @@
                                                             </span>
                                                             <div
                                                                 class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-center">
-                                                                <select class="hf-inp form-select px-0 border-0"
+                                                                <select
+                                                                    class="hf-inp hfi-select form-select px-0 border-0"
                                                                     name="vehicle_size" id="bp_vehicle_size">
                                                                     <option value="">Select vehicle... </option>
                                                                 </select>
@@ -604,7 +610,7 @@
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
                                                         <label class="hff-label fw-bold"> Cabin bag </label>
-                                                        <div class="d-flex align-items-center hff-flex-1">
+                                                        <div class="d-flex align-items-center gap-2">
                                                             <span>
                                                                 <svg width="18" height="19" viewBox="0 0 18 19"
                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -639,7 +645,7 @@
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
                                                         <label class="hff-label fw-bold"> Luggage bag </label>
-                                                        <div class="d-flex align-items-center hff-flex-1">
+                                                        <div class="d-flex align-items-center gap-2">
                                                             <span>
                                                                 <svg width="19" height="19" viewBox="0 0 19 19"
                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -681,7 +687,7 @@
                                                     <div class="hff-group hfg-from">
                                                         <label class="hff-label fw-bold"> Additional information
                                                         </label>
-                                                        <div class="d-flex align-items-center hff-flex-1">
+                                                        <div class="d-flex align-items-center gap-2">
                                                             <span>
                                                                 <svg width="18" height="19" viewBox="0 0 18 19"
                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -717,7 +723,7 @@
                                         </div>
                                     </div>
                                     <div class="position-sticky bottom-0 pt-3 bg-white">
-                                        <button type="submit" name="get_quote"
+                                        <button type="submit" name="get_quote" value="1"
                                             class="btn hff-submit-btn btn-ferozi w-100">Get Instant Quote</button>
                                     </div>
                                 </form>
@@ -3059,9 +3065,9 @@
             allowFormToSubmit = true; // Allow form submission
             $('.hf-form').submit(); // Programmatically submit the form
         }
-
         $(document).ready(function () {
             $('.hf-form').on('submit', function (e) {
+                e.preventDefault();
                 let $form = $(this);
                 let $passengers = $('#passengers');
                 let $return_passengers = $('#return_passengers');
@@ -3077,8 +3083,37 @@
                     }
 
                     // Prevent form submission if validation fails or modal is required
-                    if (!allowFormToSubmit || !isFormValidated()) {
-                        e.preventDefault();
+                    if (allowFormToSubmit && isFormValidated()) {
+                        console.log($form);
+
+                        $form.find('.hff-submit-btn').prop('disabled', true).html('Loading...');
+
+                        // Create FormData object
+                        let formData = $form.serialize(); // Pass the native DOM element
+
+                        console.log(formData);
+                        // AJAX request
+                        $.ajax({
+                            url: 'process-single.php', // URL to the PHP processing script
+                            type: 'POST', // HTTP method
+                            data: formData, // Data to send
+                            success: function (response) {
+                                // Handle success response
+                                console.log(response);
+                                response = JSON.parse(response);
+                                if(response.status == 'success'){
+                                    window.location = 'quote-confirmation.php?success=1';
+                                }else{
+                                    window.location = 'quote-confirmation.php?success=0';
+                                }
+                                $form.find('.hff-submit-btn').prop('disabled', false).html('Get Instant Quote');
+                            },
+                            error: function (xhr, status, error) {
+                                // Handle error response
+                                console.error(xhr.responseText || error);
+                                $form.find('.hff-submit-btn').prop('disabled', false).html('Get Instant Quote');
+                            }
+                        });
                     }
                 }
             });

@@ -1,135 +1,22 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'vendor/autoload.php'; // Load PHPMailer via Composer autoload
-
+session_start();
 $info = '';
-if (isset($_REQUEST['get_quote'])) {
-    // Retrieve form data with fallback defaults
-    $name = $_REQUEST['name'] ?? null;
-    $email = $_REQUEST['email'] ?? null;
-    $phone = $_REQUEST['phone'] ?? null;
-    $hire_reason = $_REQUEST['hire_reason'] ?? null;
-    $from = $_REQUEST['from'] ?? null;
-    $from_lat = $_REQUEST['from_lat'] ?? null;
-    $from_lng = $_REQUEST['from_lng'] ?? null;
-    $to = $_REQUEST['to'] ?? null;
-    $to_lat = $_REQUEST['to_lat'] ?? null;
-    $to_lng = $_REQUEST['to_lng'] ?? null;
-    $pickup_date = $_REQUEST['pickup_date'] ?? null;
-    $pickup_time = $_REQUEST['pickup_time'] ?? null;
-    $return_dropoff = $_REQUEST['return_dropoff'] ?? null;
-    $return_lat = $_REQUEST['return_lat'] ?? null;
-    $return_lng = $_REQUEST['return_lng'] ?? null;
-    $return_dropoff_date = $_REQUEST['return_dropoff_date'] ?? null;
-    $return_dropoff_time = $_REQUEST['return_dropoff_time'] ?? null;
-    $passengers = $_REQUEST['passengers'] ?? 0;
-    $return_passengers = $_REQUEST['return_passengers'] ?? 0;
-    $vehicle_size = $_REQUEST['vehicle_size'] ?? null;
-    $extra_stops = $_REQUEST['extra_stops'] ?? null;
-    $cabin_bags = $_REQUEST['cabin_bags'] ?? 0;
-    $luggage_bags = $_REQUEST['luggage_bags'] ?? 0;
-    $additional_info = $_REQUEST['additional_info'] ?? null;
-
-    // Build Google Maps links
-    $from_map_link = !empty($from_lat) && !empty($from_lng) 
-        ? "<a href='https://www.google.com/maps?q={$from_lat},{$from_lng}' target='_blank'>View on Map</a>" 
-        : "Not available";
-
-    $to_map_link = !empty($to_lat) && !empty($to_lng) 
-        ? "<a href='https://www.google.com/maps?q={$to_lat},{$to_lng}' target='_blank'>View on Map</a>" 
-        : "Not available";
-
-    $return_map_link = !empty($return_lat) && !empty($return_lng) 
-        ? "<a href='https://www.google.com/maps?q={$return_lat},{$return_lng}' target='_blank'>View on Map</a>" 
-        : "Not available";
-
-    // Build email content
-    $email_body = "
-    <html>
-        <head>
-            <style>
-                body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
-                .container { max-width: 600px; margin: 20px auto; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
-                .header { background-color: rgb(0, 31, 63); padding: 20px; text-align: center; color: #ffffff; border-radius: 8px 8px 0 0; }
-                .content { padding: 20px; color: #333333; }
-                .footer { text-align: center; font-size: 12px; margin-top: 10px; color: #777777; }
-            </style>
-        </head>
-        <body>
-            <div class='container'>
-                <div class='header'>
-                    <h2>Viacoach</h2>
-                </div>
-                <div class='content'>
-                    <p><strong>Name:</strong> {$name}</p>
-                    <p><strong>Email:</strong> {$email}</p>
-                    <p><strong>Phone:</strong> {$phone}</p>
-                    <p><strong>Hire Reason:</strong> {$hire_reason}</p>
-                    <p><strong>Pickup Location:</strong> {$from} {$from_map_link}</p>
-                    <p><strong>Dropoff Location:</strong> {$to} {$to_map_link}</p>
-                    <p><strong>Pickup Date & Time:</strong> {$pickup_date} at {$pickup_time}</p>
-                    <p><strong>Passengers:</strong> {$passengers}</p>
-                    <p><strong>Vehicle Size:</strong> {$vehicle_size}</p>
-                    <p><strong>Extra Stops:</strong> {$extra_stops}</p>
-                    <p><strong>Cabin Bags:</strong> {$cabin_bags}</p>
-                    <p><strong>Luggage Bags:</strong> {$luggage_bags}</p>
-                    <p><strong>Additional Info:</strong> {$additional_info}</p>";
-    if (!empty($return_dropoff)) {
-        $email_body .= "
-                    <p><strong>Return Dropoff:</strong> {$return_dropoff} {$return_map_link}</p>
-                    <p><strong>Return Dropoff Date & Time:</strong> {$return_dropoff_date} at {$return_dropoff_time}</p>
-                    <p><strong>Return Passengers:</strong> {$return_passengers}</p>";
-    }
-    $email_body .= "
-                </div>
-                <div class='footer'>
-                    <p>&copy; Viacoach. All rights reserved.</p>
-                </div>
-            </div>
-        </body>
-    </html>";
-
-    // Send email using PHPMailer
-    $mail = new PHPMailer(true);
-
-    try {
-        // Server settings
-        $mail->isSMTP();
-        $mail->Host = 'getquotenow.travelviacoach.com'; // Replace with your SMTP host
-        $mail->SMTPAuth = true;
-        $mail->Username = 'webmaster@getquotenow.travelviacoach.com'; // Replace with your email
-        $mail->Password = ',}{EnQ52w9N%';   // Replace with your email password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port = 465;
-
-        // Recipients
-        $mail->setFrom('webmaster@getquotenow.travelviacoach.com', 'Viacoach'); // Sender email and name
-        $mail->addAddress('futuretest45@gmail.com');
-        $mail->addAddress('info@travelviacoach.com');
-        $mail->addAddress('info@f4futuretech.com');
-
-        // Content
-        $mail->isHTML(true);
-        $mail->Subject = 'Viacoach - New Booking Request';
-        $mail->Body = $email_body;
-
-        $mail->send();
+if (isset($_REQUEST['success']) ) {
+    if ($_REQUEST['success'] == 1) {
         $info = '<h5 class="fw-medium mb-0 df-title-1 text-main">Provisional Booking Complete! </h5>
-                <p class="text-secondary qc-desc my-1"> Thank You! <br><br> We\'ve received your
-                    request and reserved a slot for your journey. 🎉 <br> Our team is already
-                    reviewing your details to provide the perfect quote tailored to your needs. <br>
-                    We appreciate you choosing us and can\'t wait to help make your trip seamless!
-                    You\'ll hear from us shortly. <br><br> 🚍 Your journey, our priority!<br>The Viacoach Team
-                </p>';
-    } catch (Exception $e) {
+                    <p class="text-secondary qc-desc my-1"> Thank You! <br><br> We\'ve received your
+                        request and reserved a slot for your journey. 🎉 <br> Our team is already
+                        reviewing your details to provide the perfect quote tailored to your needs. <br>
+                        We appreciate you choosing us and can\'t wait to help make your trip seamless!
+                        You\'ll hear from us shortly. <br><br> 🚍 Your journey, our priority!<br>The Viacoach Team
+                    </p>';
+    } else {
         $info = '<h5 class="fw-medium mb-0 df-title-1 text-main">Provisional Booking Failed! </h5>
-                <p class="text-secondary qc-desc my-1"> Booking cannot be made at the moment, feel free to <a href="tel:+44208 050 0110">contact us</a>.<br>The Viacoach Team
-                </p>';
+                    <p class="text-secondary qc-desc my-1"> Booking cannot be made at the moment, feel free to <a href="tel:+44208 050 0110">contact us</a>.<br>The Viacoach Team
+                    </p>';
     }
-} else {
-    header('Location: index.php');
+}else{
+    header('location:index.php');
 }
 ?>
 <!DOCTYPE html>
@@ -147,7 +34,7 @@ if (isset($_REQUEST['get_quote'])) {
         <link rel="stylesheet" href="./assets/css/slick.css">
         <link rel="stylesheet" href="./assets/css/select2.min.css">
         <link rel="stylesheet" href="./assets/css/jquery-ui.css">
-        <link rel="stylesheet" href="./assets/css/style.css?v=3">
+        <link rel="stylesheet" href="./assets/css/style.css?v=4">
     </head>
 
     <body>
@@ -182,7 +69,8 @@ if (isset($_REQUEST['get_quote'])) {
                         <!-- Logo -->
                         <!-- Navigation items -->
                         <div class="ms-auto">
-                            <a href="tel:+44208 050 0110" class="d-flex align-items-center text-white gap-2 fw-bold nav-phone">
+                            <a href="tel:+44208 050 0110"
+                                class="d-flex align-items-center text-white gap-2 fw-bold nav-phone">
                                 <span>
                                     <svg width="34" height="34" viewBox="0 0 34 34" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -217,7 +105,8 @@ if (isset($_REQUEST['get_quote'])) {
                                 <div class="d-flex flex-column gap-3">
                                     <?php echo $info; ?>
                                     <div>
-                                        <a href="./index.php" class="btn hff-submit-btn df-btn btn-ferozi fw-bold">Go home</a>
+                                        <a href="./index.php" class="btn hff-submit-btn df-btn btn-ferozi fw-bold">Go
+                                            home</a>
                                     </div>
                                 </div>
                             </div>
@@ -229,15 +118,15 @@ if (isset($_REQUEST['get_quote'])) {
                                         <div class="d-flex flex-column">
                                             <div class="d-flex align-items-center dc-row">
                                                 <span class="dc-dark figtree fw-semibold">Name</span>
-                                                <span class="dc-light to-detail"><?php echo $name; ?></span>
+                                                <span class="dc-light to-detail"><?php echo $name = (isset($_SESSION['name'])) ? $_SESSION['name'] : ''; ?></span>
                                             </div>
                                             <div class="d-flex align-items-center dc-row">
                                                 <span class="dc-dark figtree fw-semibold">Email</span>
-                                                <span class="dc-light not-detail"><?php echo $email; ?></span>
+                                                <span class="dc-light not-detail"><?php echo $email = (isset($_SESSION['email'])) ? $_SESSION['email'] : ''; ?></span>
                                             </div>
                                             <div class="d-flex align-items-center dc-row">
                                                 <span class="dc-dark figtree fw-semibold">Phone number</span>
-                                                <span class="dc-light from-detail"><?php echo $phone; ?></span>
+                                                <span class="dc-light from-detail"><?php echo $phone = (isset($_SESSION['phone'])) ? $_SESSION['phone'] : ''; ?></span>
                                             </div>
                                         </div>
                                     </div>
@@ -500,7 +389,7 @@ if (isset($_REQUEST['get_quote'])) {
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCGxZXJ2gpN_is2UY1AXp98MN7sQHpIKk&callback=initMap&libraries=places"
             async defer></script>
-        <script src="./assets/js/custom.js?v=3"></script>
+        <script src="./assets/js/custom.js?v=4"></script>
         <script>
         </script>
     </body>

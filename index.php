@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="./assets/css/slick.css">
         <link rel="stylesheet" href="./assets/css/select2.min.css">
         <link rel="stylesheet" href="./assets/css/jquery-ui.css">
-        <link rel="stylesheet" href="./assets/css/style.css?v=4">
+        <link rel="stylesheet" href="./assets/css/style.css?v=5">
     </head>
 
     <body class="homepage">
@@ -87,7 +87,7 @@
                                 <p class="text-white mb-0 hc-desc">Book now a free executive coach upgrade</p>
                             </div>
                             <div class="header-form hf-vertical ms-xl-auto mx-auto">
-                                <form action="./quote-confirmation.php" class="p-4 hf-form hff-single-trip gap-2"
+                                <form action="./quote-confirmation.php" class="p-4 pb-2 hf-form hff-single-trip gap-2"
                                     method="POST">
                                     <div class="d-flex flex-column gap-3">
                                         <div
@@ -184,7 +184,7 @@
                                                             </span>
                                                             <div
                                                                 class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
-                                                                <input type="number" class="hf-inp p-0 border-0"
+                                                                <input type="text" class="hf-inp hf-number p-0 border-0"
                                                                     placeholder="eg: 12345674455" name="phone"
                                                                     id="phone">
                                                             </div>
@@ -304,7 +304,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="revese-btn">
+                                                <div class="reverse-btn">
                                                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path
@@ -400,8 +400,8 @@
                                                             </span>
                                                             <div
                                                                 class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
-                                                                <input type="number" name="passengers" id="passengers"
-                                                                    class="hf-inp form-control p-0 border-0">
+                                                                <input type="text" name="passengers" id="passengers"
+                                                                    class="hf-inp hf-number form-control p-0 border-0">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -536,9 +536,9 @@
                                                             </span>
                                                             <div
                                                                 class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
-                                                                <input type="number" name="return_passengers"
+                                                                <input type="text" name="return_passengers"
                                                                     id="return_passengers"
-                                                                    class="hf-inp form-control p-0 border-0">
+                                                                    class="hf-inp hf-number form-control p-0 border-0">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -636,7 +636,7 @@
                                                             </span>
                                                             <div
                                                                 class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
-                                                                <input type="number" min="0" class="hf-inp p-0 border-0"
+                                                                <input type="text" class="hf-inp hf-number p-0 border-0"
                                                                     value="1" name="cabin_bags" id="cabin_bags">
                                                             </div>
                                                         </div>
@@ -675,7 +675,7 @@
                                                             </span>
                                                             <div
                                                                 class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
-                                                                <input type="number" min="0" class="hf-inp p-0 border-0"
+                                                                <input type="text" class="hf-inp p-0 border-0 hf-number"
                                                                     value="1" name="luggage_bags" id="luggage_bags">
                                                             </div>
                                                         </div>
@@ -722,7 +722,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="position-sticky bottom-0 pt-3 bg-white">
+                                    <div class="position-sticky bottom-0 pt-3 bg-white pb-3">
                                         <button type="submit" name="get_quote" value="1"
                                             class="btn hff-submit-btn btn-ferozi w-100">Get Instant Quote</button>
                                     </div>
@@ -3069,7 +3069,7 @@
         }
 
         function submitForm($form) {
-            $form.find('.hff-submit-btn').prop('disabled', true).html('Loading...');
+            $form.find('.hff-submit-btn').prop('disabled', true).html('Processing quote...');
 
             // Create FormData object
             let formData = $form.serialize(); // Pass the native DOM element

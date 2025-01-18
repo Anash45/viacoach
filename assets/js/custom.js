@@ -73,7 +73,7 @@ $(document).ready(function () {
     containerCssClass: 'hfis-container'
   });
 
-  $('.revese-btn').each(function () {
+  $('.reverse-btn').each(function () {
     $(this).click(function (e) {
       e.stopPropagation();
       var destinations = $(this).closest('.hfb-destinations');
@@ -81,9 +81,17 @@ $(document).ready(function () {
       var hfg_to = destinations.find('.hfg-to');
       let hfgf_val = hfg_from.find('input').val();
       let hfgt_val = hfg_to.find('input').val();
+      let hfgf_lat_val = hfg_from.find('.hidden_lat').val();
+      let hfgf_lng_val = hfg_from.find('.hidden_lng').val();
+      let hfgt_lat_val = hfg_to.find('.hidden_lat').val();
+      let hfgt_lng_val = hfg_to.find('.hidden_lng').val();
 
       hfg_from.find('input').val(hfgt_val).trigger('change');
       hfg_to.find('input').val(hfgf_val).trigger('change');
+      hfg_from.find('.hidden_lat').val(hfgt_lat_val).trigger('change');
+      hfg_from.find('.hidden_lng').val(hfgt_lng_val).trigger('change');
+      hfg_to.find('.hidden_lat').val(hfgf_lat_val).trigger('change');
+      hfg_to.find('.hidden_lng').val(hfgf_lng_val).trigger('change');
     });
   });
 
@@ -868,10 +876,6 @@ $(document).ready(function () {
 });
 
 
-function openPinLocation(id) {
-
-}
-
 let map, marker; // Global variables for map and marker
 
 $(document).ready(function () {
@@ -880,7 +884,7 @@ $(document).ready(function () {
 
     // Define Autocomplete options with componentRestrictions for Europe
     const autocompleteOptions = {
-      componentRestrictions: { country: ["ad", "al", "at", "be", "bg", "by", "ch", "cy", "cz", "de", "dk", "ee", "es", "fi", "fr", "gb", "gr", "hr", "hu", "ie", "is", "it", "li", "lt", "lu", "lv", "mc", "me", "mk", "mt", "nl", "no", "pl", "pt", "ro", "rs", "se", "si", "sk", "sm", "ua"] },
+      componentRestrictions: { country: ["uk", "ad", "al", "at", "be", "bg", "by", "ch", "cy", "cz", "de", "dk", "ee", "es", "fi", "fr", "gb", "gr", "hr", "hu", "ie", "is", "it", "li", "lt", "lu", "lv", "mc", "me", "mk", "mt", "nl", "no", "pl", "pt", "ro", "rs", "se", "si", "sk", "sm", "ua"] },
     };
 
     // Initialize Autocomplete with restrictions
@@ -901,7 +905,7 @@ $(document).ready(function () {
         // Run the custom function with the input's ID and location
         const inputId = $(inputElement).attr('id');
         if (inputId) {
-          openPinLocation(inputId, lat, lng);
+          openPinLocation(inputId, lat, lng, place.formatted_address);
         }
       }
     });
@@ -910,46 +914,80 @@ $(document).ready(function () {
 
 });
 
-function setLatLng(inputId, defaultLat, defaultLng) {
+function setLatLng(inputId, defaultLat, defaultLng, newAddress) {
+  $('#' + inputId).val(newAddress);
   $('#' + inputId).siblings('.hidden_lat').val(defaultLat);
   $('#' + inputId).siblings('.hidden_lng').val(defaultLng);
 }
 
 // Function to open the location picker modal
-function openPinLocation(inputId, defaultLat, defaultLng) {
+function openPinLocation(inputId, defaultLat, defaultLng, newAddress) {
   let newLat = defaultLat;
   let newLng = defaultLng;
-  setLatLng(inputId, newLat, newLng);
+
+  setLatLng(inputId, newLat, newLng, newAddress);
+
   // Initialize or reinitialize the map
   const locMapDiv = document.getElementById('locMap');
+  const geocoder = new google.maps.Geocoder(); // Initialize the Geocoder service
 
   // Default location (from autocomplete)
   const defaultPosition = { lat: defaultLat, lng: defaultLng };
 
   // Initialize the map
-  map = new google.maps.Map(locMapDiv, {
+  const map = new google.maps.Map(locMapDiv, {
     center: defaultPosition,
     zoom: 15,
   });
 
   // Initialize the marker
-  marker = new google.maps.Marker({
+  const marker = new google.maps.Marker({
     position: defaultPosition,
     map: map,
     draggable: true, // Allow the marker to be moved
   });
 
-  // Update marker position on drag
+  // Function to get and log the formatted address using a callback
+  function getFormattedAddress(lat, lng, callback) {
+    const latLng = { lat: lat, lng: lng };
+    geocoder.geocode({ location: latLng }, function (results, status) {
+      if (status === 'OK') {
+        if (results[0]) {
+          const formatted_address = results[0].formatted_address;
+          console.log('Formatted Address:', formatted_address);
+          callback(formatted_address); // Pass the address to the callback
+        } else {
+          console.log('No address found for this location.');
+          callback(null);
+        }
+      } else {
+        console.error('Geocoder failed due to:', status);
+        callback(null);
+      }
+    });
+  }
+
+  // Update marker position and log address on drag end
   google.maps.event.addListener(marker, 'dragend', function () {
     newLat = marker.getPosition().lat();
     newLng = marker.getPosition().lng();
-    setLatLng(inputId, newLat, newLng);
-    console.log('Selected Pin Location:', { lat: newLat, lng: newLng });
+
+    // Use the callback to handle the formatted address
+    getFormattedAddress(newLat, newLng, function (formatted_address) {
+      if (formatted_address != null) {
+        console.log('Selected Pin Location:', { lat: newLat, lng: newLng, address: formatted_address });
+        setLatLng(inputId, newLat, newLng, formatted_address);
+      } else {
+        setLatLng(inputId, newLat, newLng, newAddress);
+      }
+    });
   });
+
 
   // Open the modal (use your modal logic here)
   $('#pinLocationModal').modal('show');
 }
+
 
 function isValidEmail(email) {
   // Regular expression for email validation
@@ -981,5 +1019,13 @@ $(document).ready(function () {
     options.forEach((time) => {
       $select.append($("<option>").text(time).val(time));
     });
+  });
+});
+
+$(document).ready(function () {
+  $('.hf-inp.hf-number').on('input', function () {
+    // Remove any non-numeric characters
+    const sanitizedValue = this.value.replace(/[^0-9]/g, '');
+    $(this).val(sanitizedValue);
   });
 });

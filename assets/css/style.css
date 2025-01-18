@@ -380,7 +380,7 @@ header {
     border: 0 !important;
 }
 
-.revese-btn {
+.reverse-btn {
     height: 40px;
     width: 40px;
     background-color: #191919;
@@ -554,15 +554,29 @@ footer {
 
 .dc-content {
     position: absolute;
-    bottom: 24px;
-    left: 24px;
+    height: 100%;
+    width: 100%;
+    padding: 24px;
+    justify-content: flex-end;
+    bottom: 0px;
+    left: 0px;
     display: flex;
     flex-direction: column;
     gap: 24px;
+    transition: 0.3s ease-in-out;
+}
+
+.destination-card:hover .dc-content{
+    background-color: rgba(250, 142, 16, 0.54);
+}
+
+.destination-card:hover .dc-title{
+    color: #171717 !important;
 }
 
 .destinations-carousel .dc-title {
     font-size: 32px;
+    transition: 0.3s ease-in-out;
 }
 
 .dc-tag {
@@ -1204,8 +1218,11 @@ footer {
     align-items: center;
     gap: 10px;
     backdrop-filter: blur(26px);
+    transition: 0.3s ease-in-out;
 }
-
+.cf-pill:hover{
+    border-color: rgba(250, 142, 16, 0.3);
+}
 .social-icons {
     display: flex;
     gap: 20px;
@@ -1855,6 +1872,14 @@ textarea.hff-error{
 
 .hfis-dropdown .select2-results__option--highlighted{
     background-color: #0FE4EA !important;
+}
+
+.cg-card,.landing-card,.services-card{
+    transition: 0.3s ease-in-out;
+}
+
+.cg-card:hover,.landing-card:hover,.services-card:hover{
+    border-color: #FA8E10 !important;
 }
 @media (min-width: 1200px) {}
 

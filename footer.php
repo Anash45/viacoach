@@ -99,7 +99,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="mb-0 modal-title">Pick ppin point location</h3>
+                <h3 class="mb-0 modal-title">Pick pin point location</h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -120,4 +120,4 @@
 <script src="./assets/js/select2.min.js"></script>
 <script src="./assets/js/jquery-ui.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCGxZXJ2gpN_is2UY1AXp98MN7sQHpIKk&libraries=places"></script>
-<script src="./assets/js/custom.js?v=4"></script>
+<script src="./assets/js/custom.js?v=5"></script>

@@ -3063,7 +3063,40 @@
         function confirmMoreCoaches() {
             bypassValidation = true; // Set the bypass flag
             allowFormToSubmit = true; // Allow form submission
-            $('.hf-form').submit(); // Programmatically submit the form
+            $('#moreCoachesModal').modal('hide');
+            $('.hf-form').submit();
+
+        }
+
+        function submitForm($form) {
+            $form.find('.hff-submit-btn').prop('disabled', true).html('Loading...');
+
+            // Create FormData object
+            let formData = $form.serialize(); // Pass the native DOM element
+
+            console.log(formData);
+            // AJAX request
+            $.ajax({
+                url: 'process-single.php', // URL to the PHP processing script
+                type: 'POST', // HTTP method
+                data: formData, // Data to send
+                success: function (response) {
+                    // Handle success response
+                    console.log(response);
+                    response = JSON.parse(response);
+                    if (response.status == 'success') {
+                        window.location = 'quote-confirmation.php?success=1';
+                    } else {
+                        window.location = 'quote-confirmation.php?success=0';
+                    }
+                    $form.find('.hff-submit-btn').prop('disabled', false).html('Get Instant Quote');
+                },
+                error: function (xhr, status, error) {
+                    // Handle error response
+                    console.error(xhr.responseText || error);
+                    $form.find('.hff-submit-btn').prop('disabled', false).html('Get Instant Quote');
+                }
+            });
         }
         $(document).ready(function () {
             $('.hf-form').on('submit', function (e) {
@@ -3084,36 +3117,12 @@
 
                     // Prevent form submission if validation fails or modal is required
                     if (allowFormToSubmit && isFormValidated()) {
-                        console.log($form);
-
-                        $form.find('.hff-submit-btn').prop('disabled', true).html('Loading...');
-
-                        // Create FormData object
-                        let formData = $form.serialize(); // Pass the native DOM element
-
-                        console.log(formData);
-                        // AJAX request
-                        $.ajax({
-                            url: 'process-single.php', // URL to the PHP processing script
-                            type: 'POST', // HTTP method
-                            data: formData, // Data to send
-                            success: function (response) {
-                                // Handle success response
-                                console.log(response);
-                                response = JSON.parse(response);
-                                if(response.status == 'success'){
-                                    window.location = 'quote-confirmation.php?success=1';
-                                }else{
-                                    window.location = 'quote-confirmation.php?success=0';
-                                }
-                                $form.find('.hff-submit-btn').prop('disabled', false).html('Get Instant Quote');
-                            },
-                            error: function (xhr, status, error) {
-                                // Handle error response
-                                console.error(xhr.responseText || error);
-                                $form.find('.hff-submit-btn').prop('disabled', false).html('Get Instant Quote');
-                            }
-                        });
+                        submitForm($form);
+                    }
+                }else{
+                    // Prevent form submission if validation fails or modal is required
+                    if (allowFormToSubmit && isFormValidated()) {
+                        submitForm($form);
                     }
                 }
             });

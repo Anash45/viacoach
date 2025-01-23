@@ -5,16 +5,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>VIACOACH</title>
-        <!-- Google Tag Manager -->
-        <script>(function (w, d, s, l, i) {
-                w[l] = w[l] || []; w[l].push({
-                    'gtm.start':
-                        new Date().getTime(), event: 'gtm.js'
-                }); var f = d.getElementsByTagName(s)[0],
-                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-            })(window, document, 'script', 'dataLayer', 'GTM-MP9L5ZL3');</script>
-        <!-- End Google Tag Manager -->
         <link rel="shortcut icon" href="./assets/img/square-icon.png" type="image/x-icon">
         <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -97,7 +87,7 @@
                                 <p class="text-white mb-0 hc-desc">Book now a free executive coach upgrade</p>
                             </div>
                             <div class="header-form hf-vertical ms-xl-auto mx-auto">
-                                <form action="./quote-confirmation.php" class="p-4 pb-2 hf-form hff-single-trip gap-2"
+                                <form action="./booking.php" class="p-4 pb-2 hf-form hff-single-trip gap-2"
                                     method="POST">
                                     <div class="d-flex flex-column gap-3">
                                         <div
@@ -3031,10 +3021,6 @@
                 </div>
             </div>
         </div>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MP9L5ZL3" height="0" width="0"
-                style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
     </body>
     <script>
 
@@ -3082,39 +3068,8 @@
 
         }
 
-        function submitForm($form) {
-            $form.find('.hff-submit-btn').prop('disabled', true).html('Processing quote...');
-
-            // Create FormData object
-            let formData = $form.serialize(); // Pass the native DOM element
-
-            console.log(formData);
-            // AJAX request
-            $.ajax({
-                url: 'process-single.php', // URL to the PHP processing script
-                type: 'POST', // HTTP method
-                data: formData, // Data to send
-                success: function (response) {
-                    // Handle success response
-                    console.log(response);
-                    response = JSON.parse(response);
-                    if (response.status == 'success') {
-                        window.location = 'quote-confirmation.php?success=1';
-                    } else {
-                        window.location = 'quote-confirmation.php?success=0';
-                    }
-                    $form.find('.hff-submit-btn').prop('disabled', false).html('Get Instant Quote');
-                },
-                error: function (xhr, status, error) {
-                    // Handle error response
-                    console.error(xhr.responseText || error);
-                    $form.find('.hff-submit-btn').prop('disabled', false).html('Get Instant Quote');
-                }
-            });
-        }
         $(document).ready(function () {
             $('.hf-form').on('submit', function (e) {
-                e.preventDefault();
                 let $form = $(this);
                 let $passengers = $('#passengers');
                 let $return_passengers = $('#return_passengers');
@@ -3131,12 +3086,14 @@
 
                     // Prevent form submission if validation fails or modal is required
                     if (allowFormToSubmit && isFormValidated()) {
-                        submitForm($form);
+                    }else{
+                        e.preventDefault();
                     }
-                } else {
+                }else{
                     // Prevent form submission if validation fails or modal is required
                     if (allowFormToSubmit && isFormValidated()) {
-                        submitForm($form);
+                    }else{
+                        e.preventDefault();
                     }
                 }
             });

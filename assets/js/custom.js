@@ -99,7 +99,10 @@ $(document).ready(function () {
     dateFormat: 'dd M y', // Customize the date format
     changeMonth: true,     // Allows changing month via dropdown
     changeYear: true,      // Allows changing year via dropdown
-    showButtonPanel: true, // Adds "Today" and "Done" buttons
+    showButtonPanel: true,
+    onSelect: function () {
+      $(this).closest('form').trigger('input'); // Trigger the change event
+    }
   });
 });
 
@@ -879,53 +882,74 @@ $(document).ready(function () {
 let map, marker; // Global variables for map and marker
 
 $(document).ready(function () {
-  $('.loc-inp').each(function () {
-    const inputElement = this; // Reference to the input field
-
+  // Function to initialize autocomplete on a given input element
+  function initializeAutocomplete(inputElement) {
     // Define Autocomplete options with componentRestrictions for Europe
     const autocompleteOptions = {
-      componentRestrictions: { country: ["uk", "ad", "al", "at", "be", "bg", "by", "ch", "cy", "cz", "de", "dk", "ee", "es", "fi", "fr", "gb", "gr", "hr", "hu", "ie", "is", "it", "li", "lt", "lu", "lv", "mc", "me", "mk", "mt", "nl", "no", "pl", "pt", "ro", "rs", "se", "si", "sk", "sm", "ua"] },
+      componentRestrictions: {
+        country: [
+          "uk", "ad", "al", "at", "be", "bg", "by", "ch", "cy", "cz", "de", "dk", "ee", "es", "fi", "fr", "gb", "gr", "hr", "hu", "ie", "is", "it", "li", "lt", "lu", "lv", "mc", "me", "mk", "mt", "nl", "no", "pl", "pt", "ro", "rs", "se", "si", "sk", "sm", "ua",
+        ],
+      },
     };
 
     // Initialize Autocomplete with restrictions
     const autocomplete = new google.maps.places.Autocomplete(inputElement, autocompleteOptions);
 
     // Event listener for place selection
-    google.maps.event.addListener(autocomplete, 'place_changed', function () {
+    google.maps.event.addListener(autocomplete, "place_changed", function () {
       const place = autocomplete.getPlace();
 
       if (place && place.geometry && place.geometry.location) {
         // Populate the input with the formatted address
         $(inputElement).val(place.formatted_address);
+        $(inputElement).closest('form').trigger('input');
 
         // Get latitude and longitude
         const lat = place.geometry.location.lat();
         const lng = place.geometry.location.lng();
 
-        // Run the custom function with the input's ID and location
-        const inputId = $(inputElement).attr('id');
-        if (inputId) {
-          openPinLocation(inputId, lat, lng, place.formatted_address);
-        }
+        // Run the custom function with the input element and location
+        openPinLocation(inputElement, lat, lng, place.formatted_address);
       }
     });
+  }
+
+  // Initialize autocomplete for already existing .loc-inp elements
+  $(".loc-inp").each(function () {
+    initializeAutocomplete(this);
   });
 
-
+  // Monitor DOM for dynamically added .loc-inp elements
+  $(document).on("focus", ".loc-inp", function () {
+    // Check if autocomplete is not already initialized
+    if (!$(this).data("autocomplete-initialized")) {
+      initializeAutocomplete(this);
+      $(this).data("autocomplete-initialized", true); // Mark as initialized
+    }
+  });
 });
 
-function setLatLng(inputId, defaultLat, defaultLng, newAddress) {
-  $('#' + inputId).val(newAddress);
-  $('#' + inputId).siblings('.hidden_lat').val(defaultLat);
-  $('#' + inputId).siblings('.hidden_lng').val(defaultLng);
+
+
+// Function to set the latitude, longitude, and address for the input element
+function setLatLng(inputElement, defaultLat, defaultLng, newAddress) {
+  // Set the input value to the new address
+  $(inputElement).val(newAddress);
+  $(inputElement).closest('form').trigger('input');
+
+  // Find sibling elements for latitude and longitude
+  $(inputElement).siblings('.hidden_lat').val(defaultLat);
+  $(inputElement).siblings('.hidden_lng').val(defaultLng);
 }
 
 // Function to open the location picker modal
-function openPinLocation(inputId, defaultLat, defaultLng, newAddress) {
+function openPinLocation(inputElement, defaultLat, defaultLng, newAddress) {
   let newLat = defaultLat;
   let newLng = defaultLng;
 
-  setLatLng(inputId, newLat, newLng, newAddress);
+  // Set the initial latitude, longitude, and address
+  setLatLng(inputElement, newLat, newLng, newAddress);
 
   // Initialize or reinitialize the map
   const locMapDiv = document.getElementById('locMap');
@@ -976,13 +1000,12 @@ function openPinLocation(inputId, defaultLat, defaultLng, newAddress) {
     getFormattedAddress(newLat, newLng, function (formatted_address) {
       if (formatted_address != null) {
         console.log('Selected Pin Location:', { lat: newLat, lng: newLng, address: formatted_address });
-        setLatLng(inputId, newLat, newLng, formatted_address);
+        setLatLng(inputElement, newLat, newLng, formatted_address);
       } else {
-        setLatLng(inputId, newLat, newLng, newAddress);
+        setLatLng(inputElement, newLat, newLng, newAddress);
       }
     });
   });
-
 
   // Open the modal (use your modal logic here)
   $('#pinLocationModal').modal('show');
@@ -993,32 +1016,36 @@ function isValidEmail(email) {
   // Regular expression for email validation
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
+}  // Function to generate time options
+function generateTimeOptions() {
+  const times = [];
+  const period = ['am', 'pm'];
+  for (let hour = 0; hour < 24; hour++) {
+    for (let minute = 15; minute < 60; minute += 15) {
+      let displayHour = hour === 0 ? '00' : hour % 12 === 0 ? 12 : hour % 12;
+      let displayMinute = minute.toString().padStart(2, '0');
+      let displayPeriod = period[Math.floor(hour / 12)];
+      times.push(`${displayHour}:${displayMinute} ${displayPeriod}`);
+    }
+  }
+  return times;
+}
+
+// Populate all .hfi-time select elements
+function populateTimeOptions($element) {
+  const options = generateTimeOptions();
+  $element.empty(); // Clear existing options
+  $element.append($("<option>").text("Select Time").val(""));
+  options.forEach((time) => {
+    $element.append($("<option>").text(time).val(time));
+  });
 }
 
 $(document).ready(function () {
-  // Function to generate time options
-  function generateTimeOptions() {
-    const times = [];
-    const period = ['am', 'pm'];
-    for (let hour = 0; hour < 24; hour++) {
-      for (let minute = 15; minute < 60; minute += 15) {
-        let displayHour = hour === 0 ? '00' : hour % 12 === 0 ? 12 : hour % 12;
-        let displayMinute = minute.toString().padStart(2, '0');
-        let displayPeriod = period[Math.floor(hour / 12)];
-        times.push(`${displayHour}:${displayMinute} ${displayPeriod}`);
-      }
-    }
-    return times;
-  }
 
 
-  // Populate all .hfi-time select elements
-  const options = generateTimeOptions();
   $(".hfi-time").each(function () {
-    const $select = $(this);
-    options.forEach((time) => {
-      $select.append($("<option>").text(time).val(time));
-    });
+    populateTimeOptions($(this));
   });
 });
 
@@ -1027,5 +1054,401 @@ $(document).ready(function () {
     // Remove any non-numeric characters
     const sanitizedValue = this.value.replace(/[^0-9]/g, '');
     $(this).val(sanitizedValue);
+  });
+});
+
+$(document).ready(function () {
+  // Handle the click event on .btna-dropoffs
+  $(document).on('click', '.btna-dropoffs', function () {
+    const additionalContent = `
+        <div class="row position-relative">
+          <div class="col-xl-7">
+              <div class="hff-box">
+                  <div class="hff-group hfg-to">
+                      <label class="hff-label fw-bold">
+                          Please fill out the text box per
+                          extra drop-offs.</label>
+                      <div
+                          class="d-flex align-items-center gap-2">
+                          <span>
+                              <svg width="20" height="20"
+                                  viewBox="0 0 20 20"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <g
+                                      clip-path="url(#clip0_8_2856)">
+                                      <path
+                                          d="M15.9083 11.6668H16.6667C16.8877 11.6668 17.0996 11.579 17.2559 11.4227C17.4122 11.2664 17.5 11.0544 17.5 10.8334V2.50008C17.5 2.27907 17.4122 2.06711 17.2559 1.91083C17.0996 1.75455 16.8877 1.66675 16.6667 1.66675H4.76667C4.59196 1.6663 4.42154 1.72077 4.27948 1.82245C4.13741 1.92414 4.03091 2.0679 3.975 2.23342L2.5 6.54175L2.45833 6.80008V10.8334C2.45833 11.0544 2.54613 11.2664 2.70241 11.4227C2.85869 11.579 3.07065 11.6668 3.29167 11.6668H4.05"
+                                          stroke="#656E77"
+                                          stroke-width="0.833333"
+                                          stroke-linecap="round"
+                                          stroke-linejoin="round" />
+                                      <path
+                                          d="M17.5 6.66675H2.5M7.55 11.6667H12.4333M14.1667 10.0001C14.4963 10.0001 14.8185 10.0978 15.0926 10.281C15.3667 10.4641 15.5803 10.7244 15.7065 11.0289C15.8326 11.3335 15.8656 11.6686 15.8013 11.9919C15.737 12.3152 15.5783 12.6122 15.3452 12.8453C15.1121 13.0783 14.8151 13.2371 14.4918 13.3014C14.1685 13.3657 13.8334 13.3327 13.5289 13.2065C13.2243 13.0804 12.964 12.8668 12.7809 12.5927C12.5977 12.3186 12.5 11.9964 12.5 11.6667C12.5 11.2247 12.6756 10.8008 12.9882 10.4882C13.3007 10.1757 13.7246 10.0001 14.1667 10.0001ZM5.83333 10.0001C6.16297 10.0001 6.4852 10.0978 6.75928 10.281C7.03337 10.4641 7.24699 10.7244 7.37313 11.0289C7.49928 11.3335 7.53228 11.6686 7.46798 11.9919C7.40367 12.3152 7.24493 12.6122 7.01184 12.8453C6.77876 13.0783 6.48179 13.2371 6.15848 13.3014C5.83518 13.3657 5.50007 13.3327 5.19553 13.2065C4.89098 13.0804 4.63069 12.8668 4.44755 12.5927C4.26442 12.3186 4.16667 11.9964 4.16667 11.6667C4.16667 11.2247 4.34226 10.8008 4.65482 10.4882C4.96738 10.1757 5.39131 10.0001 5.83333 10.0001ZM12.5 6.66675H7.5V1.66675H12.5V6.66675Z"
+                                          stroke="#656E77"
+                                          stroke-width="0.833333"
+                                          stroke-linecap="round"
+                                          stroke-linejoin="round" />
+                                      <path
+                                          d="M0.625 16.6406C6.88984 16.6406 13.1547 16.6406 19.6094 16.6406C19.6094 17.0256 19.6094 17.4106 19.6094 17.8073C13.3445 17.8073 7.07969 17.8073 0.625 17.8073C0.625 17.4223 0.625 17.0373 0.625 16.6406Z"
+                                          fill="#656E77" />
+                                  </g>
+                                  <defs>
+                                      <clipPath
+                                          id="clip0_8_2856">
+                                          <rect width="20"
+                                              height="20"
+                                              fill="white" />
+                                      </clipPath>
+                                  </defs>
+                              </svg>
+                          </span>
+                          <div
+                              class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
+                              <input type="text"
+                                  name="add_to[]"
+                                  placeholder="Drop-off location..."
+                                  class="hf-inp loc-inp p-0 border-0">
+                              <input type="hidden"
+                                  name="add_to_lat[]"
+                                  class="hidden_lat"
+                                  value="">
+                              <input type="hidden"
+                                  name="add_to_lng[]"
+                                  class="hidden_lng"
+                                  value="">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xl-5">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="hff-box">
+                          <div class="hff-group hfg-from">
+                              <label
+                                  class="hff-label fw-bold">
+                                  Pickup date </label>
+                              <div
+                                  class="d-flex align-items-center gap-2">
+                                  <span>
+                                      <svg width="18"
+                                          height="19"
+                                          viewBox="0 0 18 19"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg">
+                                          <path
+                                              d="M12 2V5M6 2V5M2.25 8H15.75M3.75 3.5H14.25C15.0784 3.5 15.75 4.17157 15.75 5V15.5C15.75 16.3284 15.0784 17 14.25 17H3.75C2.92157 17 2.25 16.3284 2.25 15.5V5C2.25 4.17157 2.92157 3.5 3.75 3.5Z"
+                                              stroke="#656E77"
+                                              stroke-width="1.2"
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round" />
+                                      </svg>
+                                  </span>
+                                  <div
+                                      class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
+                                      <input type="text"
+                                          class="hf-date hf-inp p-0 border-0"
+                                          placeholder="eg: 20 Jan 25"
+                                          name="add_to_date[]">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="hff-box">
+                          <div class="hff-group hfg-from">
+                              <label
+                                  class="hff-label fw-bold">
+                                  Pickup time </label>
+                              <div
+                                  class="d-flex align-items-center gap-2">
+                                  <span>
+                                      <svg width="17"
+                                          height="18"
+                                          viewBox="0 0 17 18"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg">
+                                          <g
+                                              clip-path="url(#clip0_734_5155)">
+                                              <path
+                                                  d="M2.125 8.79639C2.125 9.63356 2.28989 10.4625 2.61027 11.236C2.93064 12.0094 3.40022 12.7122 3.99219 13.3042C4.58417 13.8962 5.28694 14.3657 6.06039 14.6861C6.83384 15.0065 7.66282 15.1714 8.5 15.1714C9.33718 15.1714 10.1662 15.0065 10.9396 14.6861C11.7131 14.3657 12.4158 13.8962 13.0078 13.3042C13.5998 12.7122 14.0694 12.0094 14.3897 11.236C14.7101 10.4625 14.875 9.63356 14.875 8.79639C14.875 7.95921 14.7101 7.13023 14.3897 6.35678C14.0694 5.58333 13.5998 4.88055 13.0078 4.28858C12.4158 3.69661 11.7131 3.22703 10.9396 2.90665C10.1662 2.58628 9.33718 2.42139 8.5 2.42139C7.66282 2.42139 6.83384 2.58628 6.06039 2.90665C5.28694 3.22703 4.58417 3.69661 3.99219 4.28858C3.40022 4.88055 2.93064 5.58333 2.61027 6.35678C2.28989 7.13023 2.125 7.95921 2.125 8.79639Z"
+                                                  stroke="#656E77"
+                                                  stroke-width="1.2"
+                                                  stroke-linecap="round"
+                                                  stroke-linejoin="round" />
+                                              <path
+                                                  d="M8.5 8.79639H10.9792"
+                                                  stroke="#656E77"
+                                                  stroke-width="1.2"
+                                                  stroke-linecap="round"
+                                                  stroke-linejoin="round" />
+                                              <path
+                                                  d="M8.5 5.25464V8.79631"
+                                                  stroke="#656E77"
+                                                  stroke-width="1.2"
+                                                  stroke-linecap="round"
+                                                  stroke-linejoin="round" />
+                                          </g>
+                                          <defs>
+                                              <clipPath
+                                                  id="clip0_734_5155">
+                                                  <rect
+                                                      width="17"
+                                                      height="17"
+                                                      fill="white"
+                                                      transform="translate(0 0.296387)" />
+                                              </clipPath>
+                                          </defs>
+                                      </svg>
+                                  </span>
+                                  <div
+                                      class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
+                                      <select
+                                          class="hf-inp hfi-select hfi-time p-0 border-0 form-control"
+                                          name="add_to_time[]">
+                                          <option
+                                              value="">
+                                              Select
+                                              time...
+                                          </option>
+                                      </select>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="remove-additional">
+              <img src="./assets/img/circle-minus.svg" alt="Minus" height="20">
+          </div>
+      </div>
+    `;
+    const $additionalCont = $(this).prev('.additional_cont');
+    // Add the content before the .btna-dropoffs button
+    $additionalCont.append(additionalContent);
+    // Re-initialize plugins for newly added elements
+    $additionalCont.find('.hf-date').last().datepicker({
+      dateFormat: 'dd M y',
+      changeMonth: true,
+      changeYear: true,
+      showButtonPanel: true,
+      onSelect: function () {
+        $(this).closest('form').trigger('input');// Trigger the change event
+      }
+    });
+
+    $additionalCont.find('.hfi-time').last().each(function () {
+      populateTimeOptions($(this));
+    });
+  });
+  $(document).on('click', '.btna-pickups', function () {
+    const additionalContent = `
+      <div class="row position-relative">
+        <div class="col-xl-7">
+            <div class="hff-box">
+                <div class="hff-group hfg-to">
+                    <label class="hff-label fw-bold">
+                        Please fill out the text box per
+                        extra pickups.</label>
+                    <div
+                        class="d-flex align-items-center gap-2">
+                        <span>
+                            <svg width="20" height="20"
+                                viewBox="0 0 20 20"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g
+                                    clip-path="url(#clip0_8_2856)">
+                                    <path
+                                        d="M15.9083 11.6668H16.6667C16.8877 11.6668 17.0996 11.579 17.2559 11.4227C17.4122 11.2664 17.5 11.0544 17.5 10.8334V2.50008C17.5 2.27907 17.4122 2.06711 17.2559 1.91083C17.0996 1.75455 16.8877 1.66675 16.6667 1.66675H4.76667C4.59196 1.6663 4.42154 1.72077 4.27948 1.82245C4.13741 1.92414 4.03091 2.0679 3.975 2.23342L2.5 6.54175L2.45833 6.80008V10.8334C2.45833 11.0544 2.54613 11.2664 2.70241 11.4227C2.85869 11.579 3.07065 11.6668 3.29167 11.6668H4.05"
+                                        stroke="#656E77"
+                                        stroke-width="0.833333"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M17.5 6.66675H2.5M7.55 11.6667H12.4333M14.1667 10.0001C14.4963 10.0001 14.8185 10.0978 15.0926 10.281C15.3667 10.4641 15.5803 10.7244 15.7065 11.0289C15.8326 11.3335 15.8656 11.6686 15.8013 11.9919C15.737 12.3152 15.5783 12.6122 15.3452 12.8453C15.1121 13.0783 14.8151 13.2371 14.4918 13.3014C14.1685 13.3657 13.8334 13.3327 13.5289 13.2065C13.2243 13.0804 12.964 12.8668 12.7809 12.5927C12.5977 12.3186 12.5 11.9964 12.5 11.6667C12.5 11.2247 12.6756 10.8008 12.9882 10.4882C13.3007 10.1757 13.7246 10.0001 14.1667 10.0001ZM5.83333 10.0001C6.16297 10.0001 6.4852 10.0978 6.75928 10.281C7.03337 10.4641 7.24699 10.7244 7.37313 11.0289C7.49928 11.3335 7.53228 11.6686 7.46798 11.9919C7.40367 12.3152 7.24493 12.6122 7.01184 12.8453C6.77876 13.0783 6.48179 13.2371 6.15848 13.3014C5.83518 13.3657 5.50007 13.3327 5.19553 13.2065C4.89098 13.0804 4.63069 12.8668 4.44755 12.5927C4.26442 12.3186 4.16667 11.9964 4.16667 11.6667C4.16667 11.2247 4.34226 10.8008 4.65482 10.4882C4.96738 10.1757 5.39131 10.0001 5.83333 10.0001ZM12.5 6.66675H7.5V1.66675H12.5V6.66675Z"
+                                        stroke="#656E77"
+                                        stroke-width="0.833333"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M0.625 16.6406C6.88984 16.6406 13.1547 16.6406 19.6094 16.6406C19.6094 17.0256 19.6094 17.4106 19.6094 17.8073C13.3445 17.8073 7.07969 17.8073 0.625 17.8073C0.625 17.4223 0.625 17.0373 0.625 16.6406Z"
+                                        fill="#656E77" />
+                                </g>
+                                <defs>
+                                    <clipPath
+                                        id="clip0_8_2856">
+                                        <rect width="20"
+                                            height="20"
+                                            fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </span>
+                        <div
+                            class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
+                            <input type="text"
+                                name="add_from[]"
+                                placeholder="Pickup location..."
+                                class="hf-inp loc-inp p-0 border-0">
+                            <input type="hidden"
+                                name="add_from_lat[]"
+                                class="hidden_lat"
+                                value="">
+                            <input type="hidden"
+                                name="add_from_lng[]"
+                                class="hidden_lng"
+                                value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="hff-box">
+                        <div class="hff-group hfg-from">
+                            <label
+                                class="hff-label fw-bold">
+                                Drop-off date </label>
+                            <div
+                                class="d-flex align-items-center gap-2">
+                                <span>
+                                    <svg width="18"
+                                        height="19"
+                                        viewBox="0 0 18 19"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12 2V5M6 2V5M2.25 8H15.75M3.75 3.5H14.25C15.0784 3.5 15.75 4.17157 15.75 5V15.5C15.75 16.3284 15.0784 17 14.25 17H3.75C2.92157 17 2.25 16.3284 2.25 15.5V5C2.25 4.17157 2.92157 3.5 3.75 3.5Z"
+                                            stroke="#656E77"
+                                            stroke-width="1.2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                                <div
+                                    class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
+                                    <input type="text"
+                                        class="hf-date hf-inp p-0 border-0"
+                                        placeholder="eg: 20 Jan 25"
+                                        name="add_from_date[]">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="hff-box">
+                        <div class="hff-group hfg-from">
+                            <label
+                                class="hff-label fw-bold">
+                                Drop-off time </label>
+                            <div
+                                class="d-flex align-items-center gap-2">
+                                <span>
+                                    <svg width="17"
+                                        height="18"
+                                        viewBox="0 0 17 18"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g
+                                            clip-path="url(#clip0_734_5155)">
+                                            <path
+                                                d="M2.125 8.79639C2.125 9.63356 2.28989 10.4625 2.61027 11.236C2.93064 12.0094 3.40022 12.7122 3.99219 13.3042C4.58417 13.8962 5.28694 14.3657 6.06039 14.6861C6.83384 15.0065 7.66282 15.1714 8.5 15.1714C9.33718 15.1714 10.1662 15.0065 10.9396 14.6861C11.7131 14.3657 12.4158 13.8962 13.0078 13.3042C13.5998 12.7122 14.0694 12.0094 14.3897 11.236C14.7101 10.4625 14.875 9.63356 14.875 8.79639C14.875 7.95921 14.7101 7.13023 14.3897 6.35678C14.0694 5.58333 13.5998 4.88055 13.0078 4.28858C12.4158 3.69661 11.7131 3.22703 10.9396 2.90665C10.1662 2.58628 9.33718 2.42139 8.5 2.42139C7.66282 2.42139 6.83384 2.58628 6.06039 2.90665C5.28694 3.22703 4.58417 3.69661 3.99219 4.28858C3.40022 4.88055 2.93064 5.58333 2.61027 6.35678C2.28989 7.13023 2.125 7.95921 2.125 8.79639Z"
+                                                stroke="#656E77"
+                                                stroke-width="1.2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M8.5 8.79639H10.9792"
+                                                stroke="#656E77"
+                                                stroke-width="1.2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M8.5 5.25464V8.79631"
+                                                stroke="#656E77"
+                                                stroke-width="1.2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath
+                                                id="clip0_734_5155">
+                                                <rect
+                                                    width="17"
+                                                    height="17"
+                                                    fill="white"
+                                                    transform="translate(0 0.296387)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </span>
+                                <div
+                                    class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
+                                    <select
+                                        class="hf-inp hfi-select hfi-time p-0 border-0 form-control"
+                                        name="add_from_time[]">
+                                        <option
+                                            value="">
+                                            Select
+                                            time...
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="remove-additional">
+            <img src="./assets/img/circle-minus.svg" alt="Minus" height="20">
+        </div>
+    </div>
+  `;
+    const $additionalCont = $(this).prev('.additional_cont');
+    // Add the content before the .btna-dropoffs button
+    $additionalCont.append(additionalContent);
+    // Re-initialize plugins for newly added elements
+    $additionalCont.find('.hf-date').last().datepicker({
+      dateFormat: 'dd M y',
+      changeMonth: true,
+      changeYear: true,
+      showButtonPanel: true,
+      onSelect: function () {
+        $(this).closest('form').trigger('input');// Trigger the change event
+      }
+    });
+
+    $additionalCont.find('.hfi-time').last().each(function () {
+      populateTimeOptions($(this));
+    });
+  });
+
+  // Handle the click event on .remove-additional
+  $(document).on('click', '.remove-additional', function () {
+    const additionalCont = $(this).closest('.additional_cont');
+    const rows = additionalCont.find('.row');
+    // Remove the row only if there are more than one
+    if (rows.length > 1) {
+      $(this).closest('.row').remove();
+    }
+  });
+  new WAChatBox({
+    link: "https://wa.me/447830999935",
+    user: {
+      name: "Viacoach",
+      avatar: "./assets/img/square-icon.png",
+      status: "Typically replies within an hour",
+    },
+    text: `Hey There 👋<br><br>We're here to help, so let me know what's up and we'll be happy to find a solution 🤓`,
+    button_text: "Get in touch",
   });
 });

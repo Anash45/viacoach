@@ -1451,4 +1451,16 @@ $(document).ready(function () {
     text: `Hey There 👋<br><br>We're here to help, so let me know what's up and we'll be happy to find a solution 🤓`,
     button_text: "Get in touch",
   });
+
+  $(window).on("scroll resize", function () {
+    var $element = $(".header-form");
+    var elementBottom = $element.offset().top + $element.outerHeight();
+    var viewportBottom = $(window).scrollTop() + $(window).height();
+
+    if (elementBottom > viewportBottom) {
+        $('.hff-arrow-down').fadeIn();
+    } else {
+        $('.hff-arrow-down').fadeOut();
+    }
+});
 });

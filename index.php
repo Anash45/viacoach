@@ -579,68 +579,6 @@
                                             <div class="hff-row d-flex flex-md-row flex-column hff-flex-1">
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
-                                                        <label class="hff-label fw-bold"> Vehicle Size </label>
-                                                        <div class="d-flex align-items-center gap-2">
-                                                            <span>
-                                                                <svg width="20" height="21" viewBox="0 0 20 21"
-                                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <g clip-path="url(#clip0_156_3951)">
-                                                                        <path
-                                                                            d="M4.09167 12.1668H3.33333C3.11232 12.1668 2.90036 12.079 2.74408 11.9227C2.5878 11.7664 2.5 11.5544 2.5 11.3334V3.00008C2.5 2.77907 2.5878 2.56711 2.74408 2.41083C2.90036 2.25455 3.11232 2.16675 3.33333 2.16675H15.2333C15.408 2.1663 15.5785 2.22077 15.7205 2.32245C15.8626 2.42414 15.9691 2.5679 16.025 2.73342L17.5 7.04175L17.5417 7.30008V11.3334C17.5417 11.5544 17.4539 11.7664 17.2976 11.9227C17.1413 12.079 16.9293 12.1668 16.7083 12.1668H15.95"
-                                                                            stroke="#656E77" stroke-width="0.833333"
-                                                                            stroke-linecap="round"
-                                                                            stroke-linejoin="round" />
-                                                                        <path
-                                                                            d="M2.5 7.16675H17.5M12.45 12.1667H7.56667M5.83333 10.5001C5.5037 10.5001 5.18146 10.5978 4.90738 10.781C4.6333 10.9641 4.41968 11.2244 4.29353 11.5289C4.16739 11.8335 4.13438 12.1686 4.19869 12.4919C4.263 12.8152 4.42173 13.1122 4.65482 13.3453C4.88791 13.5783 5.18488 13.7371 5.50818 13.8014C5.83148 13.8657 6.1666 13.8327 6.47114 13.7065C6.77568 13.5804 7.03598 13.3668 7.21912 13.0927C7.40225 12.8186 7.5 12.4964 7.5 12.1667C7.5 11.7247 7.3244 11.3008 7.01184 10.9882C6.69928 10.6757 6.27536 10.5001 5.83333 10.5001ZM14.1667 10.5001C13.837 10.5001 13.5148 10.5978 13.2407 10.781C12.9666 10.9641 12.753 11.2244 12.6269 11.5289C12.5007 11.8335 12.4677 12.1686 12.532 12.4919C12.5963 12.8152 12.7551 13.1122 12.9882 13.3453C13.2212 13.5783 13.5182 13.7371 13.8415 13.8014C14.1648 13.8657 14.4999 13.8327 14.8045 13.7065C15.109 13.5804 15.3693 13.3668 15.5524 13.0927C15.7356 12.8186 15.8333 12.4964 15.8333 12.1667C15.8333 11.7247 15.6577 11.3008 15.3452 10.9882C15.0326 10.6757 14.6087 10.5001 14.1667 10.5001ZM7.5 7.16675H12.5V2.16675H7.5V7.16675Z"
-                                                                            stroke="#656E77" stroke-width="0.833333"
-                                                                            stroke-linecap="round"
-                                                                            stroke-linejoin="round" />
-                                                                        <path
-                                                                            d="M0.625 17.1406C6.88984 17.1406 13.1547 17.1406 19.6094 17.1406C19.6094 17.5256 19.6094 17.9106 19.6094 18.3073C13.3445 18.3073 7.07969 18.3073 0.625 18.3073C0.625 17.9223 0.625 17.5373 0.625 17.1406Z"
-                                                                            fill="#656E77" />
-                                                                    </g>
-                                                                    <defs>
-                                                                        <clipPath id="clip0_156_3951">
-                                                                            <rect width="20" height="20" fill="white"
-                                                                                transform="translate(0 0.5)" />
-                                                                        </clipPath>
-                                                                    </defs>
-                                                                </svg>
-                                                            </span>
-                                                            <div
-                                                                class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-center">
-                                                                <select
-                                                                    class="hf-inp hfi-select form-select px-0 border-0"
-                                                                    name="vehicle_size" id="bp_vehicle_size">
-                                                                    <option value="">Select vehicle... </option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="hff-box hfb-sm">
-                                                    <div class="hff-group hfg-from">
-                                                        <label class="hff-label fw-bold"> Extra Stops </label>
-                                                        <div class="d-flex align-items-center gap-4 mt-1">
-                                                            <label class="d-flex align-items-center gap-1">
-                                                                <input type="radio"
-                                                                    class="form-check-input dfc-inp dfc-inp-sm"
-                                                                    value="Yes" name="extra_stops">
-                                                                <span class="lh-1 dfci-text inter">Yes</span>
-                                                            </label>
-                                                            <label class="d-flex align-items-center gap-1">
-                                                                <input type="radio"
-                                                                    class="form-check-input dfc-inp dfc-inp-sm"
-                                                                    value="No" checked name="extra_stops">
-                                                                <span class="lh-1 dfci-text inter">No</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="hff-row d-flex flex-md-row flex-column hff-flex-1">
-                                                <div class="hff-box hfb-sm">
-                                                    <div class="hff-group hfg-from">
                                                         <label class="hff-label fw-bold"> Cabin bag </label>
                                                         <div class="d-flex align-items-center gap-2">
                                                             <span>
@@ -717,7 +655,69 @@
                                             <div class="hff-row d-flex flex-md-row flex-column hff-flex-1">
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
-                                                        <label class="hff-label fw-bold"> Additional information
+                                                        <label class="hff-label fw-bold"> Vehicle Size </label>
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <span>
+                                                                <svg width="20" height="21" viewBox="0 0 20 21"
+                                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <g clip-path="url(#clip0_156_3951)">
+                                                                        <path
+                                                                            d="M4.09167 12.1668H3.33333C3.11232 12.1668 2.90036 12.079 2.74408 11.9227C2.5878 11.7664 2.5 11.5544 2.5 11.3334V3.00008C2.5 2.77907 2.5878 2.56711 2.74408 2.41083C2.90036 2.25455 3.11232 2.16675 3.33333 2.16675H15.2333C15.408 2.1663 15.5785 2.22077 15.7205 2.32245C15.8626 2.42414 15.9691 2.5679 16.025 2.73342L17.5 7.04175L17.5417 7.30008V11.3334C17.5417 11.5544 17.4539 11.7664 17.2976 11.9227C17.1413 12.079 16.9293 12.1668 16.7083 12.1668H15.95"
+                                                                            stroke="#656E77" stroke-width="0.833333"
+                                                                            stroke-linecap="round"
+                                                                            stroke-linejoin="round" />
+                                                                        <path
+                                                                            d="M2.5 7.16675H17.5M12.45 12.1667H7.56667M5.83333 10.5001C5.5037 10.5001 5.18146 10.5978 4.90738 10.781C4.6333 10.9641 4.41968 11.2244 4.29353 11.5289C4.16739 11.8335 4.13438 12.1686 4.19869 12.4919C4.263 12.8152 4.42173 13.1122 4.65482 13.3453C4.88791 13.5783 5.18488 13.7371 5.50818 13.8014C5.83148 13.8657 6.1666 13.8327 6.47114 13.7065C6.77568 13.5804 7.03598 13.3668 7.21912 13.0927C7.40225 12.8186 7.5 12.4964 7.5 12.1667C7.5 11.7247 7.3244 11.3008 7.01184 10.9882C6.69928 10.6757 6.27536 10.5001 5.83333 10.5001ZM14.1667 10.5001C13.837 10.5001 13.5148 10.5978 13.2407 10.781C12.9666 10.9641 12.753 11.2244 12.6269 11.5289C12.5007 11.8335 12.4677 12.1686 12.532 12.4919C12.5963 12.8152 12.7551 13.1122 12.9882 13.3453C13.2212 13.5783 13.5182 13.7371 13.8415 13.8014C14.1648 13.8657 14.4999 13.8327 14.8045 13.7065C15.109 13.5804 15.3693 13.3668 15.5524 13.0927C15.7356 12.8186 15.8333 12.4964 15.8333 12.1667C15.8333 11.7247 15.6577 11.3008 15.3452 10.9882C15.0326 10.6757 14.6087 10.5001 14.1667 10.5001ZM7.5 7.16675H12.5V2.16675H7.5V7.16675Z"
+                                                                            stroke="#656E77" stroke-width="0.833333"
+                                                                            stroke-linecap="round"
+                                                                            stroke-linejoin="round" />
+                                                                        <path
+                                                                            d="M0.625 17.1406C6.88984 17.1406 13.1547 17.1406 19.6094 17.1406C19.6094 17.5256 19.6094 17.9106 19.6094 18.3073C13.3445 18.3073 7.07969 18.3073 0.625 18.3073C0.625 17.9223 0.625 17.5373 0.625 17.1406Z"
+                                                                            fill="#656E77" />
+                                                                    </g>
+                                                                    <defs>
+                                                                        <clipPath id="clip0_156_3951">
+                                                                            <rect width="20" height="20" fill="white"
+                                                                                transform="translate(0 0.5)" />
+                                                                        </clipPath>
+                                                                    </defs>
+                                                                </svg>
+                                                            </span>
+                                                            <div
+                                                                class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-center">
+                                                                <select
+                                                                    class="hf-inp hfi-select form-select px-0 border-0"
+                                                                    name="vehicle_size" id="bp_vehicle_size">
+                                                                    <option value="">Select vehicle... </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="hff-box hfb-sm">
+                                                    <div class="hff-group hfg-from">
+                                                        <label class="hff-label fw-bold"> Extra Stops </label>
+                                                        <div class="d-flex align-items-center gap-4 mt-1">
+                                                            <label class="d-flex align-items-center gap-1">
+                                                                <input type="radio"
+                                                                    class="form-check-input dfc-inp dfc-inp-sm"
+                                                                    value="Yes" name="extra_stops">
+                                                                <span class="lh-1 dfci-text inter">Yes</span>
+                                                            </label>
+                                                            <label class="d-flex align-items-center gap-1">
+                                                                <input type="radio"
+                                                                    class="form-check-input dfc-inp dfc-inp-sm"
+                                                                    value="No" checked name="extra_stops">
+                                                                <span class="lh-1 dfci-text inter">No</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="hff-row d-flex flex-md-row flex-column hff-flex-1">
+                                                <div class="hff-box hfb-sm">
+                                                    <div class="hff-group hfg-from">
+                                                        <label class="hff-label fw-bold"> Additional information (Please list extra Pickups or Dropoffs)
                                                         </label>
                                                         <div class="d-flex align-items-center gap-2">
                                                             <span>

@@ -32,7 +32,7 @@
         <link rel="stylesheet" href="./assets/css/slick.css">
         <link rel="stylesheet" href="./assets/css/select2.min.css">
         <link rel="stylesheet" href="./assets/css/jquery-ui.css">
-        <link rel="stylesheet" href="./assets/css/style.css?v=7">
+        <link rel="stylesheet" href="./assets/css/style.css?v=9">
     </head>
 
     <body class="homepage">
@@ -109,14 +109,6 @@
                                     <a href="mailto:info@travelviacoach.com"
                                         class="itin-link text-decoration-underline">info@travelviacoach.com</a>
                                 </p>
-                            </div>
-                            <div class="hff-arrow-down">
-                                <svg width="30" height="30" viewBox="0 0 30 30" fill="#000"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M24.9154 0.833374C26.0425 0.833374 27.1235 1.28114 27.9206 2.07817C28.7176 2.8752 29.1654 3.9562 29.1654 5.08337V24.9167C29.1654 26.0439 28.7176 27.1249 27.9206 27.9219C27.1235 28.7189 26.0425 29.1667 24.9154 29.1667H5.08203C3.95486 29.1667 2.87386 28.7189 2.07683 27.9219C1.2798 27.1249 0.832031 26.0439 0.832031 24.9167V5.08337C0.832031 3.9562 1.2798 2.8752 2.07683 2.07817C2.87386 1.28114 3.95486 0.833374 5.08203 0.833374H24.9154ZM11.6171 12.4642C11.3324 12.244 10.9745 12.1405 10.6162 12.1746C10.2579 12.2088 9.92601 12.378 9.68797 12.648C9.44992 12.9179 9.32356 13.2684 9.33454 13.6282C9.34553 13.9879 9.49304 14.33 9.74712 14.585L13.9971 18.835L14.1303 18.9525C14.4029 19.164 14.7432 19.2687 15.0875 19.2471C15.4318 19.2254 15.7563 19.0789 16.0003 18.835L20.2503 14.585L20.3679 14.4518C20.5793 14.1792 20.684 13.8389 20.6624 13.4946C20.6407 13.1503 20.4942 12.8257 20.2503 12.5818L20.1171 12.4642C19.8445 12.2528 19.5042 12.1481 19.1599 12.1697C18.8156 12.1913 18.4911 12.3379 18.2471 12.5818L14.9987 15.8288L11.7503 12.5818L11.6171 12.4642Z"
-                                        fill="white" />
-                                </svg>
                             </div>
                             <div class="header-form hf-vertical ms-xl-auto mx-auto">
                                 <form action="./quote-confirmation.php" class="p-4 pb-2 hf-form hff-single-trip gap-2"
@@ -717,8 +709,8 @@
                                             <div class="hff-row d-flex flex-md-row flex-column hff-flex-1">
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
-                                                        <label class="hff-label fw-bold"> Additional information (Please list extra Pickups or Dropoffs)
-                                                        </label>
+                                                        <label class="hff-label fw-bold"> Additional information (Please
+                                                            list extra Pickups or Dropoffs) </label>
                                                         <div class="d-flex align-items-center gap-2">
                                                             <span>
                                                                 <svg width="18" height="19" viewBox="0 0 18 19"
@@ -755,6 +747,14 @@
                                         </div>
                                     </div>
                                     <div class="position-sticky bottom-0 pt-3 bg-white pb-3">
+                                        <div class="hff-arrow-down">
+                                            <svg width="30" height="30" viewBox="0 0 30 30" fill="#000"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M24.9154 0.833374C26.0425 0.833374 27.1235 1.28114 27.9206 2.07817C28.7176 2.8752 29.1654 3.9562 29.1654 5.08337V24.9167C29.1654 26.0439 28.7176 27.1249 27.9206 27.9219C27.1235 28.7189 26.0425 29.1667 24.9154 29.1667H5.08203C3.95486 29.1667 2.87386 28.7189 2.07683 27.9219C1.2798 27.1249 0.832031 26.0439 0.832031 24.9167V5.08337C0.832031 3.9562 1.2798 2.8752 2.07683 2.07817C2.87386 1.28114 3.95486 0.833374 5.08203 0.833374H24.9154ZM11.6171 12.4642C11.3324 12.244 10.9745 12.1405 10.6162 12.1746C10.2579 12.2088 9.92601 12.378 9.68797 12.648C9.44992 12.9179 9.32356 13.2684 9.33454 13.6282C9.34553 13.9879 9.49304 14.33 9.74712 14.585L13.9971 18.835L14.1303 18.9525C14.4029 19.164 14.7432 19.2687 15.0875 19.2471C15.4318 19.2254 15.7563 19.0789 16.0003 18.835L20.2503 14.585L20.3679 14.4518C20.5793 14.1792 20.684 13.8389 20.6624 13.4946C20.6407 13.1503 20.4942 12.8257 20.2503 12.5818L20.1171 12.4642C19.8445 12.2528 19.5042 12.1481 19.1599 12.1697C18.8156 12.1913 18.4911 12.3379 18.2471 12.5818L14.9987 15.8288L11.7503 12.5818L11.6171 12.4642Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </div>
                                         <button type="submit" name="get_quote" value="1"
                                             class="btn hff-submit-btn btn-ferozi w-100">Get Instant Quote</button>
                                     </div>

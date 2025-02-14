@@ -3138,6 +3138,8 @@
                 } else {
                     $additional_info.closest('.hff-box').removeClass('hff-error');
                 }
+            }else{
+                $additional_info.closest('.hff-box').removeClass('hff-error');
             }
 
             if (trip_type == 'round-trip') {

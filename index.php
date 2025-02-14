@@ -3074,6 +3074,7 @@
             let $return_dropoff_time = $('#return_dropoff_time');
             let $return_dropoff_date = $('[name="return_dropoff_date"]');
             let $return_passengers = $('#return_passengers');
+            let $additional_info = $('#additional_info');
 
             console.log($name);
             if ($name.val() == '') {
@@ -3128,6 +3129,15 @@
             if ($to.val() == '') {
                 $to.closest('.hff-box').addClass('hff-error');
                 validated = false;
+            }
+
+            if($('[name="extra_stops"]:checked').val() == 'Yes'){
+                if ($additional_info.val() == '') {
+                    $additional_info.closest('.hff-box').addClass('hff-error');
+                    validated = false;
+                } else {
+                    $additional_info.closest('.hff-box').removeClass('hff-error');
+                }
             }
 
             if (trip_type == 'round-trip') {

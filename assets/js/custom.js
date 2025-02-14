@@ -301,6 +301,7 @@ $(document).ready(function () {
   });
 });
 
+let trip_type = "one-way";
 
 $(document).ready(function () {
   $('#myTab .nav-link').on('shown.bs.tab', function () {
@@ -329,6 +330,7 @@ $(document).ready(function () {
       $('.hf-form').removeClass('hff-single-trip');
       $('.hf-form').addClass('hff-round-trip');
     }
+    trip_type = targetFormType;
     $('.hf-filter-btns').find('.hff-btn').removeClass('active');
     $(this).addClass('active');
   })

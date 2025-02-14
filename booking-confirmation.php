@@ -34,7 +34,7 @@ if (isset($_REQUEST['success']) ) {
         <link rel="stylesheet" href="./assets/css/slick.css">
         <link rel="stylesheet" href="./assets/css/select2.min.css">
         <link rel="stylesheet" href="./assets/css/jquery-ui.css">
-        <link rel="stylesheet" href="./assets/css/style.css?v=9">
+        <link rel="stylesheet" href="./assets/css/style.css?v=10">
     </head>
 
     <body>

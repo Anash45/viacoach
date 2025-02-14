@@ -174,4 +174,4 @@
 <script src="./assets/js/WhatsappChatBox.min.js"></script>
 <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCGxZXJ2gpN_is2UY1AXp98MN7sQHpIKk&libraries=places"></script>
-<script src="./assets/js/custom.js?v=9"></script>
+<script src="./assets/js/custom.js?v=10"></script>

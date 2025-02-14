@@ -32,7 +32,7 @@
         <link rel="stylesheet" href="./assets/css/slick.css">
         <link rel="stylesheet" href="./assets/css/select2.min.css">
         <link rel="stylesheet" href="./assets/css/jquery-ui.css">
-        <link rel="stylesheet" href="./assets/css/style.css?v=9">
+        <link rel="stylesheet" href="./assets/css/style.css?v=10">
     </head>
 
     <body class="homepage">
@@ -433,8 +433,7 @@
                                             </div>
                                             <div class="hff-box hfb-round hfb-destinations position-relative">
                                                 <div class="hff-group hfg-from">
-                                                    <label class="hff-label fw-bold"> Return drop-off address (If
-                                                        different from pickup address) </label>
+                                                    <label class="hff-label fw-bold"> Return drop-off address </label>
                                                     <div class="d-flex align-items-center gap-2">
                                                         <span>
                                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -3067,7 +3066,15 @@
             let $email = $('#email');
             let $phone = $('#phone');
             let $passengers = $('#passengers');
+            let $from = $('#from-destination');
+            let $to = $('#to-destination');
+            let $return_dropoff = $('#return_dropoff');
+            let $pickup_date = $('#pickup_date');
+            let $pickup_time = $('#pickup_time');
+            let $return_dropoff_time = $('#return_dropoff_time');
+            let $return_dropoff_date = $('[name="return_dropoff_date"]');
             let $return_passengers = $('#return_passengers');
+
             console.log($name);
             if ($name.val() == '') {
                 $name.closest('.hff-box').addClass('hff-error');
@@ -3088,6 +3095,70 @@
                 validated = false;
             } else {
                 $phone.closest('.hff-box').removeClass('hff-error');
+            }
+
+            if ($passengers.val() == '') {
+                $passengers.closest('.hff-box').addClass('hff-error');
+                validated = false;
+            } else {
+                $passengers.closest('.hff-box').removeClass('hff-error');
+            }
+
+            if ($pickup_date.val() == '') {
+                $pickup_date.closest('.hff-box').addClass('hff-error');
+                validated = false;
+            } else {
+                $pickup_date.closest('.hff-box').removeClass('hff-error');
+            }
+
+            if ($pickup_time.val() == '') {
+                $pickup_time.closest('.hff-box').addClass('hff-error');
+                validated = false;
+            } else {
+                $pickup_time.closest('.hff-box').removeClass('hff-error');
+            }
+
+            $from.closest('.hff-box').removeClass('hff-error');
+
+            if ($from.val() == '') {
+                $from.closest('.hff-box').addClass('hff-error');
+                validated = false;
+            }
+
+            if ($to.val() == '') {
+                $to.closest('.hff-box').addClass('hff-error');
+                validated = false;
+            }
+
+            if (trip_type == 'round-trip') {
+
+                if ($return_dropoff.val() == '') {
+                    $return_dropoff.closest('.hff-box').addClass('hff-error');
+                    validated = false;
+                } else {
+                    $return_dropoff.closest('.hff-box').removeClass('hff-error');
+                }
+
+                if ($return_dropoff_date.val() == '') {
+                    $return_dropoff_date.closest('.hff-box').addClass('hff-error');
+                    validated = false;
+                } else {
+                    $return_dropoff_date.closest('.hff-box').removeClass('hff-error');
+                }
+
+                if ($return_dropoff_time.val() == '') {
+                    $return_dropoff_time.closest('.hff-box').addClass('hff-error');
+                    validated = false;
+                } else {
+                    $return_dropoff_time.closest('.hff-box').removeClass('hff-error');
+                }
+
+                if ($return_passengers.val() == '') {
+                    $return_passengers.closest('.hff-box').addClass('hff-error');
+                    validated = false;
+                } else {
+                    $return_passengers.closest('.hff-box').removeClass('hff-error');
+                }
             }
 
             return validated;
@@ -3135,6 +3206,9 @@
             });
         }
         $(document).ready(function () {
+            $('.hf-form').on('input', function () {
+
+            })
             $('.hf-form').on('submit', function (e) {
                 e.preventDefault();
                 let $form = $(this);

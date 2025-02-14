@@ -164,15 +164,15 @@ if (isset($_REQUEST['name']) && isset($_REQUEST['email'])) {
     try {
         // Server settings
         $mail->isSMTP();
-        $mail->Host = 'getquotenow.travelviacoach.com'; // Replace with your SMTP host
+        $mail->Host = 'travelviacoach.com'; // Replace with your SMTP host
         $mail->SMTPAuth = true;
-        $mail->Username = 'webmaster@getquotenow.travelviacoach.com'; // Replace with your email
+        $mail->Username = 'webmaster@travelviacoach.com'; // Replace with your email
         $mail->Password = ',}{EnQ52w9N%';   // Replace with your email password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
 
         // Recipients
-        $mail->setFrom('webmaster@getquotenow.travelviacoach.com', 'Viacoach'); // Sender email and name
+        $mail->setFrom('webmaster@travelviacoach.com', 'Viacoach'); // Sender email and name
         $mail->addAddress('futuretest45@gmail.com');
         $mail->addAddress('info@travelviacoach.com');
         $mail->addAddress('info@f4futuretech.com');

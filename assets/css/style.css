@@ -454,8 +454,7 @@ footer {
 } */
 .hc-itin-text{
     font-size: 22px;
-    position: absolute;
-    bottom: -300px;
+    margin-top: 40px;
     max-width: 100%;
 }
 .fs-link {
@@ -1997,8 +1996,26 @@ textarea.hff-error {
     border-radius: 4px;
     background-color: #000;
 }
+.reviews-flex{
+    width: fit-content;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    align-items: end;
+    gap: 5px;
+    margin-top: 24px;
+}
+.rf-img{
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+}
 
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+    .hc-content{
+        max-width: 650px;
+    }
+}
 
 @media (min-width: 1400px) {}
 
@@ -2217,5 +2234,13 @@ textarea.hff-error {
 
     .hfis-dropdown .select2-results__option--selectable {
         white-space: wrap;
+    }
+
+    .hc-itin-text{
+        margin-top: 24px;
+    }
+
+    .reviews-flex{
+        justify-content: center;
     }
 }

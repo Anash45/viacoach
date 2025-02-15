@@ -24,7 +24,16 @@
 
             gtag('config', 'AW-16830330307');
         </script>
+        <!-- Standard Favicon -->
         <link rel="shortcut icon" href="./assets/img/square-icon.png" type="image/x-icon">
+        <!-- Apple Touch Icon (for iOS devices) -->
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png">
+        <!-- Favicon for Android Chrome -->
+        <link rel="icon" type="image/png" sizes="192x192" href="./assets/img/android-chrome-192x192.png">
+        <link rel="icon" type="image/png" sizes="512x512" href="./assets/img/android-chrome-512x512.png">
+        <!-- Additional sizes for better support -->
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png">
         <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
             integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -32,7 +41,7 @@
         <link rel="stylesheet" href="./assets/css/slick.css">
         <link rel="stylesheet" href="./assets/css/select2.min.css">
         <link rel="stylesheet" href="./assets/css/jquery-ui.css">
-        <link rel="stylesheet" href="./assets/css/style.css?v=10">
+        <link rel="stylesheet" href="./assets/css/style.css?v=11">
     </head>
 
     <body class="homepage">
@@ -95,7 +104,7 @@
                     <div class="container position-relative z-1">
                         <div class="hero-1-cont hero-cont flex-xl-row flex-column gap-xl-0 gap-4 pb-xl-4 pb-0"
                             id="hero">
-                            <div class="hc-content mt-lg-5">
+                            <div class="hc-content mt-lg-4">
                                 <h2 class="hcc-title fw-normal d-flex flex-column mb-3">
                                     <span class="lh-sm hcct-1 text-white"> Book the Best Tours </span>
                                     <span class="ins-serif hcct-2">
@@ -103,7 +112,14 @@
                                         <span class="position-relative z-1">Coach Hire In UK</span>
                                     </span>
                                 </h2>
-                                <p class="text-white mb-0 hc-desc">Book now a free executive coach upgrade</p>
+                                <p class="text-white mb-0 hc-desc">Get a free instant quote, claim your free Executive
+                                    coach <br class="d-xl-block d-none" />upgrade, and enjoy 10% discount when you book!
+                                </p>
+                                <div class="d-flex flex-wrap reviews-flex">
+                                    <img src="./assets/img/trustpilot-stars-logo.png" alt="Reviews logo" class="rf-img">
+                                    <img src="./assets/img/boxes-gen.png" alt="Reviews logo" class="rf-img">
+                                    <img src="./assets/img/facebook-reviews.png" alt="Reviews logo" class="rf-img">
+                                </div>
                                 <p class="mb-0 fw-semibold text-white hc-itin-text"> Planning a complex journey or
                                     multiday tour? Email your itinerary to <br>
                                     <a href="mailto:info@travelviacoach.com"
@@ -113,6 +129,8 @@
                             <div class="header-form hf-vertical ms-xl-auto mx-auto">
                                 <form action="./quote-confirmation.php" class="p-4 pb-2 hf-form hff-single-trip gap-2"
                                     method="POST">
+                                    <p class="mb-0 text-center text-dark fw-medium">Use our enquiry form & get 10%
+                                        discount!</p>
                                     <div class="d-flex flex-column gap-3">
                                         <div
                                             class="p-1 d-flex align-items-center justify-content-between hf-filter-btns mb-1">
@@ -567,149 +585,30 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="hff-row d-flex flex-md-row flex-column hff-flex-1">
-                                                <div class="hff-box hfb-sm">
-                                                    <div class="hff-group hfg-from">
-                                                        <label class="hff-label fw-bold"> Cabin bag </label>
-                                                        <div class="d-flex align-items-center gap-2">
-                                                            <span>
-                                                                <svg width="18" height="19" viewBox="0 0 18 19"
-                                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path
-                                                                        d="M2.25 7.25C2.25 6.85218 2.40804 6.47064 2.68934 6.18934C2.97064 5.90804 3.35218 5.75 3.75 5.75H14.25C14.6478 5.75 15.0294 5.90804 15.3107 6.18934C15.592 6.47064 15.75 6.85218 15.75 7.25V14C15.75 14.3978 15.592 14.7794 15.3107 15.0607C15.0294 15.342 14.6478 15.5 14.25 15.5H3.75C3.35218 15.5 2.97064 15.342 2.68934 15.0607C2.40804 14.7794 2.25 14.3978 2.25 14V7.25Z"
-                                                                        stroke="#656E77" stroke-width="1.2"
-                                                                        stroke-linecap="round"
-                                                                        stroke-linejoin="round" />
-                                                                    <path
-                                                                        d="M6 5.75V4.25C6 3.85218 6.15804 3.47064 6.43934 3.18934C6.72064 2.90804 7.10218 2.75 7.5 2.75H10.5C10.8978 2.75 11.2794 2.90804 11.5607 3.18934C11.842 3.47064 12 3.85218 12 4.25V5.75"
-                                                                        stroke="#656E77" stroke-width="1.2"
-                                                                        stroke-linecap="round"
-                                                                        stroke-linejoin="round" />
-                                                                    <path d="M9 9.5V9.5075" stroke="#656E77"
-                                                                        stroke-width="1.2" stroke-linecap="round"
-                                                                        stroke-linejoin="round" />
-                                                                    <path
-                                                                        d="M2.25 10.25C4.34369 11.305 6.65552 11.8546 9 11.8546C11.3445 11.8546 13.6563 11.305 15.75 10.25"
-                                                                        stroke="#656E77" stroke-width="1.2"
-                                                                        stroke-linecap="round"
-                                                                        stroke-linejoin="round" />
-                                                                </svg>
-                                                            </span>
-                                                            <div
-                                                                class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
-                                                                <input type="text" class="hf-inp hf-number p-0 border-0"
-                                                                    value="1" name="cabin_bags" id="cabin_bags">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="hff-box hfb-sm">
-                                                    <div class="hff-group hfg-from">
-                                                        <label class="hff-label fw-bold"> Luggage bag </label>
-                                                        <div class="d-flex align-items-center gap-2">
-                                                            <span>
-                                                                <svg width="19" height="19" viewBox="0 0 19 19"
-                                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path
-                                                                        d="M5 6.5C5 6.10218 5.15804 5.72064 5.43934 5.43934C5.72064 5.15804 6.10218 5 6.5 5H12.5C12.8978 5 13.2794 5.15804 13.5607 5.43934C13.842 5.72064 14 6.10218 14 6.5V14C14 14.3978 13.842 14.7794 13.5607 15.0607C13.2794 15.342 12.8978 15.5 12.5 15.5H6.5C6.10218 15.5 5.72064 15.342 5.43934 15.0607C5.15804 14.7794 5 14.3978 5 14V6.5Z"
-                                                                        stroke="#656E77" stroke-width="1.2"
-                                                                        stroke-linecap="round"
-                                                                        stroke-linejoin="round" />
-                                                                    <path
-                                                                        d="M7.25 5V4.25C7.25 3.85218 7.40804 3.47064 7.68934 3.18934C7.97064 2.90804 8.35218 2.75 8.75 2.75H10.25C10.6478 2.75 11.0294 2.90804 11.3107 3.18934C11.592 3.47064 11.75 3.85218 11.75 4.25V5"
-                                                                        stroke="#656E77" stroke-width="1.2"
-                                                                        stroke-linecap="round"
-                                                                        stroke-linejoin="round" />
-                                                                    <path d="M5 8H14" stroke="#656E77"
-                                                                        stroke-width="1.2" stroke-linecap="round"
-                                                                        stroke-linejoin="round" />
-                                                                    <path d="M5 12.5H14" stroke="#656E77"
-                                                                        stroke-width="1.2" stroke-linecap="round"
-                                                                        stroke-linejoin="round" />
-                                                                    <path d="M7.25 15.5V16.25" stroke="#656E77"
-                                                                        stroke-width="1.2" stroke-linecap="round"
-                                                                        stroke-linejoin="round" />
-                                                                    <path d="M11.75 15.5V16.25" stroke="#656E77"
-                                                                        stroke-width="1.2" stroke-linecap="round"
-                                                                        stroke-linejoin="round" />
-                                                                </svg>
-                                                            </span>
-                                                            <div
-                                                                class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-end h-100">
-                                                                <input type="text" class="hf-inp p-0 border-0 hf-number"
-                                                                    value="1" name="luggage_bags" id="luggage_bags">
-                                                            </div>
-                                                        </div>
+                                            <div class="hff-box">
+                                                <div class="hff-group hfg-from">
+                                                    <label class="hff-label fw-bold"> Extra Stops </label>
+                                                    <div class="d-flex align-items-center gap-4 mt-1">
+                                                        <label class="d-flex align-items-center gap-1">
+                                                            <input type="radio"
+                                                                class="form-check-input dfc-inp dfc-inp-sm" value="Yes"
+                                                                name="extra_stops">
+                                                            <span class="lh-1 dfci-text inter">Yes</span>
+                                                        </label>
+                                                        <label class="d-flex align-items-center gap-1">
+                                                            <input type="radio"
+                                                                class="form-check-input dfc-inp dfc-inp-sm" value="No"
+                                                                checked name="extra_stops">
+                                                            <span class="lh-1 dfci-text inter">No</span>
+                                                        </label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="hff-row d-flex flex-md-row flex-column hff-flex-1">
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
-                                                        <label class="hff-label fw-bold"> Vehicle Size </label>
-                                                        <div class="d-flex align-items-center gap-2">
-                                                            <span>
-                                                                <svg width="20" height="21" viewBox="0 0 20 21"
-                                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <g clip-path="url(#clip0_156_3951)">
-                                                                        <path
-                                                                            d="M4.09167 12.1668H3.33333C3.11232 12.1668 2.90036 12.079 2.74408 11.9227C2.5878 11.7664 2.5 11.5544 2.5 11.3334V3.00008C2.5 2.77907 2.5878 2.56711 2.74408 2.41083C2.90036 2.25455 3.11232 2.16675 3.33333 2.16675H15.2333C15.408 2.1663 15.5785 2.22077 15.7205 2.32245C15.8626 2.42414 15.9691 2.5679 16.025 2.73342L17.5 7.04175L17.5417 7.30008V11.3334C17.5417 11.5544 17.4539 11.7664 17.2976 11.9227C17.1413 12.079 16.9293 12.1668 16.7083 12.1668H15.95"
-                                                                            stroke="#656E77" stroke-width="0.833333"
-                                                                            stroke-linecap="round"
-                                                                            stroke-linejoin="round" />
-                                                                        <path
-                                                                            d="M2.5 7.16675H17.5M12.45 12.1667H7.56667M5.83333 10.5001C5.5037 10.5001 5.18146 10.5978 4.90738 10.781C4.6333 10.9641 4.41968 11.2244 4.29353 11.5289C4.16739 11.8335 4.13438 12.1686 4.19869 12.4919C4.263 12.8152 4.42173 13.1122 4.65482 13.3453C4.88791 13.5783 5.18488 13.7371 5.50818 13.8014C5.83148 13.8657 6.1666 13.8327 6.47114 13.7065C6.77568 13.5804 7.03598 13.3668 7.21912 13.0927C7.40225 12.8186 7.5 12.4964 7.5 12.1667C7.5 11.7247 7.3244 11.3008 7.01184 10.9882C6.69928 10.6757 6.27536 10.5001 5.83333 10.5001ZM14.1667 10.5001C13.837 10.5001 13.5148 10.5978 13.2407 10.781C12.9666 10.9641 12.753 11.2244 12.6269 11.5289C12.5007 11.8335 12.4677 12.1686 12.532 12.4919C12.5963 12.8152 12.7551 13.1122 12.9882 13.3453C13.2212 13.5783 13.5182 13.7371 13.8415 13.8014C14.1648 13.8657 14.4999 13.8327 14.8045 13.7065C15.109 13.5804 15.3693 13.3668 15.5524 13.0927C15.7356 12.8186 15.8333 12.4964 15.8333 12.1667C15.8333 11.7247 15.6577 11.3008 15.3452 10.9882C15.0326 10.6757 14.6087 10.5001 14.1667 10.5001ZM7.5 7.16675H12.5V2.16675H7.5V7.16675Z"
-                                                                            stroke="#656E77" stroke-width="0.833333"
-                                                                            stroke-linecap="round"
-                                                                            stroke-linejoin="round" />
-                                                                        <path
-                                                                            d="M0.625 17.1406C6.88984 17.1406 13.1547 17.1406 19.6094 17.1406C19.6094 17.5256 19.6094 17.9106 19.6094 18.3073C13.3445 18.3073 7.07969 18.3073 0.625 18.3073C0.625 17.9223 0.625 17.5373 0.625 17.1406Z"
-                                                                            fill="#656E77" />
-                                                                    </g>
-                                                                    <defs>
-                                                                        <clipPath id="clip0_156_3951">
-                                                                            <rect width="20" height="20" fill="white"
-                                                                                transform="translate(0 0.5)" />
-                                                                        </clipPath>
-                                                                    </defs>
-                                                                </svg>
-                                                            </span>
-                                                            <div
-                                                                class="d-flex flex-column gap-1 flex-grow-1 overflow-x-hidden justify-content-center">
-                                                                <select
-                                                                    class="hf-inp hfi-select form-select px-0 border-0"
-                                                                    name="vehicle_size" id="bp_vehicle_size">
-                                                                    <option value="">Select vehicle... </option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="hff-box hfb-sm">
-                                                    <div class="hff-group hfg-from">
-                                                        <label class="hff-label fw-bold"> Extra Stops </label>
-                                                        <div class="d-flex align-items-center gap-4 mt-1">
-                                                            <label class="d-flex align-items-center gap-1">
-                                                                <input type="radio"
-                                                                    class="form-check-input dfc-inp dfc-inp-sm"
-                                                                    value="Yes" name="extra_stops">
-                                                                <span class="lh-1 dfci-text inter">Yes</span>
-                                                            </label>
-                                                            <label class="d-flex align-items-center gap-1">
-                                                                <input type="radio"
-                                                                    class="form-check-input dfc-inp dfc-inp-sm"
-                                                                    value="No" checked name="extra_stops">
-                                                                <span class="lh-1 dfci-text inter">No</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="hff-row d-flex flex-md-row flex-column hff-flex-1">
-                                                <div class="hff-box hfb-sm">
-                                                    <div class="hff-group hfg-from">
-                                                        <label class="hff-label fw-bold"> Additional information (Please
-                                                            list extra Pickups or Dropoffs) </label>
+                                                        <label class="hff-label fw-bold"> Additional information
+                                                        </label>
                                                         <div class="d-flex align-items-center gap-2">
                                                             <span>
                                                                 <svg width="18" height="19" viewBox="0 0 18 19"
@@ -3131,14 +3030,14 @@
                 validated = false;
             }
 
-            if($('[name="extra_stops"]:checked').val() == 'Yes'){
+            if ($('[name="extra_stops"]:checked').val() == 'Yes') {
                 if ($additional_info.val() == '') {
                     $additional_info.closest('.hff-box').addClass('hff-error');
                     validated = false;
                 } else {
                     $additional_info.closest('.hff-box').removeClass('hff-error');
                 }
-            }else{
+            } else {
                 $additional_info.closest('.hff-box').removeClass('hff-error');
             }
 

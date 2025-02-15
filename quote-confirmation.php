@@ -45,7 +45,18 @@ if (isset($_REQUEST['success']) ) {
 
         gtag('config', 'AW-16830330307');
         </script>
+        
+        <!-- Standard Favicon -->
         <link rel="shortcut icon" href="./assets/img/square-icon.png" type="image/x-icon">
+        <!-- Apple Touch Icon (for iOS devices) -->
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png">
+        <!-- Favicon for Android Chrome -->
+        <link rel="icon" type="image/png" sizes="192x192" href="./assets/img/android-chrome-192x192.png">
+        <link rel="icon" type="image/png" sizes="512x512" href="./assets/img/android-chrome-512x512.png">
+        <!-- Additional sizes for better support -->
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png">
+
         <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
             integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -53,7 +64,7 @@ if (isset($_REQUEST['success']) ) {
         <link rel="stylesheet" href="./assets/css/slick.css">
         <link rel="stylesheet" href="./assets/css/select2.min.css">
         <link rel="stylesheet" href="./assets/css/jquery-ui.css">
-        <link rel="stylesheet" href="./assets/css/style.css?v=10">
+        <link rel="stylesheet" href="./assets/css/style.css?v=11">
     </head>
 
     <body>
@@ -413,7 +424,7 @@ if (isset($_REQUEST['success']) ) {
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCGxZXJ2gpN_is2UY1AXp98MN7sQHpIKk&callback=initMap&libraries=places"
             async defer></script>
-        <script src="./assets/js/custom.js?v=10"></script>
+        <script src="./assets/js/custom.js?v=11"></script>
         <script>
         </script>
     </body>

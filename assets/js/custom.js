@@ -454,7 +454,7 @@ function getFleetHtml(fleet) {
 
 // Function to populate seating capacity dropdown
 function populateSeatingDropdown(selector) {
-  $.getJSON("./assets/data/fleets.json", function (data) {
+  $.getJSON("./assets/data/fleets.json?v=11", function (data) {
     let seatingOptions = new Array;
 
     $(selector).append(`<option value="all">All</option>`);
@@ -486,7 +486,7 @@ let fleetsData = [];
 
 function populateFleetsRow() {
   // Load the JSON file
-  $.getJSON("./assets/data/fleets.json", function (data) {
+  $.getJSON("./assets/data/fleets.json?v=11", function (data) {
     fleetsData = data; // Store the data in the global variable
 
     // Iterate through each fleet item
@@ -611,7 +611,7 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-  $.getJSON("./assets/data/tours.json", function (data) {
+  $.getJSON("./assets/data/tours.json?v=11", function (data) {
     const $carousel = $(".tours-carousel");
     $carousel.empty();
 
@@ -829,9 +829,9 @@ function checkBookingForm() {
   return true;
 }
 
-// Fetch the offers data from offers.json and populate the carousel
+// Fetch the offers data from offers.json?v=11 and populate the carousel
 $(document).ready(function () {
-  $.getJSON('./assets/data/offers.json', function (offers) {
+  $.getJSON('./assets/data/offers.json?v=11', function (offers) {
     populateDiscountCarousel(offers);
   });
 

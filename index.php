@@ -117,7 +117,6 @@
                                 </p>
                                 <div class="d-flex flex-wrap reviews-flex">
                                     <img src="./assets/img/trustpilot-stars-logo.png" alt="Reviews logo" class="rf-img">
-                                    <img src="./assets/img/boxes-gen.png" alt="Reviews logo" class="rf-img">
                                     <img src="./assets/img/facebook-reviews.png" alt="Reviews logo" class="rf-img">
                                 </div>
                                 <p class="mb-0 fw-semibold text-white hc-itin-text"> Planning a complex journey or
@@ -607,7 +606,8 @@
                                             <div class="hff-row d-flex flex-md-row flex-column hff-flex-1">
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
-                                                        <label class="hff-label fw-bold"> Additional information
+                                                        <label class="hff-label fw-bold"> Additional information (Please
+                                                        list extra Pickups or Dropoffs)
                                                         </label>
                                                         <div class="d-flex align-items-center gap-2">
                                                             <span>

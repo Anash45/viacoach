@@ -607,8 +607,7 @@
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
                                                         <label class="hff-label fw-bold"> Additional information (Please
-                                                        list extra Pickups or Dropoffs)
-                                                        </label>
+                                                            list extra Pickups or Dropoffs) </label>
                                                         <div class="d-flex align-items-center gap-2">
                                                             <span>
                                                                 <svg width="18" height="19" viewBox="0 0 18 19"
@@ -2097,12 +2096,19 @@
                                 <div class="landing-card testimonial-card h-100">
                                     <div class="p-3 d-flex flex-column gap-3 h-100 justify-content-between">
                                         <div class="d-flex flex-column gap-10px">
-                                            <div class="d-flex tc-user mb-2 pb-1 gap-2 align-items-center">
-                                                <span class="me-1">
-                                                    <img src="./assets/img/reviews-users/memoji-6.png" alt="Rating"
-                                                        class="tc-user-img">
-                                                </span>
-                                                <span class="tc-user-name fw-semibold">Kurosaki Ich</span>
+                                            <div
+                                                class="d-flex align-items-center mb-2 pb-1 gap-2 justify-content-between">
+                                                <div class="d-flex tc-user gap-2 align-items-center">
+                                                    <span class="me-1">
+                                                        <img src="./assets/img/reviews-users/memoji-6.png" alt="Rating"
+                                                            class="tc-user-img">
+                                                    </span>
+                                                    <span class="tc-user-name fw-semibold">Kurosaki Ich</span>
+                                                </div>
+                                                <div class="flex-shrink-1">
+                                                    <img src="./assets/img/google-icon.png" alt="Platform Icon"
+                                                        class="tcr-icon" height="40">
+                                                </div>
                                             </div>
                                             <div class="d-flex flex-column gap-2">
                                                 <div class="d-flex align-items-center mb-1">
@@ -2144,12 +2150,15 @@
                                 <div class="landing-card testimonial-card h-100">
                                     <div class="p-3 d-flex flex-column gap-3 h-100 justify-content-between">
                                         <div class="d-flex flex-column gap-10px">
-                                            <div class="d-flex tc-user mb-2 pb-1 gap-2 align-items-center">
-                                                <span class="me-1">
-                                                    <img src="./assets/img/reviews-users/memoji.png" alt="Rating"
-                                                        class="tc-user-img">
-                                                </span>
-                                                <span class="tc-user-name fw-semibold">Leslie Alexander</span>
+                                            <div
+                                                class="d-flex align-items-center mb-2 pb-1 gap-2 justify-content-between">
+                                                <div class="d-flex tc-user gap-2 align-items-center">
+                                                    <span class="me-1">
+                                                        <img src="./assets/img/reviews-users/memoji.png" alt="Rating"
+                                                            class="tc-user-img">
+                                                    </span>
+                                                    <span class="tc-user-name fw-semibold">Leslie Alexander</span>
+                                                </div>
                                             </div>
                                             <div class="d-flex flex-column gap-2">
                                                 <div class="d-flex align-items-center mb-1">
@@ -2195,12 +2204,19 @@
                                 <div class="landing-card testimonial-card h-100">
                                     <div class="p-3 d-flex flex-column gap-3 h-100 justify-content-between">
                                         <div class="d-flex flex-column gap-10px">
-                                            <div class="d-flex tc-user mb-2 pb-1 gap-2 align-items-center">
-                                                <span class="me-1">
-                                                    <img src="./assets/img/reviews-users/memoji-1.png" alt="Rating"
-                                                        class="tc-user-img">
-                                                </span>
-                                                <span class="tc-user-name fw-semibold">Robert Chang</span>
+                                            <div
+                                                class="d-flex align-items-center mb-2 pb-1 gap-2 justify-content-between">
+                                                <div class="d-flex tc-user gap-2 align-items-center">
+                                                    <span class="me-1">
+                                                        <img src="./assets/img/reviews-users/memoji-1.png" alt="Rating"
+                                                            class="tc-user-img">
+                                                    </span>
+                                                    <span class="tc-user-name fw-semibold">Robert Chang</span>
+                                                </div>
+                                                <div class="flex-shrink-1">
+                                                    <img src="./assets/img/trustpilot-icon.png" alt="Platform Icon"
+                                                        class="tcr-icon" height="40">
+                                                </div>
                                             </div>
                                             <div class="d-flex flex-column gap-2">
                                                 <div class="d-flex align-items-center mb-1">
@@ -2246,13 +2262,20 @@
                                 <div class="landing-card testimonial-card h-100">
                                     <div class="p-3 d-flex flex-column gap-3 h-100 justify-content-between">
                                         <div class="d-flex flex-column gap-10px">
-                                            <div class="d-flex tc-user mb-2 pb-1 gap-2 align-items-center">
-                                                <span class="me-1">
-                                                    <img src="./assets/img/reviews-users/memoji-2.png" alt="Rating"
-                                                        class="tc-user-img">
-                                                </span>
-                                                <span class="tc-user-name fw-semibold">Kimberly Clarke
-                                                    (FestivalPro)</span>
+                                            <div
+                                                class="d-flex align-items-center mb-2 pb-1 gap-2 justify-content-between">
+                                                <div class="d-flex tc-user gap-2 align-items-center">
+                                                    <span class="me-1">
+                                                        <img src="./assets/img/reviews-users/memoji-2.png" alt="Rating"
+                                                            class="tc-user-img">
+                                                    </span>
+                                                    <span class="tc-user-name fw-semibold">Kimberly Clarke
+                                                        (FestivalPro)</span>
+                                                </div>
+                                                <div class="flex-shrink-1">
+                                                    <img src="./assets/img/trustpilot-icon.png" alt="Platform Icon"
+                                                        class="tcr-icon" height="40">
+                                                </div>
                                             </div>
                                             <div class="d-flex flex-column gap-2">
                                                 <div class="d-flex align-items-center mb-1">
@@ -2294,12 +2317,15 @@
                                 <div class="landing-card testimonial-card h-100">
                                     <div class="p-3 d-flex flex-column gap-3 h-100 justify-content-between">
                                         <div class="d-flex flex-column gap-10px">
-                                            <div class="d-flex tc-user mb-2 pb-1 gap-2 align-items-center">
-                                                <span class="me-1">
-                                                    <img src="./assets/img/reviews-users/memoji-4.png" alt="Rating"
-                                                        class="tc-user-img">
-                                                </span>
-                                                <span class="tc-user-name fw-semibold">Arlene McCoy</span>
+                                            <div
+                                                class="d-flex align-items-center mb-2 pb-1 gap-2 justify-content-between">
+                                                <div class="d-flex tc-user gap-2 align-items-center">
+                                                    <span class="me-1">
+                                                        <img src="./assets/img/reviews-users/memoji-4.png" alt="Rating"
+                                                            class="tc-user-img">
+                                                    </span>
+                                                    <span class="tc-user-name fw-semibold">Arlene McCoy</span>
+                                                </div>
                                             </div>
                                             <div class="d-flex flex-column gap-2">
                                                 <div class="d-flex align-items-center mb-1">
@@ -2341,12 +2367,15 @@
                                 <div class="landing-card testimonial-card h-100">
                                     <div class="p-3 d-flex flex-column gap-3 h-100 justify-content-between">
                                         <div class="d-flex flex-column gap-10px">
-                                            <div class="d-flex tc-user mb-2 pb-1 gap-2 align-items-center">
-                                                <span class="me-1">
-                                                    <img src="./assets/img/reviews-users/memoji-5.png" alt="Rating"
-                                                        class="tc-user-img">
-                                                </span>
-                                                <span class="tc-user-name fw-semibold">Anita Sethi</span>
+                                            <div
+                                                class="d-flex align-items-center mb-2 pb-1 gap-2 justify-content-between">
+                                                <div class="d-flex tc-user gap-2 align-items-center">
+                                                    <span class="me-1">
+                                                        <img src="./assets/img/reviews-users/memoji-5.png" alt="Rating"
+                                                            class="tc-user-img">
+                                                    </span>
+                                                    <span class="tc-user-name fw-semibold">Anita Sethi</span>
+                                                </div>
                                             </div>
                                             <div class="d-flex flex-column gap-2">
                                                 <div class="d-flex align-items-center mb-1">
@@ -2388,13 +2417,20 @@
                                 <div class="landing-card testimonial-card h-100">
                                     <div class="p-3 d-flex flex-column gap-3 h-100 justify-content-between">
                                         <div class="d-flex flex-column gap-10px">
-                                            <div class="d-flex tc-user mb-2 pb-1 gap-2 align-items-center">
-                                                <span class="me-1">
-                                                    <img src="./assets/img/reviews-users/memoji-3.png" alt="Rating"
-                                                        class="tc-user-img">
-                                                </span>
-                                                <span class="tc-user-name fw-semibold">Ethan Myers (Marathon
-                                                    Masters)</span>
+                                            <div
+                                                class="d-flex align-items-center mb-2 pb-1 gap-2 justify-content-between">
+                                                <div class="d-flex tc-user gap-2 align-items-center">
+                                                    <span class="me-1">
+                                                        <img src="./assets/img/reviews-users/memoji-3.png" alt="Rating"
+                                                            class="tc-user-img">
+                                                    </span>
+                                                    <span class="tc-user-name fw-semibold">Ethan Myers (Marathon
+                                                        Masters)</span>
+                                                </div>
+                                                <div class="flex-shrink-1">
+                                                    <img src="./assets/img/google-icon.png" alt="Platform Icon"
+                                                        class="tcr-icon" height="40">
+                                                </div>
                                             </div>
                                             <div class="d-flex flex-column gap-2">
                                                 <div class="d-flex align-items-center mb-1">
@@ -2436,12 +2472,15 @@
                                 <div class="landing-card testimonial-card h-100">
                                     <div class="p-3 d-flex flex-column gap-3 h-100 justify-content-between">
                                         <div class="d-flex flex-column gap-10px">
-                                            <div class="d-flex tc-user mb-2 pb-1 gap-2 align-items-center">
-                                                <span class="me-1">
-                                                    <img src="./assets/img/reviews-users/memoji-7.png" alt="Rating"
-                                                        class="tc-user-img">
-                                                </span>
-                                                <span class="tc-user-name fw-semibold">Giulia Rossi</span>
+                                            <div
+                                                class="d-flex align-items-center mb-2 pb-1 gap-2 justify-content-between">
+                                                <div class="d-flex tc-user gap-2 align-items-center">
+                                                    <span class="me-1">
+                                                        <img src="./assets/img/reviews-users/memoji-7.png" alt="Rating"
+                                                            class="tc-user-img">
+                                                    </span>
+                                                    <span class="tc-user-name fw-semibold">Giulia Rossi</span>
+                                                </div>
                                             </div>
                                             <div class="d-flex flex-column gap-2">
                                                 <div class="d-flex align-items-center mb-1">

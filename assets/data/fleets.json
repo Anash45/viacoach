@@ -1,57 +1,5 @@
 [
     {
-        "seat_capacity": "6 Seater",
-        "bus_type": "Minibus",
-        "model": "Mercedes-Benz Viano",
-        "luggage": "3",
-        "cabin": "6",
-        "class": "Executive",
-        "features": [
-            "AC",
-            "Audio",
-            "USB",
-            "Luggage"
-        ],
-        "extra_features": "VIP/Luxury extras: Leather, WiFi, Screens",
-        
-        "image": "fleet-1.jpg"
-    },
-    {
-        "seat_capacity": "7 Seater",
-        "bus_type": "Minibus",
-        "model": "Volkswagen Caravelle (T5/T6)",
-        "luggage": "4",
-        "cabin": "7",
-        "class": "Executive",
-        "features": [
-            "AC",
-            "Audio",
-            "USB",
-            "Recline",
-            "Luggage"
-        ],
-        "extra_features": "VIP/Luxury extras: Leather, WiFi, DVD",
-        
-        "image": "fleet-2.jpg"
-    },
-    {
-        "seat_capacity": "8 Seater",
-        "bus_type": "Minibus",
-        "model": "Ford Tourneo Custom (8-seat)",
-        "luggage": "5",
-        "cabin": "8",
-        "class": "Executive",
-        "features": [
-            "AC",
-            "Audio",
-            "USB",
-            "Recline"
-        ],
-        "extra_features": "VIP/Luxury extras: Leather, WiFi, Screens",
-        
-        "image": "fleet-3.jpg"
-    },
-    {
         "seat_capacity": "9 Seater",
         "bus_type": "Minibus",
         "model": "Vauxhall Vivaro Combi (9-seat)",

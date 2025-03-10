@@ -41,7 +41,7 @@
         <link rel="stylesheet" href="./assets/css/slick.css">
         <link rel="stylesheet" href="./assets/css/select2.min.css">
         <link rel="stylesheet" href="./assets/css/jquery-ui.css">
-        <link rel="stylesheet" href="./assets/css/style.css?v=11">
+        <link rel="stylesheet" href="./assets/css/style.css?v=12">
     </head>
 
     <body class="homepage">
@@ -422,7 +422,7 @@
                                                 </div>
                                                 <div class="hff-box hfb-sm">
                                                     <div class="hff-group hfg-from">
-                                                        <label class="hff-label fw-bold"> Passengers </label>
+                                                        <label class="hff-label fw-bold"> Passengers <small>(Min: 9)</small> </label>
                                                         <div class="d-flex align-items-center gap-2">
                                                             <span>
                                                                 <svg width="18" height="19" viewBox="0 0 18 19"
@@ -3040,7 +3040,12 @@
                 $passengers.closest('.hff-box').addClass('hff-error');
                 validated = false;
             } else {
-                $passengers.closest('.hff-box').removeClass('hff-error');
+                if (Number($passengers.val()) < 9) {
+                    $passengers.closest('.hff-box').addClass('hff-error');
+                    validated = false;
+                } else {
+                    $passengers.closest('.hff-box').removeClass('hff-error');
+                }
             }
 
             if ($pickup_date.val() == '') {
